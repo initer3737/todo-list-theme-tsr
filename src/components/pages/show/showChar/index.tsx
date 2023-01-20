@@ -1,28 +1,58 @@
-import React ,{ReactNode} from 'react'
+import React ,{ReactNode, useEffect, useState} from 'react'
 import '../../../../../index.css'
 import './showChar.css'
 import { CharsSelect } from '../../../../globalState'
-import { useParams ,Outlet} from 'react-router-dom'
+import { useParams ,Outlet,NavLink} from 'react-router-dom'
 import { useMap } from '../../../../utils'
 import { useRecoilValue } from 'recoil'
+import RatuBackend from '../../../../assets/ratuBackend.mp4'
+import RajaFrontend from '../../../../assets/rajaFrontend.mp4'
+import PadukaFullstek from '../../../../assets/padukaFullstek.mp4'
+import { IChar } from '../../../../Types&Interfaces'
 //===========================================
 function ShowChar() {
-    const recoilCharSelect=useRecoilValue(CharsSelect)
+    const datachars={
+        raja:RajaFrontend,
+        ratu:RatuBackend,
+        paduka:PadukaFullstek,
+    }
+    const [char,setChar]=useState()
+    const recoilCharSelect=useRecoilValue<IChar>(CharsSelect)
     const {id}=useParams()
+    const filteredDataChar=useMap(recoilCharSelect).filter((char) => char[1].id == id);
+        useEffect(()=>{
+            filteredDataChar.map(data=>{
+                setChar(data[1].char_id)
+            })
+        },[])
   return (
-   <>
+   <section>
+        <video src={datachars[char??'raja']} autoPlay loop className='ratu__back__end'></video>
         {
-            useMap(recoilCharSelect).filter((char) => char[1].id == id).map(data=>(
-                    <div className="card" key={id}>
-                        {/* <p>id : {data[1].id}</p> */}
-                        <p>name : {data[1].name}</p>
-                        <p className={data[1].mission ??'d-none'}>mission : {data[1].mission}</p>
-                        <p>{data[1].jikoushokai}</p>
-                        <p>{data[1].description}</p>
+            filteredDataChar.map((data ,i)=>( 
+                    <div className="ratu__back__end__card" key={id} 
+                        onMouseEnter={()=>{
+                                let tY=document.getElementById('showlink')
+                                tY?.classList.replace('translate-5','translate-25')
+                            }}
+                        onMouseLeave={()=>{
+                                let tY=document.getElementById('showlink')
+                                tY?.classList.replace('translate-25','translate-5')
+                            }}
+                    >
+                        <p>role : {data[1].role}</p> <hr />
+                        <p>char_id : {data[1].char_id}</p><hr />
+                        <p>name : {data[1].name}</p><hr />
+                        <p className={data[1].mission ??'d-none'}>mission : {data[1].mission}</p><hr />
+                        <p>perkenalan : {data[1].jikoushokai}</p><hr />
+                        <p>deskripsi : {data[1].description}</p>
+                        <NavLink to={'/'} className='showChar_Link translate-5' id='showlink'>
+                            back to home
+                        </NavLink>
                     </div>
             ))
         }
-   </>
+   </section>
   )
 }
 

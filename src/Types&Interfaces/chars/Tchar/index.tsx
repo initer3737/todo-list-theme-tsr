@@ -1,5 +1,6 @@
 type TRajaFrontEnd={
     id:number,
+    char_id:number,
     name:string,
     jikoushokai:string,
     role:string,
@@ -8,6 +9,7 @@ type TRajaFrontEnd={
 }
 type TRatuBackEnd={
     id:number,
+    char_id:string,
     name:string,
     mission?:string,
     jikoushokai:string,
@@ -17,6 +19,7 @@ type TRatuBackEnd={
 }
 type TPadukaFullStek={
       id:number,
+      char_id:string,
       name:string,
       jikoushokai:string,
       role:string,

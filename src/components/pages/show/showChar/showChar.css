@@ -1,4 +1,91 @@
+:root{
+    /* ratu back end start*/
+    /* warna ungu */
+    /* links start */
+        --ratu-color--link--text:rgb(134, 61, 236);
+        --ratu-color--link--text--hover:rgb(48, 29, 66);
+        --ratu--border--link: 2px solid rgb(92, 27, 182);
+        --ratu-bgColor--link:  rgb(49,32,65);
+        --ratu-bgColor--link--hover:rgb(228, 217, 243);
+    /* links end */
+    /* ratu back end end*/
+}
 .card{
     display: flex;
     flex-direction: column;
+}
+
+.ratu__back__end{
+    inset: 0;
+    position: absolute;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    object-position: center;
+    object-fit: cover;
+    transition: all .9s;
+    overflow-x: hidden;
+    /* z-index: -90; */
+}
+
+
+.ratu__back__end__card{
+    color: rgb(228, 217, 243);
+    background-color:rgba(46, 3, 94,.2) ;
+    box-shadow: 1px 1px 1px 12px rgba(36, 13, 65,.2) inset;
+    font-size:22px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 12px;
+    position: absolute;
+    transform: translateX(0);
+    transition: all .8s;
+    /* height: fit-content; */
+}
+
+.ratu__back__end__card:hover{
+    transform: translatey(40vh);
+    transition: all .9s;
+    cursor: pointer;
+    background-color:rgba(46, 3, 94,.9) ;
+    box-shadow: 1px 1px 1px 12px rgba(36, 13, 65,.9) inset;
+}
+.showChar_Link{
+    color: var(--ratu-color--link--text);
+    border:var(--ratu--border--link);
+    background-color:var(--ratu-bgColor--link);
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 9px 20px;
+    position: absolute;
+    top: 0;
+    left: 50vw;
+}
+.translate-25{
+    transform: translateY(-25px);
+    transition: ease-in-out .9s ;
+    font-size: 20px;
+}
+.translate-5{
+    transform: translateY(50px);
+    transition: ease-in-out 2s ;
+    font-size: 40px;
+    box-shadow: inset 12px 12px 12px royalblue;
+    
+    border-top: 2px solid blue;
+    animation: salju 5s  infinite forwards;
+}
+@keyframes salju {
+    from{
+        box-shadow: inset 12px 12px 12px rgb(200, 205, 221);
+        border-top: 2px solid white;
+    }
+    to{
+        box-shadow: inset 12px 12px 12px blueviolet;
+        border-top: 2px solid burlywood;
+    }
+}
+.showChar_Link:hover{
+    transition: ease-in-out .9s ;
+    background-color: var(--ratu-bgColor--link--hover);
+    color:var(--ratu-color--link--text--hover);
 }
