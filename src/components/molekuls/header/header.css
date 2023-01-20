@@ -1,0 +1,98 @@
+.center-center-y{
+    margin-top: 90px;
+}
+header{
+    padding: 50px;
+    font-size: 4em;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+}
+.header-lingkaran-container{
+    display: flex;
+    flex-direction: column;
+}
+.header-lingkaran{
+    background-color: pink;
+    width: 50px;
+    height: 50px;
+    border: 5px dotted blueviolet;
+    border-radius: 50%;
+    margin-left: 50%;
+    transition: 500ms ease-in;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-name: putar;
+}
+
+@keyframes putar {
+    from{
+        rotate: 0deg;
+    }
+    to{
+        rotate: 180deg;
+    }
+}
+
+header .text-container{
+    display: flex;
+}
+header .text-container h5{
+    /* transform:translateY(12px); */
+    border-left: 3px solid blue;
+    background: conic-gradient(
+            #13005A 20deg,
+             #00337C 0 186deg,
+              #1C82AD 0 313deg,
+               #03C988 0
+        );
+    padding: 8px;    
+    writing-mode: vertical-lr;
+    color: #FFEBB7;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+header .text-container h4{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: .9em;
+}
+
+.text-style-flex{
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    background-color: blue;
+    mix-blend-mode:color-burn;
+    border: 6px solid white;
+    height: fit-content;
+}
+.text-style-flex::before,.text-style-flex::after{
+    content: "";
+    border: 5px solid rgb(90, 15, 230);
+    border-radius: 23px;
+}
+header .text-container h4:nth-child(1){
+    color: royalblue;
+    transform: translateX(5vw);
+}
+header .text-container h4:nth-child(2){
+    color: green;
+    transform: translateX(6vw);
+}
+header .text-container h4:nth-child(3){
+    color: goldenrod;
+    transform: translateX(8vw);
+}
+
+header .header-video{
+    width: 26vw;
+}
+
+header .header-image{
+    /* transform:rotate(90deg); */
+    width: 240px;
+    transform: scale(3,1);
+    z-index: -999;
+    background-color: rgb(20, 56, 85);
+    mix-blend-mode:soft-light;
+    overflow: hidden;
+}

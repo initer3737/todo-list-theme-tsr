@@ -1,0 +1,27 @@
+.err-message{
+    color: red;
+    background-color: pink;
+    padding: 10px 20px;
+    border-radius: 23px;
+    transform: translate(-90px);
+}
+.login__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    margin: 4vh auto;
+    gap: 0.12rem;
+    background-color: rgb(92, 121, 175);
+    color: lightblue;
+    padding: 6px 12px;
+}
+
+.login__container button{
+    padding: 4px 24px;
+    width: 126px;
+    color: black;
+    font-size: 1.2em;
+    background-color: aquamarine;
+}

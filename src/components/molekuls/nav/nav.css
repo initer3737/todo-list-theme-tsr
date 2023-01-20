@@ -1,0 +1,27 @@
+nav{
+    padding: 8px;
+    margin-left: 4px;
+    margin-right: 7px;
+    font-size: 1.3em;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
+}
+
+
+nav a{
+    text-decoration: none;
+    color: #fff;
+}
+nav a:active{
+    text-decoration: none;
+    color: greenyellow;
+}
+nav a:hover{
+    text-decoration: none;
+    color: green;
+}
+.nav__inner__link{
+    display: flex;
+    gap: 1.1rem;
+}
