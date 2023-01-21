@@ -13,7 +13,7 @@ export default function Home() {
     // const recoilCharSelect=useRecoilValue(CharsSelect)
   return (
     <div>
-      <Header2/>
+      {/* <Header2/> */}
       <div className="home__container">
       <Title title='home'>
             <HomeOrganism/>

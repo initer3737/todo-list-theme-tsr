@@ -1,3 +1,50 @@
+.swiper-button-next,
+.swiper-button-prev{
+    color: white !important;
+}
+.swiper-text-container a{
+    color: white;
+
+}
+.fullscreen{
+    inset: 0;
+    position: absolute;
+    background-position: center;
+}
+.swiper-text-container{
+    position: absolute;
+    top: 20vh;
+    left: 20vw;
+    color: white;
+    font-size: 23px;
+    border-radius: 8px;
+    border:2px solid ;
+    z-index: 90;
+    padding: 20px;
+    box-shadow: 12px 12px 12px ;
+}
+
+.RajaFrontendLink{
+    box-shadow: 12px 12px 12px rgb(246,207,143) !important;
+}
+.RatuBackendLink{
+    box-shadow: 12px 12px 12px rgb(142, 44, 175) !important;
+}
+.PadukaFullstekLink{
+    box-shadow: 12px 12px 12px rgb(103,186,204) !important;
+}
+
+.swipper-container-home{
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+}
+.swipper-container-home .slider-swiper{
+  width: 100%;
+}
+.swipper-container-home .slider-swiper video{
+    height: 100vh;
+}
 .home-organism-text-container{
     display: flex;
     gap: .5rem;
@@ -51,4 +98,9 @@
    text-decoration: none;
    color:rgb(208, 217, 245);
    transition: .5s ease;
+}
+
+.home-organisms-video{
+    position: absolute;
+    height: 450px;
 }

@@ -1,6 +1,6 @@
 type TRajaFrontEnd={
     id:number,
-    char_id:number,
+    char_id:string,
     name:string,
     jikoushokai:string,
     role:string,
@@ -24,7 +24,7 @@ type TPadukaFullStek={
       jikoushokai:string,
       role:string,
       age:number
-      description:string,
+      description:string
 }
 
 export type {

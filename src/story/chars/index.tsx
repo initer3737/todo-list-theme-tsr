@@ -1,5 +1,5 @@
 import React from "react"
-
+import ratu from '../../assets/ratuBackend.mp4'
 import { 
   IChar 
 } from "../../Types&Interfaces"
@@ -8,7 +8,7 @@ import {
 const dataChars:IChar={
   RajaFrontEnd:{
     id:2119, 
-    char_id:1,
+    char_id:'raja',
     name:'sugiono de la forest',
     role:'Raja Front end',
     jikoushokai:'anak muda yang berambisi menjadi raja front end ia tak ragu sedikitpun untuk membuang waktunya agar teknik lukis dan imajinya bisa di implementasikan di dalam kode program , bahkan legenda mengatakkan saat ini ia masih mengasah kemampuannya dalam mengidentifikasi warna ,layouting dan dikombinasikan dengan unsur psikologi agar membuat teknik kodingnya kian mematikkan ,racikkan warna yang begitu menghipnotis mata pengguna membuat pengguna tak bisa lepas dari ilusi optik yang ia ciptakkan dari kodingan css yang telah ia asah bertahun-tahun lamanya ,anak muda itu bernama sugiono de la forest',

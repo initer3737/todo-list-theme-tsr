@@ -1,21 +1,62 @@
 :root{
+    /* raja front end start*/
+    /* warna ungu */
+    /* links start */
+        --raja-color--link:rgba(94, 40, 17, 0.5);
+        --raja-color--link--hover:rgba(135,68,36,.5);
+        --raja--border--link:2px solid rgb(82, 55, 16);
+        --raja-bgColor--link:  rgb(223, 124, 19);
+        --raja-bgColor--link--hover:rgb(243, 234, 225);
+    /* links end */
+    /* card start */
+        --raja--card--bg:rgba(183,159,157,.5);
+        --raja--card--bg--hover:rgba(135,68,36,.5);
+        --raja--card--box--shadow: 12px 12px 12px rgb(135,68,36) ;
+        --raja--card--box--shadow--hover: 12px 12px 12px rgb(183,159,157);
+    /* card end */
+    /* raja front end end*/
+
     /* ratu back end start*/
     /* warna ungu */
     /* links start */
-        --ratu-color--link--text:rgb(134, 61, 236);
-        --ratu-color--link--text--hover:rgb(48, 29, 66);
+        --ratu-color--link:rgb(134, 61, 236);
+        --ratu-color--link--hover:rgb(48, 29, 66);
         --ratu--border--link: 2px solid rgb(92, 27, 182);
         --ratu-bgColor--link:  rgb(49,32,65);
         --ratu-bgColor--link--hover:rgb(228, 217, 243);
     /* links end */
+    /* card start */
+        --ratu--card--bg:rgba(46, 3, 94,.2);
+        --ratu--card--bg--hover:rgba(46, 3, 94,.9);
+        --ratu--card--box--shadow: 12px 12px 12px rgba(84, 27, 158, 0.9) ;
+        --ratu--card--box--shadow--hover: 12px 12px 12px rgba(182, 158, 211, 0.9) ;
+    /* card end */
     /* ratu back end end*/
-}
+
+    /* paduka fullstek start*/
+    /* warna ungu */
+    /* links start */
+        --paduka-color--link:rgb(206, 225, 231);
+        --paduka-color--link--hover:rgba(76,91,114,1);
+        --paduka--border--link: 2px solid rgb(53, 76, 112);
+        --paduka-bgColor--link:  rgba(76,91,114,1);
+        --paduka-bgColor--link--hover:rgb(218, 223, 230);
+    /* links end */
+    /* card start */
+        --paduka--card--bg:rgba(76,91,114,.4);
+        --paduka--card--bg--hover:rgba(47, 62, 85, 1);
+        --paduka--card--box--shadow: 12px 12px 12px rgba(47, 62, 85,1) ;
+        --paduka--card--box--shadow--hover: 12px  12px 12px rgb(81,72,249) ;
+    /* card end */
+    /* paduka fullstek end*/
+} /*end of root*/
 .card{
     display: flex;
     flex-direction: column;
 }
+/* base video style */
 
-.ratu__back__end{
+.showCharVideo{
     inset: 0;
     position: absolute;
     background-position: center;
@@ -27,39 +68,46 @@
     overflow-x: hidden;
     /* z-index: -90; */
 }
+/* base video style */
 
-
-.ratu__back__end__card{
-    color: rgb(228, 217, 243);
-    background-color:rgba(46, 3, 94,.2) ;
-    box-shadow: 1px 1px 1px 12px rgba(36, 13, 65,.2) inset;
+/* base card start */
+.show__char__base__card{
+    /* display: none; */
     font-size:22px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     padding: 12px;
     position: absolute;
     transform: translateX(0);
     transition: all .8s;
-    /* height: fit-content; */
+    color: rgb(228, 217, 243);
+    border-radius: 10px;
+    /* box-shadow:12px 12px 12px #fff!important  ; */
 }
-
-.ratu__back__end__card:hover{
+.show__char__base__card:hover{
     transform: translatey(40vh);
     transition: all .9s;
     cursor: pointer;
-    background-color:rgba(46, 3, 94,.9) ;
-    box-shadow: 1px 1px 1px 12px rgba(36, 13, 65,.9) inset;
 }
-.showChar_Link{
-    color: var(--ratu-color--link--text);
-    border:var(--ratu--border--link);
-    background-color:var(--ratu-bgColor--link);
-    text-decoration: none;
-    border-radius: 10px;
-    padding: 9px 20px;
+/* base card end */
+
+/* base link start */
+.showChar_Link__wrapper{
+    display: inline;
     position: absolute;
     top: 0;
     left: 50vw;
 }
+.showChar_Link{
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 9px 20px;
+}
+.showChar_Link:hover{
+    transition: all .9s ;
+}
+/* base link end */
+
+/* translate start */
 .translate-25{
     transform: translateY(-25px);
     transition: ease-in-out .9s ;
@@ -67,25 +115,108 @@
 }
 .translate-5{
     transform: translateY(50px);
-    transition: ease-in-out 2s ;
+    transition: all .5s ;
     font-size: 40px;
     box-shadow: inset 12px 12px 12px royalblue;
-    
     border-top: 2px solid blue;
     animation: salju 5s  infinite forwards;
 }
+/* translate end */
+
+
+/* class characters start*/
+/* raja front end start */
+.raja__link{
+    color: var(--raja-color--link);
+    border:var(--raja--border--link);
+    background-color:var(--raja-bgColor--link);
+}
+.raja__link:hover{
+    background-color: var(--raja-bgColor--link--hover);
+    color:var(--raja-color--link--hover);
+}
+.raja__front__end__card{
+    background-color:var(--raja--card--bg);
+    box-shadow: var(--raja--card--box--shadow);
+    /* background-color:rgba(46, 3, 94,.2) ; */
+    /* box-shadow: 1px 1px 1px 12px rgba(36, 13, 65,.2) inset; */
+    /* height: fit-content; */
+    transition: all 3s !important;
+}
+.raja__front__end__card:hover{
+    background-color:var(--raja--card--bg--hover) ;
+    box-shadow: var(--raja--card--box--shadow--hover);
+    transform: translateY(250px);
+    transition: all 6s !important;
+}
+/* raja front end end */
+
+/* ratu back end start */
+.ratu__link{
+    color: var(--ratu-color--link);
+    border:var(--ratu--border--link);
+    background-color:var(--ratu-bgColor--link);
+    transition: .8s ease-out!important;
+}
+.ratu__link:hover{
+    background-color: var(--ratu-bgColor--link--hover);
+    color:var(--ratu-color--link--hover);
+}
+.ratu__back__end__card{
+    background-color:var(--ratu--card--bg);
+    box-shadow: var(--ratu--card--box--shadow);
+    /* background-color:rgba(46, 3, 94,.2) ; */
+    /* box-shadow: 1px 1px 1px 12px rgba(36, 13, 65,.2) inset; */
+    /* height: fit-content; */
+    transition: all 3s !important;
+}
+.ratu__back__end__card:hover{
+    background-color:var(--ratu--card--bg--hover) ;
+    box-shadow: var(--ratu--card--box--shadow--hover);
+    transform: translateY(250px);
+    transition: all 4.75s !important;
+}
+/* ratu back end end */
+
+/* paduka fullstek start */
+.paduka__link{
+    color: var(--paduka-color--link);
+    border:var(--paduka--border--link);
+    background-color:var(--paduka-bgColor--link);
+}
+.paduka__link:hover{
+    background-color: var(--paduka-bgColor--link--hover);
+    color:var(--paduka-color--link--hover);
+    transition: 4s ease-out!important;
+}
+.paduka__fullstek__card{
+    background-color:var(--paduka--card--bg);
+    box-shadow: var(--paduka--card--box--shadow);
+    /* background-color:rgba(46, 3, 94,.2) ; */
+    /* box-shadow: 1px 1px 1px 12px rgba(36, 13, 65,.2) inset; */
+    /* height: fit-content; */
+    transition: 2s all!important;
+}
+.paduka__fullstek__card:hover{
+    background-color:var(--paduka--card--bg--hover) ;
+    box-shadow: var(--paduka--card--box--shadow--hover);
+    transform: translateY(70px);
+    transition: 4s all!important;
+}
+/* paduka fullstek end */
+
+/* keyframe start */
 @keyframes salju {
     from{
         box-shadow: inset 12px 12px 12px rgb(200, 205, 221);
         border-top: 2px solid white;
+        transition: all .5s ;
     }
     to{
-        box-shadow: inset 12px 12px 12px blueviolet;
-        border-top: 2px solid burlywood;
+        box-shadow: inset 12px 12px 12px rgb(21,19,27);
+        border-top: 2px solid rgb(142,138,165);
+        transition: all .5s ;
     }
 }
-.showChar_Link:hover{
-    transition: ease-in-out .9s ;
-    background-color: var(--ratu-bgColor--link--hover);
-    color:var(--ratu-color--link--text--hover);
-}
+/* keyframe end */
+/* class characters end*/
