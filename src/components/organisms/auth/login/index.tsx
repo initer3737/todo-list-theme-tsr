@@ -2,8 +2,16 @@ import axios from 'axios';
 import React ,{ChangeEvent, FormEvent, useEffect,useState} from 'react'
 import { Http } from '../../../../services/http'
 import Cookies from  'js-cookie'
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate ,useParams} from 'react-router-dom';
+import { CharsSelect } from '../../../../globalState';
+import { useRecoilValue } from 'recoil';
 import './login.css'
+import { useMap } from '../../../../utils';
+import RatuBackend from '../../../../assets/ratuBackend.mp4'
+import RajaFrontend from '../../../../assets/rajaFrontend.mp4'
+import PadukaFullstek from '../../../../assets/padukaFullstek.mp4'
+import { IChar } from '../../../../Types&Interfaces';
+import { IstyleCharsPacks } from '../../../../Types&Interfaces/stylecharspaks/IstyleChar';
 //======================
 function Login() {
   let formDatas={
@@ -15,7 +23,30 @@ function Login() {
   const [errmsg,setErrmsg]=useState('')
   const navigate=useNavigate()
   const token=Cookies.get('token')??''
+  const chars=useRecoilValue<IChar>(CharsSelect)
+  const [char,setChar]=useState()
+  const {id}=useParams()
+  const filterDataChar=useMap(chars).filter(char=>char[1].id == id)
+  const datachars={
+    raja:RajaFrontend,
+    ratu:RatuBackend,
+    paduka:PadukaFullstek,
+}
  //===================================== 
+ const styleCharsPacks={
+  raja:{
+      card:'RajaFrontendCard',
+      link:'RajaFrontendLink'
+  },
+  ratu:{
+      card:'RatuBackendCard',
+      link:'RatuBackendLink'
+  },
+  paduka:{
+      card:'PadukaFullstekCard',
+      link:'PadukaFullstekLink'
+  }
+} satisfies IstyleCharsPacks
     const submit=async(event:React.FormEvent<HTMLFormElement>)=>{
             event.preventDefault()
             try {
@@ -54,15 +85,26 @@ function Login() {
         useEffect(()=>{
           if(token.trim().length >1)navigate('/list')
         },[token])
+        useEffect(()=>{
+            filterDataChar.map(chars=>{
+                setChar(chars[1].char_id)
+            })
+        },[])
   return (
     <form onSubmit={submit}>
-    <div className='login__container'>
+      <video src={datachars[char|| 'ratu']} className="login_video" autoPlay loop></video>
+      <div className={`backLink-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
+            <NavLink to={`/`} className={`backLink`}>Kembali</NavLink>
+      </div>
+    <div className={`login__container ${styleCharsPacks[char || 'ratu'].card}`}>
         <div className={errmsg.trim().length>1?"err-message":'d-none'}><h3>{errmsg}</h3></div>
         <label htmlFor="username">username</label>
         <input type="text" id='username' autoComplete='off' required value={username} onChange={onChangeInput}/>
         <label htmlFor="password">password</label>
         <input type="password" id='password' required value={password} onChange={onChangeInput}/>
-        <button>login</button>
+        <button
+          className={`${styleCharsPacks[char || 'ratu'].link}`}
+        >login</button>
     </div>
     </form>
   )

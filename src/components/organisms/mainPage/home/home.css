@@ -23,17 +23,47 @@
     padding: 20px;
     box-shadow: 12px 12px 12px ;
 }
+.swiper-text-container:hover{
+    transform: translateY(12px);
+    transition: ease 2s;
+}
 
 .RajaFrontendLink{
     box-shadow: 12px 12px 12px rgb(246,207,143) !important;
+    transition: ease .8s;
+}
+.RajaFrontendLink:hover,
+.RajaFrontendLink a:hover{
+    color:rgb(240, 164, 42) !important;
+    transition: ease 4s;
+    cursor: pointer;
 }
 .RatuBackendLink{
     box-shadow: 12px 12px 12px rgb(142, 44, 175) !important;
+    transition: ease .8s;
 }
-.PadukaFullstekLink{
-    box-shadow: 12px 12px 12px rgb(103,186,204) !important;
+.RatuBackendLink:hover{box-shadow: 12px 12px 12px rgb(209, 108, 243) !important;}
+.RatuBackendLink:hover,
+.RatuBackendLink a:hover{
+    color:rgb(142, 44, 175) !important;
 }
 
+.PadukaFullstekLink{
+    box-shadow: 12px 12px 12px rgb(103,186,204) !important;
+    transition: ease .8s;
+}
+.PadukaFullstekLink:hover{
+    box-shadow: 12px 12px 12px rgb(136, 214, 231) !important;
+}
+.PadukaFullstekLink:hover,
+.PadukaFullstekLink a:hover{
+    color:rgb(88, 201, 226) !important;
+}
+.LoginLink{
+    top: 32px;
+    padding: 10px 25px;
+    left: 12px;
+}
 .swipper-container-home{
     width: 100vw;
     height: 100vh;

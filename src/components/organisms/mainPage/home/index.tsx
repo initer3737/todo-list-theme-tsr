@@ -81,8 +81,8 @@ const styleCharsPacks={
        <Swiper
         className='swipper-container-home'
         modules={[Navigation, EffectFade]}
-        spaceBetween={650}
-        slidesPerView={2}
+        spaceBetween={850}
+        slidesPerView={1}
         navigation
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
@@ -94,8 +94,11 @@ const styleCharsPacks={
         onSlideChange={() => console.log('slide change')}
     >
         <SwiperSlide className='slider-swiper'>
+          <div className="swiper-text-container PadukaFullstekLink LoginLink">
+          <NavLink to={`/login/${recoilCharSelect.PadukaFullStek.id}`}>
+            Login</NavLink>
+          </div>
           <div className="swiper-text-container PadukaFullstekLink">
-
           <NavLink to={`/show/${recoilCharSelect.PadukaFullStek.id}/char`}>
             {recoilCharSelect.PadukaFullStek.role}</NavLink>
           </div>
@@ -106,9 +109,17 @@ const styleCharsPacks={
             <NavLink to={`/show/${recoilCharSelect.RatuBackEnd.id}/char`}>
             {recoilCharSelect.RatuBackEnd.role}</NavLink>
           </div>
+          <div className="swiper-text-container RatuBackendLink LoginLink">
+            <NavLink to={`/login/${recoilCharSelect.RatuBackEnd.id}`}>
+            Login</NavLink>
+          </div>
           <video src={RatuBackend} autoPlay loop ></video>
         </SwiperSlide>
         <SwiperSlide className='slider-swiper'>
+          <div className="swiper-text-container RajaFrontendLink LoginLink">
+            <NavLink to={`/login/${recoilCharSelect.RajaFrontEnd.id}`}>
+            Login</NavLink>
+          </div>
           <div className="swiper-text-container RajaFrontendLink">
             <NavLink to={`/show/${recoilCharSelect.RajaFrontEnd.id}/char`}>
             {recoilCharSelect.RajaFrontEnd.role}</NavLink>

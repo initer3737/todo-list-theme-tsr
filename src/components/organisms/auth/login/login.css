@@ -1,9 +1,21 @@
+.login_video{
+    position: absolute;
+    inset: 0;
+    height: 100vh;
+    background-color: black;
+    width: 100vw;
+    object-fit: cover;
+    object-position: center;
+}
 .err-message{
     color: red;
     background-color: pink;
     padding: 10px 20px;
     border-radius: 23px;
     transform: translate(-90px);
+}
+.login__container input{
+    padding: 3px 1px;
 }
 .login__container{
     display: flex;
@@ -13,15 +25,96 @@
     width: fit-content;
     margin: 4vh auto;
     gap: 0.12rem;
-    background-color: rgb(92, 121, 175);
-    color: lightblue;
+    background-color: rgba(95, 95, 219,.7);
     padding: 6px 12px;
+    position: absolute;
+    left: 70vw;
+    top: 120px;
+    border-radius: 6px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .login__container button{
+    margin: 5px 5px;
     padding: 4px 24px;
+    border-radius: 17px;
     width: 126px;
-    color: black;
     font-size: 1.2em;
-    background-color: aquamarine;
+    background-color: inherit;
+    color: inherit;
+}
+.login__container button:hover{
+    cursor: pointer;
+    color: white !important;
+}
+.backLink-wrapper a{
+    text-decoration: none;
+    color: white;
+}
+.backLink-wrapper{
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    color: white;
+    font-size: 23px;
+    border-radius: 8px;
+    border:2px solid ;
+    z-index: 90;
+    padding: 15px;
+    box-shadow: 12px 12px 12px ;
+}
+.backLink-wrapper:hover{
+    transform: translateY(12px);
+    transition: ease 2s;
+}
+
+.RajaFrontendLink{
+    box-shadow: 12px 12px 12px rgb(246,207,143) !important;
+    transition: ease .8s;
+}
+.RajaFrontendLink:hover,
+.RajaFrontendLink a:hover{
+    color:rgb(240, 164, 42) !important;
+    transition: ease 4s;
+    cursor: pointer;
+}
+.RatuBackendLink{
+    box-shadow: 12px 12px 12px rgb(142, 44, 175) !important;
+    transition: ease .8s;
+}
+.RatuBackendLink:hover{box-shadow: 12px 12px 12px rgb(209, 108, 243) !important;}
+.RatuBackendLink:hover,
+.RatuBackendLink a:hover{
+    color:rgb(142, 44, 175) !important;
+}
+
+.PadukaFullstekLink{
+    box-shadow: 12px 12px 12px rgb(103,186,204) !important;
+    transition: ease .8s;
+}
+.PadukaFullstekLink:hover{
+    box-shadow: 12px 12px 12px rgb(136, 214, 231) !important;
+}
+.PadukaFullstekLink:hover,
+.PadukaFullstekLink a:hover{
+    color:rgb(88, 201, 226) !important;
+}
+.RatuBackendCard{
+    color:rgb(217, 184, 228);
+    border: 2px solid rgb(92, 21, 116) !important;
+    background-color: rgba(142, 44, 175,.7) !important;
+    box-shadow: 12px 12px 12px rgb(142, 44, 175) !important;
+}
+.PadukaFullstekCard{
+    color:rgb(88, 201, 226) !important;
+    border: 2px solid rgb(103,186,204) !important;
+    background-color: rgba(103,186,204,.6) !important;
+    box-shadow: 12px 12px 12px rgb(103,186,204) !important;
+}
+.RajaFrontendCard{
+    color:rgb(245, 202, 132);
+    border: 2px solid rgb(246,207,143) !important;
+    background-color: rgba(155, 115, 52, 0.6) !important;
+    box-shadow: 12px 12px 12px rgb(226, 180, 105)!important;
 }
