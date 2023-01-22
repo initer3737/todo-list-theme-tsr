@@ -33,12 +33,15 @@
     display: inline;
 }
 
-.RajaFrontendLink{
-    box-shadow: 12px 12px 12px rgb(246,207,143) !important;
+.RajaFrontendLinkMenu{
+    box-shadow: 12px 12px 12px rgba(155, 115, 52, 0.6) !important;
     transition: ease .8s;
 }
-.RajaFrontendLink:hover,
-.RajaFrontendLink a:hover{
+.RajaFrontendLinkMenu:hover{
+    box-shadow: 12px 12px 12px rgb(246,207,143) !important;
+}
+.RajaFrontendLinkMenu:hover,
+.RajaFrontendLinkMenu a:hover{
     color:rgb(240, 164, 42) !important;
     transition: ease 4s;
     cursor: pointer;
@@ -54,15 +57,15 @@
     color:rgb(210, 84, 252) !important;
 }
 
-.PadukaFullstekLink{
-    box-shadow: 12px 12px 12px rgb(103,186,204) !important;
+.PadukaFullstekLinkMenu{
+    box-shadow: 12px 12px 12px rgba(103,186,204,.6) !important;
     transition: ease .8s;
 }
-.PadukaFullstekLink:hover{
+.PadukaFullstekLinkMenu:hover{
     box-shadow: 12px 12px 12px rgb(136, 214, 231) !important;
 }
-.PadukaFullstekLink:hover,
-.PadukaFullstekLink a:hover{
+.PadukaFullstekLinkMenu:hover,
+.PadukaFullstekLinkMenu a:hover{
     color:rgb(88, 201, 226) !important;
 }
 .RatuBackendCard{

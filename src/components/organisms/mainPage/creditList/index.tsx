@@ -70,15 +70,15 @@ function CreditList() {
  const styleCharsPacks={
       raja:{
           card:'RajaFrontendCard',
-          link:'RajaFrontendLink'
+          link:'RajaFrontendLinkCredit'
       },
       ratu:{
           card:'RatuBackendCard',
           link:'RatuBackendLinkMenu'
       },
       paduka:{
-          card:'PadukaFullstekCard',
-          link:'PadukaFullstekLink'
+          card:'PadukaFullstekCardCredit',
+          link:'PadukaFullstekLinkCredit'
       } 
     }
  //============char style 
@@ -93,22 +93,22 @@ function CreditList() {
         <div>
           <video src={datachars[char || 'ratu']} autoPlay loop className='menu-video'></video>
           <div className={`menu-container ${styleCharsPacks[char || 'ratu'].card}`}>
-            <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
+            <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>
               <p  className={`credit-text`}>
                 kredit list
               </p>
             </div>
-            <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
+            <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>
               <a href={'https://www.instagram.com/mr.vaank/'} target='_blank' className={''}>
                 asset by mr_vaank
               </a>
             </div>
-            <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
+            <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>
               <NavLink to={''} target='_blank' className={''}>
                 unique skill 
               </NavLink>
             </div>
-            <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
+            <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>
               <NavLink to={`/menu/${id}`} className={''}>
                 back
               </NavLink>

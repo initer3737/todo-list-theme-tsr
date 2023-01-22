@@ -70,7 +70,7 @@ function Todo() {
  const styleCharsPacks={
       raja:{
           card:'RajaFrontendCard',
-          link:'RajaFrontendLink'
+          link:'RajaFrontendLinkMenu'
       },
       ratu:{
           card:'RatuBackendCard',
@@ -78,7 +78,7 @@ function Todo() {
       },
       paduka:{
           card:'PadukaFullstekCard',
-          link:'PadukaFullstekLink'
+          link:'PadukaFullstekLinkMenu'
       } 
     }
  //============char style 

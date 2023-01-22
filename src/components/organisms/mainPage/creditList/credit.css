@@ -34,16 +34,19 @@
     color: white;
     font-size: 30px;
 }
-.link-wrapper{
+.link-wrapper-credit{
     display: inline;
 }
 
-.RajaFrontendLink{
-    box-shadow: 12px 12px 12px rgb(246,207,143) !important;
+.RajaFrontendLinkCredit{
+    box-shadow: 12px 12px 12px rgba(155, 115, 52, 0.6) !important;
     transition: ease .8s;
 }
-.RajaFrontendLink:hover,
-.RajaFrontendLink a:hover{
+.RajaFrontendLinkCredit:hover{
+    box-shadow: 12px 12px 12px rgb(246,207,143) !important;
+}
+.RajaFrontendLinkCredit:hover,
+.RajaFrontendLinkCredit a:hover{
     color:rgb(240, 164, 42) !important;
     transition: ease 4s;
     cursor: pointer;
@@ -55,19 +58,19 @@
 .RatuBackendLinkMenu:hover{box-shadow: 12px 12px 12px rgb(209, 108, 243) !important;}
 .RatuBackendLinkMenu:hover,
 .RatuBackendLinkMenu a:hover{
-    /* color:rgb(142, 44, 175) !important; */
+    color:rgb(142, 44, 175) !important;
     color:rgb(210, 84, 252) !important;
 }
 
-.PadukaFullstekLink{
-    box-shadow: 12px 12px 12px rgb(103,186,204) !important;
+.PadukaFullstekLinkCredit{
+    box-shadow: 12px 12px 12px rgba(103,186,204,.8) !important;
     transition: ease .8s;
 }
-.PadukaFullstekLink:hover{
+.PadukaFullstekLinkCredit:hover{
     box-shadow: 12px 12px 12px rgb(136, 214, 231) !important;
 }
-.PadukaFullstekLink:hover,
-.PadukaFullstekLink a:hover{
+.PadukaFullstekLinkCredit:hover,
+.PadukaFullstekLinkCredit a:hover{
     color:rgb(88, 201, 226) !important;
 }
 .RatuBackendCard{
@@ -76,7 +79,7 @@
     background-color: rgba(142, 44, 175,.7) !important;
     box-shadow: 12px 12px 12px rgb(142, 44, 175) !important;
 }
-.PadukaFullstekCard{
+.PadukaFullstekCardCredit{
     color:rgb(88, 201, 226) !important;
     border: 2px solid rgb(103,186,204) !important;
     background-color: rgba(103,186,204,.6) !important;
