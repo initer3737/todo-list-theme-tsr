@@ -17,7 +17,10 @@ import {
   Middleware
 } from "./services"
 import './App.css'
-import { Todo } from "./components/pages/mainPage/todo"
+import { 
+  Todo ,
+  CreditList
+} from "./components/pages/mainPage"
 //======================main==programs
 function App() {
   return (
@@ -30,9 +33,11 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/show/:id/char" element={<ShowChar/>}/>
         <Route path="/login/:id" element={<Login/>}/>
-          <Route element={<Middleware/>} >
-            <Route path="/list" element={<Todo/>}/>
-          </Route>
+        <Route path="/menu/:id" element={<Todo/>}/>  
+        <Route path="/kredit/list/:id" element={<CreditList/>}/>  
+          {/* <Route element={<Middleware/>} >
+            <Route path="/list/:id" element={<Todo/>}/>
+          </Route> */}
         <Route path="/404" element={<NotFound/>}/>
         <Route path="/*" element={<Navigate replace to={'/404'}/>}/>
       </Routes>

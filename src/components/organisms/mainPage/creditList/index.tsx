@@ -1,5 +1,5 @@
 import React, { useEffect,useState } from 'react'
-import { NavLink, useNavigate, useParams } from 'react-router-dom'
+import { Link, NavLink, useNavigate, useParams } from 'react-router-dom'
 import Cookies from 'js-cookie'
 import { AxiosResponse } from 'axios'
 import { Http } from '../../../../services'
@@ -7,7 +7,7 @@ import RatuBackend from '../../../../assets/ratuBackend.mp4'
 import RajaFrontend from '../../../../assets/rajaFrontend.mp4'
 import PadukaFullstek from '../../../../assets/padukaFullstek.mp4'
 import { useRecoilValue } from 'recoil'
-import'./todo.css'
+import'./credit.css'
 import { CharsSelect } from '../../../../globalState'
 import { useMap } from '../../../../utils'
 //=======================
@@ -20,7 +20,7 @@ import { useMap } from '../../../../utils'
    data:Tdata,
  }
 //============
-function Todo() {
+function CreditList() {
   const [user,setUser]=useState<ILists>() 
   const token= Cookies.get('token')??''
   const [char,setChar]=useState()
@@ -94,28 +94,23 @@ function Todo() {
           <video src={datachars[char || 'ratu']} autoPlay loop className='menu-video'></video>
           <div className={`menu-container ${styleCharsPacks[char || 'ratu'].card}`}>
             <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
-              <NavLink to={''} className={`disable`}>
-                continue
+              <p  className={`credit-text`}>
+                kredit list
+              </p>
+            </div>
+            <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
+              <a href={'https://www.instagram.com/mr.vaank/'} target='_blank' className={''}>
+                asset by mr_vaank
+              </a>
+            </div>
+            <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
+              <NavLink to={''} target='_blank' className={''}>
+                unique skill 
               </NavLink>
             </div>
             <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
-              <NavLink to={''} className={``}>
-                new game
-              </NavLink>
-            </div>
-            <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
-              <NavLink to={''} className={''}>
-                change character
-              </NavLink>
-            </div>
-            <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
-              <NavLink to={`/kredit/list/${id}`} className={''}>
-                credit list
-              </NavLink>
-            </div>
-            <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
-              <NavLink to={''} className={''}>
-                logout
+              <NavLink to={`/menu/${id}`} className={''}>
+                back
               </NavLink>
             </div>
           </div>
@@ -123,4 +118,4 @@ function Todo() {
   )
 }
 
-export {Todo}
+export {CreditList}

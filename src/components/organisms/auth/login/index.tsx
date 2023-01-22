@@ -59,7 +59,7 @@ function Login() {
                         const getResToken=data.token;
                       Cookies.set('token',getResToken)
                       // setTimeout(()=>navigate('/list'),3000)
-                      navigate('/list')
+                      navigate(`/list/${id}`)
                     }
                 })
                 .catch((er)=>{
@@ -106,6 +106,9 @@ function Login() {
           className={`${styleCharsPacks[char || 'ratu'].link}`}
         >login</button>
     </div>
+    <NavLink to={`/menu/${id}`} className='menujumenugame'>
+       menuju menu game!!!!
+    </NavLink>
     </form>
   )
 }
