@@ -43,14 +43,17 @@
     transition: ease 2s;
 } */
 
-.RajaFrontendLink{
-    box-shadow: 12px 12px 12px rgb(246,207,143) !important;
+.RajaFrontendLinkChange{
+    box-shadow: 12px 12px 12px rgb(238, 156, 25) !important;
     transition: ease .8s;
 }
-.RajaFrontendLink:hover,
-.RajaFrontendLink a:hover{
-    /* color:rgb(240, 164, 42) !important; */
-    transition: ease 4s;
+.RajaFrontendLinkChange:hover{
+    box-shadow: 12px 12px 12px rgb(246,207,143) !important;
+}
+.RajaFrontendLinkChange:hover,
+.RajaFrontendLinkChange a:hover{
+    color:rgb(240, 164, 42) !important;
+    /* transition: ease 4s; */
     cursor: pointer;
 }
 .RatuBackendLink{
@@ -64,19 +67,19 @@
     color:rgb(142, 44, 175) !important;
 }
 
-.PadukaFullstekLink{
-    box-shadow: 12px 12px 12px rgb(103,186,204) !important;
+.PadukaFullstekLinkChange{
+    box-shadow: 12px 12px 12px rgb(42, 153, 175) !important;
     transition: ease .8s;
     cursor: pointer;
 }
-.PadukaFullstekLink:hover{
+.PadukaFullstekLinkChange:hover{
     box-shadow: 12px 12px 12px rgb(136, 214, 231) !important;
 }
-.PadukaFullstekLink:hover,
-.PadukaFullstekLink a:hover{
+.PadukaFullstekLinkChange:hover,
+.PadukaFullstekLinkChange a:hover{
     color:rgb(88, 201, 226) !important;
 }
-.PadukaFullstekLink .terapkan{
+.PadukaFullstekLinkChange .terapkan{
     position: absolute;
     background-color: black ;
 } 

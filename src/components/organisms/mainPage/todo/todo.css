@@ -34,16 +34,16 @@
 }
 
 .RajaFrontendLinkMenu{
-    box-shadow: 12px 12px 12px rgba(155, 115, 52, 0.6) !important;
+    box-shadow: 12px 12px 12px rgb(246,207,143) !important;
     transition: ease .8s;
 }
 .RajaFrontendLinkMenu:hover{
-    box-shadow: 12px 12px 12px rgb(246,207,143) !important;
+    box-shadow: 12px 12px 12px rgb(238, 156, 25) !important;
 }
 .RajaFrontendLinkMenu:hover,
 .RajaFrontendLinkMenu a:hover{
     color:rgb(240, 164, 42) !important;
-    transition: ease 4s;
+    /* transition: ease 4s; */
     cursor: pointer;
 }
 .RatuBackendLinkMenu{

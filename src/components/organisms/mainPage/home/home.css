@@ -28,12 +28,15 @@
     transition: ease 2s;
 }
 
-.RajaFrontendLink{
-    box-shadow: 12px 12px 12px rgb(246,207,143) !important;
+.RajaFrontendLinkHome{
+    box-shadow: 12px 12px 12px rgb(238, 156, 25) !important;
     transition: ease .8s;
 }
-.RajaFrontendLink:hover,
-.RajaFrontendLink a:hover{
+.RajaFrontendLinkHome:hover{
+    box-shadow: 12px 12px 12px rgb(246,207,143) !important;
+}
+.RajaFrontendLinkHome:hover,
+.RajaFrontendLinkHome a:hover{
     color:rgb(240, 164, 42) !important;
     /* transition: ease 4s; */
     cursor: pointer;
@@ -49,8 +52,9 @@
 }
 
 .PadukaFullstekLink{
-    box-shadow: 12px 12px 12px rgb(103,186,204) !important;
+    box-shadow: 12px 12px 12px rgb(42, 153, 175) !important;
     transition: ease .8s;
+    cursor: pointer;
 }
 .PadukaFullstekLink:hover{
     box-shadow: 12px 12px 12px rgb(136, 214, 231) !important;

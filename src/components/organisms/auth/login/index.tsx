@@ -36,7 +36,7 @@ function Login() {
  const styleCharsPacks={
   raja:{
       card:'RajaFrontendCard',
-      link:'RajaFrontendLink'
+      link:'RajaFrontendLinkHome'
   },
   ratu:{
       card:'RatuBackendCard',

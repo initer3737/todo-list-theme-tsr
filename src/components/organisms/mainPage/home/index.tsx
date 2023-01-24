@@ -43,7 +43,7 @@ function Home() {
 const styleCharsPacks={
     raja:{
         card:'raja__front__end__card',
-        link:'raja__link'
+        link:'RajaFrontendLinkHome'
     },
     ratu:{
         card:'ratu__back__end__card',
@@ -116,11 +116,11 @@ const styleCharsPacks={
           <video src={RatuBackend} autoPlay loop ></video>
         </SwiperSlide>
         <SwiperSlide className='slider-swiper'>
-          <div className="swiper-text-container RajaFrontendLink LoginLink">
+          <div className={`swiper-text-container LoginLink ${styleCharsPacks.raja.link}`}>
             <NavLink to={`/login/${recoilCharSelect.RajaFrontEnd.id}`}>
             Login</NavLink>
           </div>
-          <div className="swiper-text-container RajaFrontendLink">
+          <div className={`swiper-text-container ${styleCharsPacks.raja.link}`}>
             <NavLink to={`/show/${recoilCharSelect.RajaFrontEnd.id}/char`}>
             {recoilCharSelect.RajaFrontEnd.role}</NavLink>
           </div>

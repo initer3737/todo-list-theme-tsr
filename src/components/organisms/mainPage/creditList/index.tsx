@@ -95,7 +95,7 @@ function CreditList() {
           <div className={`menu-container ${styleCharsPacks[char || 'ratu'].card}`}>
             <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>
               <p  className={`credit-text`}>
-                kredit list
+                kredit lists
               </p>
             </div>
             <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>

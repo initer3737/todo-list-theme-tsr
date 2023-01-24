@@ -46,7 +46,7 @@ function ChangeChar() {
 const styleCharsPacks={
     raja:{
         card:'raja__front__end__card',
-        link:'RajaFrontendLink'
+        link:'RajaFrontendLinkChange'
     },
     ratu:{
         card:'ratu__back__end__card',
@@ -54,7 +54,7 @@ const styleCharsPacks={
     },
     paduka:{
         card:'paduka__fullstek__card',
-        link:'PadukaFullstekLink'
+        link:'PadukaFullstekLinkChange'
     }
 } satisfies IstyleCharsPacks
     const recoilCharSelect=useRecoilValue(CharsSelect)
