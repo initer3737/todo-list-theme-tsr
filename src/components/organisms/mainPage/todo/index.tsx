@@ -114,6 +114,11 @@ function Todo() {
               </NavLink>
             </div>
             <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
+              <a target={'_blank'} href={`https://initer3737.github.io/`} className={''}>
+                developer
+              </a>
+            </div>
+            <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
               <NavLink to={''} className={''}>
                 logout
               </NavLink>

@@ -119,6 +119,11 @@ function CreditList() {
               </NavLink>
             </div>
             <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>
+              <a href={'https://icons.getbootstrap.com/'} target='_blank' className={''}>
+                bootstrap icon 
+              </a>
+            </div>
+            <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>
               <NavLink to={`/menu/${id}`} className={''}>
                 back
               </NavLink>
