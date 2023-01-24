@@ -1,5 +1,5 @@
 import React from 'react'
-import { Home as HomeOrganism } from '../../../organisms'
+import { ChangeChar as ChangeCharOrganism } from '../../../organisms'
 import { NavLink } from 'react-router-dom'
 import {
   Title
@@ -7,10 +7,10 @@ import {
 import { 
   Header2 
 } from '../../../molekuls'
-import './home.css'
+import './changeChar.css'
 import { RouterSmooth } from '../../../../services'
 //=======================
-export default function Home() {
+export default function ChangeChar() {
     // const recoilCharSelect=useRecoilValue(CharsSelect)
   return (
     <div>
@@ -18,7 +18,7 @@ export default function Home() {
       <div className="home__container">
       <Title title='home'>
            <RouterSmooth>
-              <HomeOrganism/>
+              <ChangeCharOrganism/>
            </RouterSmooth>
         </Title>
       </div>

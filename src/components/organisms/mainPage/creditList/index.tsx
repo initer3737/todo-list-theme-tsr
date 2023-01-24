@@ -100,7 +100,17 @@ function CreditList() {
             </div>
             <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>
               <a href={'https://www.instagram.com/mr.vaank/'} target='_blank' className={''}>
-                asset by mr_vaank
+                animations by mr_vaank
+              </a>
+            </div>
+            <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>
+              <a href={'https://steamcommunity.com/id/vaank/myworkshopfiles/'} target='_blank' className={''}>
+                wallpaper engine by mr_vaank
+              </a>
+            </div>
+            <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>
+              <a href={'https://www.riotgames.com/en'} target='_blank' className={''}>
+                ilustrations by riot
               </a>
             </div>
             <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>

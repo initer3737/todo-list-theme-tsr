@@ -11,22 +11,37 @@
     position: absolute;
     background-position: center;
 }
-.swiper-text-container{
+
+.terapkan-change-char:hover{
+    transform: translateY(12px);
+    transition: ease 2s;
+}
+.video-container-change-char{
     position: absolute;
-    top: 20vh;
-    left: 20vw;
+    object-fit: cover;
+    object-position: center;
+    width: 100vw;
+    height: 160vh;
+    inset: 0;
+}
+.swipper-container-change-char{
+    width: 100vw;
+    height: 50vh;
+    position: absolute;
+    top: 0;
+    left: 0;
     color: white;
     font-size: 23px;
-    border-radius: 8px;
+    border-radius: 2px;
     border:2px solid ;
     z-index: 90;
     padding: 20px;
     box-shadow: 12px 12px 12px ;
 }
-.swiper-text-container:hover{
+/* .swipper-container-change-char:hover{
     transform: translateY(12px);
     transition: ease 2s;
-}
+} */
 
 .RajaFrontendLink{
     box-shadow: 12px 12px 12px rgb(246,207,143) !important;
@@ -34,8 +49,8 @@
 }
 .RajaFrontendLink:hover,
 .RajaFrontendLink a:hover{
-    color:rgb(240, 164, 42) !important;
-    /* transition: ease 4s; */
+    /* color:rgb(240, 164, 42) !important; */
+    transition: ease 4s;
     cursor: pointer;
 }
 .RatuBackendLink{
@@ -59,6 +74,10 @@
 .PadukaFullstekLink a:hover{
     color:rgb(88, 201, 226) !important;
 }
+.PadukaFullstekLink .terapkan{
+    position: absolute;
+    background-color: black ;
+} 
 .LoginLink{
     top: 32px;
     padding: 10px 25px;
@@ -133,4 +152,27 @@
 .home-organisms-video{
     position: absolute;
     height: 450px;
+}
+
+
+.card-char-container{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 3vw;
+}
+.card-char{
+    top: 53vh;
+    position: relative;
+    box-shadow: 12px 12px 12px white;
+    border: 2px solid white;
+}
+.card-char .swiper-text-container{
+    position: absolute !important;
+}
+.card-char video{
+    max-width: 45vw;
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { RouterSmooth } from '../../../../services'
 import {
    Title 
 } from '../../../../utils'
@@ -10,8 +11,10 @@ import {Login as LoginOrganism} from '../../../organisms/'
 export default function Login() {
   return (
     <Title title='login'>
-      {/* <Header/> */}
-      <LoginOrganism/>
+      <RouterSmooth>
+        {/* <Header/> */}
+        <LoginOrganism/>
+      </RouterSmooth>
     </Title>
   )
 }
