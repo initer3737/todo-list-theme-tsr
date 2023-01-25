@@ -124,6 +124,11 @@ function CreditList() {
               </a>
             </div>
             <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>
+              <a href={'https://pixabay.com/'} target='_blank' className={''}>
+                pixabay
+              </a>
+            </div>
+            <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>
               <NavLink to={`/menu/${id}`} className={''}>
                 back
               </NavLink>

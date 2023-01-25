@@ -7,7 +7,7 @@ import RatuBackend from '../../../../assets/ratuBackend.mp4'
 import RajaFrontend from '../../../../assets/rajaFrontend.mp4'
 import PadukaFullstek from '../../../../assets/padukaFullstek.mp4'
 import { useRecoilValue } from 'recoil'
-import'./todo.css'
+import'./loading.css'
 import { CharsSelect } from '../../../../globalState'
 import { useMap } from '../../../../utils'
 //=======================
@@ -20,14 +20,15 @@ import { useMap } from '../../../../utils'
    data:Tdata,
  }
 //============
-function Todo() {
+function Loading() {
   const [user,setUser]=useState<ILists>() 
   const token= Cookies.get('token')??''
   const [char,setChar]=useState()
   const chars=useRecoilValue(CharsSelect)
-  const {id}=useParams()
+  const {id,url}=useParams()
   const filterDataChar=useMap(chars).filter(char=>char[1].id == id)
   const navigate=useNavigate()
+  const urlWithId=`/${url?.replace('&',`/`)}/${id}`
   const logout=()=>{
        try {
             Http.get('/logout')
@@ -45,7 +46,15 @@ function Todo() {
     filterDataChar.map(char=>{
       setChar(char[1].char_id)
     })
+        // const loadingTimeout=setTimeout(()=>{
+        //     navigate(urlWithId)
+        // },4000);
+        //unmounted lifecycle
+          // ()=>{
+          //   clearTimeout(loadingTimeout)
+          // }
   },[])
+  
       // useEffect(()=>{
       //   try {
       //     const getDataUser=async()=>{
@@ -89,43 +98,21 @@ function Todo() {
   paduka:PadukaFullstek,
 }
  //===========video chars
+  
   return (
         <div>
           <video src={datachars[char || 'ratu']} autoPlay loop className='menu-video'></video>
-          <div className={`menu-container ${styleCharsPacks[char || 'ratu'].card}`}>
-            <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
-              <NavLink to={''} className={`disable`}>
-                continue
-              </NavLink>
-            </div>
-            <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
-              <NavLink to={''} className={``}>
-                new game
-              </NavLink>
-            </div>
-            <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
-              <NavLink to={`/loading/${id}/char&change`} className={''}>
-                change character
-              </NavLink>
-            </div>
-            <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
-              <NavLink to={`/kredit/list/${id}`} className={''}>
-                credit lists
-              </NavLink>
-            </div>
-            <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
-              <a target={'_blank'} href={`https://initer3737.github.io/`} className={''}>
-                developer
-              </a>
-            </div>
+          <div className={`menu-container-loading ${styleCharsPacks[char || 'ratu'].card}`}>
+
             <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
               <NavLink to={''} className={''}>
                 logout
               </NavLink>
             </div>
+            
           </div>
         </div>
   )
 }
 
-export {Todo}
+export {Loading}
