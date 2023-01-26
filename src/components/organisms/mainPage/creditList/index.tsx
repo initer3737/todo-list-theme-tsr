@@ -129,6 +129,11 @@ function CreditList() {
               </a>
             </div>
             <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>
+              <a href={'https://freesvg.org/el-lissitzky-beat-the-whites-with-the-red-wedge'} target='_blank' className={''}>
+                loading asset
+              </a>
+            </div>
+            <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>
               <NavLink to={`/menu/${id}`} className={''}>
                 back
               </NavLink>

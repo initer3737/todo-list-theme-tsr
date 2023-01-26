@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 185.4 185.4" style="enable-background:new 0 0 185.4 185.4;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:#ED1C24;}
+</style>
+<g>
+	<rect x="0.3" y="0" class="st0" width="185.4" height="185.4"/>
+	<g>
+		<g>
+			<path d="M175.6,10.1v165.2H10.4V10.1H175.6 M181.6,4.1h-6H10.4h-6v6v165.2v6h6h165.2h6v-6V10.1L181.6,4.1L181.6,4.1z"/>
+		</g>
+		<g>
+			<path d="M91.2,47.9c13.2-10.3,29.9-16.5,47.9-16.5c13.2,0,25.6,3.3,36.5,9.1V10.1h-67.1C102.7,22.7,96.9,35.3,91.2,47.9z"/>
+			<path d="M61.2,113.2c-9.5,20.7-19,41.4-28.4,62.1h64.7C76.7,162.1,62.5,139.4,61.2,113.2z"/>
+			<polygon class="st1" points="19.2,10.1 10.4,10.1 10.4,86.4 129.5,108.2 			"/>
+		</g>
+	</g>
+</g>
+</svg>

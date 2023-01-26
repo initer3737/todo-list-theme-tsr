@@ -23,7 +23,24 @@
     top:150px;
     left: 40vw;
     padding: 20px;
-    border-radius: 45px;
+    border-radius: 50px 0px 50px 0px;
+    transition: ease-in .5s;
+    animation: loadingAnimeShion 10s infinite;
+}
+@keyframes loadingAnimeShion {
+    from{
+        transform: scale(4 ,4);
+    }
+    50%{
+        transform: scale(2 ,2);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+
+.menu-container-loading a{  
+    border-radius: 23px 23px 23px 23px;
 }
 .menu-container-loading a{  
     text-decoration: none;
@@ -58,7 +75,7 @@
     color:rgb(210, 84, 252) !important;
 }
 
-.PadukaFullstekLinkMenu{
+ .PadukaFullstekLinkMenu{
     box-shadow: 12px 12px 12px rgba(103,186,204,.6) !important;
     transition: ease .8s;
 }
@@ -75,12 +92,14 @@
     background-color: rgba(142, 44, 175,.7) !important;
     box-shadow: 12px 12px 12px rgb(142, 44, 175) !important;
 }
-.PadukaFullstekCard{
+ .PadukaFullstekCardLoading{
     color:rgb(88, 201, 226) !important;
     border: 2px solid rgb(103,186,204) !important;
     background-color: rgba(103,186,204,.6) !important;
     box-shadow: 12px 12px 12px rgb(103,186,204) !important;
 }
+
+
 .RajaFrontendCard{
     color:rgb(245, 202, 132);
     border: 2px solid rgb(246,207,143) !important;

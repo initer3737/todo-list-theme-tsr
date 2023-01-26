@@ -142,7 +142,7 @@ const styleCharsPacks={
         </SwiperSlide>
     </Swiper> */}
       <div className={`swiper-text-container ${styleCharsPacks[char || 'ratu'].link} LoginLink`}>
-            <NavLink to={`/menu/${id}`}>
+            <NavLink to={`/loading/${id}/menu`}>
               kembali
             </NavLink>
           </div>
@@ -154,7 +154,7 @@ const styleCharsPacks={
             </NavLink>
           </div> */}
           <div className={`swiper-text-container ${styleCharsPacks.raja.link}`}>
-            <NavLink to={`/char/change/${recoilCharSelect.RajaFrontEnd.id}`}>
+            <NavLink to={`/loading/${recoilCharSelect.RajaFrontEnd.id}/char&change`}>
             {recoilCharSelect.RajaFrontEnd.role}
             <Icon icon={`check2-square ${recoilCharSelect.RajaFrontEnd.id == Number(id)?'':'d-none'}`} name={' '}/>
             </NavLink>
@@ -168,7 +168,7 @@ const styleCharsPacks={
             </NavLink>
           </div> */}
           <div className={`swiper-text-container ${styleCharsPacks.paduka.link} `}>
-            <NavLink to={`/char/change/${recoilCharSelect.PadukaFullStek.id}`}>
+            <NavLink to={`/loading/${recoilCharSelect.PadukaFullStek.id}/char&change/`}>
             {recoilCharSelect.PadukaFullStek.role}
               <Icon icon={`check2-square ${recoilCharSelect.PadukaFullStek.id == Number(id)?'':'d-none'}`} name={' '}/>
             </NavLink>
@@ -177,7 +177,7 @@ const styleCharsPacks={
       </div>
       <div className={`card-char ${styleCharsPacks.ratu.link}`}>
           <div className={`swiper-text-container ${styleCharsPacks.ratu.link} `}>
-            <NavLink to={`/char/change/${recoilCharSelect.RatuBackEnd.id}`}>
+            <NavLink to={`/loading/${recoilCharSelect.RatuBackEnd.id}/char&change`}>
             {recoilCharSelect.RatuBackEnd.role}
              <Icon icon={`check2-square ${recoilCharSelect.RatuBackEnd.id == Number(id)?'':'d-none'}`} name={' '}/>
             </NavLink>

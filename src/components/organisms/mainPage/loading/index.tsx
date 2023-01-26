@@ -1,5 +1,5 @@
 import React, { useEffect,useState } from 'react'
-import { NavLink, useNavigate, useParams } from 'react-router-dom'
+import { Navigate, NavLink, useNavigate, useParams } from 'react-router-dom'
 import Cookies from 'js-cookie'
 import { AxiosResponse } from 'axios'
 import { Http } from '../../../../services'
@@ -10,6 +10,7 @@ import { useRecoilValue } from 'recoil'
 import'./loading.css'
 import { CharsSelect } from '../../../../globalState'
 import { useMap } from '../../../../utils'
+import loadingSvg from '../../../../assets/loading.svg'
 //=======================
   type Tdata={
     id:string,
@@ -24,11 +25,12 @@ function Loading() {
   const [user,setUser]=useState<ILists>() 
   const token= Cookies.get('token')??''
   const [char,setChar]=useState()
+  let [dot,setDot]=useState<string>('.')
   const chars=useRecoilValue(CharsSelect)
   const {id,url}=useParams()
   const filterDataChar=useMap(chars).filter(char=>char[1].id == id)
   const navigate=useNavigate()
-  const urlWithId=`/${url?.replace('&',`/`)}/${id}`
+
   const logout=()=>{
        try {
             Http.get('/logout')
@@ -42,17 +44,34 @@ function Loading() {
           console.log(err)
        }
   }
+
   useEffect(()=>{
+
     filterDataChar.map(char=>{
       setChar(char[1].char_id)
     })
-        // const loadingTimeout=setTimeout(()=>{
-        //     navigate(urlWithId)
-        // },4000);
+
+      const navigateUrlInterval=setTimeout(()=>{
+        if(url?.indexOf('&') == -1){ //single url example /menu/ has been found!!
+          const urlSingular=`/${url}/${id}`
+            navigate(urlSingular);
+           return
+        }else{
+              // !single url example /menu&charId&magicAtt has been found!!
+            const urlPlurals= `/${url?.replace('&',`/`)}/${id}`
+            navigate(urlPlurals);
+        }
+      },9000) //navigateUrlInterval
+    
+        const loadingInterval=setInterval(()=>{
+              setDot(prevValue=>prevValue+'.')
+        },3000);//loading interval must be every 3 seconds because navigateUrlInterval is 9 seconds;
         //unmounted lifecycle
-          // ()=>{
-          //   clearTimeout(loadingTimeout)
-          // }
+          ()=>{
+            clearInterval(loadingInterval)
+            clearTimeout(navigateUrlInterval)
+          }
+     
   },[])
   
       // useEffect(()=>{
@@ -86,7 +105,7 @@ function Loading() {
           link:'RatuBackendLinkMenu'
       },
       paduka:{
-          card:'PadukaFullstekCard',
+          card:'PadukaFullstekCardLoading',
           link:'PadukaFullstekLinkMenu'
       } 
     }
@@ -103,13 +122,11 @@ function Loading() {
         <div>
           <video src={datachars[char || 'ratu']} autoPlay loop className='menu-video'></video>
           <div className={`menu-container-loading ${styleCharsPacks[char || 'ratu'].card}`}>
-
             <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
               <NavLink to={''} className={''}>
-                logout
+                 loading{dot}
               </NavLink>
             </div>
-            
           </div>
         </div>
   )
