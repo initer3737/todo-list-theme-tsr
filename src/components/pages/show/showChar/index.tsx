@@ -3,7 +3,7 @@ import "../../../../../index.css";
 import "./showChar.css";
 import { CharsSelect } from "../../../../globalState";
 import { useParams, NavLink } from "react-router-dom";
-import { useMap } from "../../../../utils";
+import { Title, useMap } from "../../../../utils";
 import { useRecoilValue } from "recoil";
 import RatuBackend from "../../../../assets/ratuBackend.mp4";
 import RajaFrontend from "../../../../assets/rajaFrontend.mp4";
@@ -46,6 +46,7 @@ function ShowChar() {
     });
   }, []);
   return (
+    <Title title="show character">
     <RouterSmooth>
       <section>
         <video
@@ -83,7 +84,7 @@ function ShowChar() {
             <p>deskripsi : {data[1].description}</p>
             <div className="showChar_Link__wrapper translate-5" id="showlink">
               <NavLink
-                to={"/"}
+                to={`/loading/${id}/home`}
                 className={`showChar_Link  ${
                   styleCharsPacks[char ?? "ratu"].link
                 }`}
@@ -95,6 +96,7 @@ function ShowChar() {
         ))}
       </section>
     </RouterSmooth>
+    </Title>
   );
 }
 

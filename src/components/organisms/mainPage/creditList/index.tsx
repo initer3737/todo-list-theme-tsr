@@ -134,7 +134,7 @@ function CreditList() {
               </a>
             </div>
             <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>
-              <NavLink to={`/menu/${id}`} className={''}>
+              <NavLink to={`/loading/${id}/menu`} className={''}>
                 back
               </NavLink>
             </div>

@@ -1,0 +1,145 @@
+.pause-btn{
+    position: absolute;
+    top:20px;
+    right:10px;
+    border: 1px solid white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.title-game-pause{
+    color: whitesmoke;
+    /* margin-left: 1cqw; */
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+.pauseTitle-paduka{
+    animation: pauseTitle-paduka;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+    animation-delay: .5s;
+}
+@keyframes pauseTitle-paduka{
+    from{
+        background-color: rgba(50, 53, 54, 0.6);
+    }
+    to{
+        color: blue !important;
+    }
+}
+.pauseTitle-raja{
+    animation: pauseTitle-raja;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+    animation-delay: .5s;
+}
+@keyframes pauseTitle-raja{
+    from{
+        background-color: rgb(238, 156, 25);
+    }
+    to{
+        color: blue !important;
+    }
+}
+.pauseTitle-ratu{
+    animation: pauseTitle-ratu;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+    animation-delay: .5s;
+}
+@keyframes pauseTitle-ratu{
+    from{
+        background-color: rgb(142, 44, 175);
+    }
+    to{
+        color: blue !important;
+    }
+}
+.menujumenugame{
+    position: absolute;
+    color: white;
+    font-size: 23px;
+    right: 12vw;
+    top: 43px;
+}
+.game-video{
+    position: absolute;
+    /* width: 100vw; */
+    height: 100vh;
+    inset: 0;
+}
+.disable{
+    display: none;
+}
+.game-container{
+    position: absolute;
+    display: flex;
+    background-color: blue;
+    flex-direction: column;
+    gap: 4px;
+    top:150px;
+    left: 40vw;
+    padding: 20px;
+}
+.game-container a{  
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+}
+.link-wrapper{
+    display: inline;
+}
+
+.RajaFrontendLinkMenu{
+    box-shadow: 12px 12px 12px rgb(246,207,143) !important;
+    transition: ease .8s;
+}
+.RajaFrontendLinkMenu:hover{
+    box-shadow: 12px 12px 12px rgb(238, 156, 25) !important;
+}
+.RajaFrontendLinkMenu:hover,
+.RajaFrontendLinkMenu a:hover{
+    color:rgb(240, 164, 42) !important;
+    /* transition: ease 4s; */
+    cursor: pointer;
+}
+.RatuBackendLinkMenu{
+    box-shadow: 12px 12px 12px rgb(142, 44, 175) !important;
+    transition: ease .8s;
+}
+.RatuBackendLinkMenu:hover{box-shadow: 12px 12px 12px rgb(209, 108, 243) !important;}
+.RatuBackendLinkMenu:hover,
+.RatuBackendLinkMenu a:hover{
+    /* color:rgb(142, 44, 175) !important; */
+    color:rgb(210, 84, 252) !important;
+}
+
+.PadukaFullstekLinkMenu{
+    box-shadow: 12px 12px 12px rgba(103,186,204,.6) !important;
+    transition: ease .8s;
+}
+.PadukaFullstekLinkMenu:hover{
+    box-shadow: 12px 12px 12px rgb(136, 214, 231) !important;
+}
+.PadukaFullstekLinkMenu:hover,
+.PadukaFullstekLinkMenu a:hover{
+    color:rgb(88, 201, 226) !important;
+}
+.RatuBackendCard{
+    color:rgb(217, 184, 228);
+    border: 2px solid rgb(92, 21, 116) !important;
+    background-color: rgba(142, 44, 175,.7) !important;
+    box-shadow: 12px 12px 12px rgb(142, 44, 175) !important;
+}
+.PadukaFullstekCard{
+    color:rgb(88, 201, 226) !important;
+    border: 2px solid rgb(103,186,204) !important;
+    background-color: rgba(103,186,204,.6) !important;
+    box-shadow: 12px 12px 12px rgb(103,186,204) !important;
+}
+.RajaFrontendCard{
+    color:rgb(245, 202, 132);
+    border: 2px solid rgb(246,207,143) !important;
+    background-color: rgba(155, 115, 52, 0.6) !important;
+    box-shadow: 12px 12px 12px rgb(226, 180, 105)!important;
+}

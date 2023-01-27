@@ -99,7 +99,7 @@ function Todo() {
               </NavLink>
             </div>
             <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
-              <NavLink to={''} className={``}>
+              <NavLink to={`/loading/${id}/game`} className={``}>
                 new game
               </NavLink>
             </div>
@@ -109,7 +109,7 @@ function Todo() {
               </NavLink>
             </div>
             <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
-              <NavLink to={`/kredit/list/${id}`} className={''}>
+              <NavLink to={`/loading/${id}/kredit&list`} className={''}>
                 credit lists
               </NavLink>
             </div>

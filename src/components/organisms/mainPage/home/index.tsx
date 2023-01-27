@@ -95,33 +95,33 @@ const styleCharsPacks={
     >
         <SwiperSlide className='slider-swiper'>
           <div className="swiper-text-container PadukaFullstekLink LoginLink">
-          <NavLink to={`/login/${recoilCharSelect.PadukaFullStek.id}`}>
+          <NavLink to={`/loading/${recoilCharSelect.PadukaFullStek.id}/login`}>
             Login</NavLink>
           </div>
           <div className="swiper-text-container PadukaFullstekLink">
-          <NavLink to={`/show/${recoilCharSelect.PadukaFullStek.id}/char`}>
+          <NavLink to={`/loading/${recoilCharSelect.PadukaFullStek.id}/show&char`}>
             {recoilCharSelect.PadukaFullStek.role}</NavLink>
           </div>
           <video src={PadukaFullstek} autoPlay loop muted></video>
         </SwiperSlide>
         <SwiperSlide className='slider-swiper'>
           <div className="swiper-text-container RatuBackendLink">
-            <NavLink to={`/show/${recoilCharSelect.RatuBackEnd.id}/char`}>
+            <NavLink to={`/loading/${recoilCharSelect.RatuBackEnd.id}/show&char`}>
             {recoilCharSelect.RatuBackEnd.role}</NavLink>
           </div>
           <div className="swiper-text-container RatuBackendLink LoginLink">
-            <NavLink to={`/login/${recoilCharSelect.RatuBackEnd.id}`}>
+            <NavLink to={`/loading/${recoilCharSelect.RatuBackEnd.id}/login`}>
             Login</NavLink>
           </div>
           <video src={RatuBackend} autoPlay loop ></video>
         </SwiperSlide>
         <SwiperSlide className='slider-swiper'>
           <div className={`swiper-text-container LoginLink ${styleCharsPacks.raja.link}`}>
-            <NavLink to={`/login/${recoilCharSelect.RajaFrontEnd.id}`}>
+            <NavLink to={`/loading/${recoilCharSelect.RajaFrontEnd.id}/login`}>
             Login</NavLink>
           </div>
           <div className={`swiper-text-container ${styleCharsPacks.raja.link}`}>
-            <NavLink to={`/show/${recoilCharSelect.RajaFrontEnd.id}/char`}>
+            <NavLink to={`/loading/${recoilCharSelect.RajaFrontEnd.id}/show&char`}>
             {recoilCharSelect.RajaFrontEnd.role}</NavLink>
           </div>
           <video src={RajaFrontend} autoPlay loop muted></video>

@@ -94,7 +94,7 @@ function Login() {
     <form onSubmit={submit}>
       <video src={datachars[char|| 'ratu']} className="login_video" autoPlay loop></video>
       <div className={`backLink-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
-            <NavLink to={`/`} className={`backLink`}>Kembali</NavLink>
+            <NavLink to={`/loading/${id}/home`} className={`backLink`}>Kembali</NavLink>
       </div>
     <div className={`login__container ${styleCharsPacks[char || 'ratu'].card}`}>
         <div className={errmsg.trim().length>1?"err-message":'d-none'}><h3>{errmsg}</h3></div>

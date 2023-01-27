@@ -3,7 +3,8 @@ import { Login } from "./auth";
 import { ShowChar } from "./show";
 import { 
     Home ,
-    Loading
+    Loading,
+    Game
 } from "./mainPage";
 // =========================exports==section================
 export {
@@ -11,5 +12,6 @@ export {
     Home,
     Login,
     ShowChar,
-    Loading
+    Loading,
+    Game
 }

@@ -1,5 +1,5 @@
 import React, { useEffect,useState } from 'react'
-import { Navigate, NavLink, useNavigate, useParams } from 'react-router-dom'
+import { NavLink, useNavigate, useParams } from 'react-router-dom'
 import Cookies from 'js-cookie'
 import { AxiosResponse } from 'axios'
 import { Http } from '../../../../services'
@@ -7,10 +7,10 @@ import RatuBackend from '../../../../assets/ratuBackend.mp4'
 import RajaFrontend from '../../../../assets/rajaFrontend.mp4'
 import PadukaFullstek from '../../../../assets/padukaFullstek.mp4'
 import { useRecoilValue } from 'recoil'
-import'./loading.css'
+import'./todo.css'
 import { CharsSelect } from '../../../../globalState'
 import { useMap } from '../../../../utils'
-import loadingSvg from '../../../../assets/loading.svg'
+import { Icon } from '../../../atoms'
 //=======================
   type Tdata={
     id:string,
@@ -21,16 +21,15 @@ import loadingSvg from '../../../../assets/loading.svg'
    data:Tdata,
  }
 //============
-function Loading() {
+function Game() {
   const [user,setUser]=useState<ILists>() 
   const token= Cookies.get('token')??''
   const [char,setChar]=useState()
-  let [dot,setDot]=useState<string>('.')
+  const [pause,setPause]=useState<Boolean>(true)
   const chars=useRecoilValue(CharsSelect)
-  const {id,url}=useParams()
+  const {id}=useParams()
   const filterDataChar=useMap(chars).filter(char=>char[1].id == id)
   const navigate=useNavigate()
-
   const logout=()=>{
        try {
             Http.get('/logout')
@@ -44,36 +43,11 @@ function Loading() {
           console.log(err)
        }
   }
-
   useEffect(()=>{
-
     filterDataChar.map(char=>{
       setChar(char[1].char_id)
     })
-
-      const navigateUrlInterval=setTimeout(()=>{
-        if(url == 'home' ){
-          navigate('/')
-          return
-        }else if(url?.indexOf('&')){
-              // if url is menu&charId&magicAtt replace with menu/charId/magicAtt 
-            const urlPlurals= `/${url?.replace('&',`/`)}/${id}`
-            navigate(urlPlurals)
-            return
-        }
-      },9000) //navigateUrlInterval
-    
-        const loadingInterval=setInterval(()=>{
-              setDot(prevValue=>prevValue+'.')
-        },3000);//loading interval must be every 3 seconds because navigateUrlInterval is 9 seconds;
-        //unmounted lifecycle
-          ()=>{
-            clearInterval(loadingInterval)
-            clearTimeout(navigateUrlInterval)
-          }
-     
   },[])
-  
       // useEffect(()=>{
       //   try {
       //     const getDataUser=async()=>{
@@ -98,15 +72,18 @@ function Loading() {
  const styleCharsPacks={
       raja:{
           card:'RajaFrontendCard',
-          link:'RajaFrontendLinkMenu'
+          link:'RajaFrontendLinkMenu',
+          pauseTitle:'pauseTitle-raja'
       },
       ratu:{
           card:'RatuBackendCard',
-          link:'RatuBackendLinkMenu'
+          link:'RatuBackendLinkMenu',
+          pauseTitle:'pauseTitle-ratu'
       },
       paduka:{
-          card:'PadukaFullstekCardLoading',
-          link:'PadukaFullstekLinkMenu'
+          card:'PadukaFullstekCard',
+          link:'PadukaFullstekLinkMenu',
+          pauseTitle:'pauseTitle-paduka'
       } 
     }
  //============char style 
@@ -117,14 +94,31 @@ function Loading() {
   paduka:PadukaFullstek,
 }
  //===========video chars
-  
   return (
         <div>
           <video src={datachars[char || 'ratu']} autoPlay loop className='menu-video'></video>
-          <div className={`menu-container-loading ${styleCharsPacks[char || 'ratu'].card}`}>
+          <div className={`link-wrapper pause-btn ${styleCharsPacks[char || 'ratu'].link}`}>
+              <h2 className={`title-game-pause ${styleCharsPacks[char || 'ratu'].pauseTitle}`}>
+                pause <Icon icon={'pause-circle'} name={''}/>
+              </h2>
+            </div>
+          <div className={`game-container ${styleCharsPacks[char || 'ratu'].card}`}>
             <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
-              <NavLink to={''} className={''}>
-                 loading{dot}
+              <h2 className={`title-game-pause ${styleCharsPacks[char || 'ratu'].pauseTitle}`}>paused <Icon icon={'pause-circle'} name={''}/></h2>
+            </div>
+            <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
+              <NavLink to={''} className={``}>
+                continue <Icon icon={'play-circle'} name={''}/>
+              </NavLink>
+            </div>
+            <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
+              <NavLink to={`/loading/${id}/menu`} className={``}>
+                back to main menu <Icon icon={'play-circle'} name={''}/>
+              </NavLink>
+            </div>
+            <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
+              <NavLink to={`/loading/${id}/char&change`} className={''}>
+                settings <Icon icon={'gear'} name={''}/>
               </NavLink>
             </div>
           </div>
@@ -132,4 +126,4 @@ function Loading() {
   )
 }
 
-export {Loading}
+export {Game}
