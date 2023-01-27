@@ -61,11 +61,11 @@ function Loading() {
             navigate(urlPlurals)
             return
         }
-      },9000) //navigateUrlInterval
+      },4000) //navigateUrlInterval
     
         const loadingInterval=setInterval(()=>{
               setDot(prevValue=>prevValue+'.')
-        },3000);//loading interval must be every 3 seconds because navigateUrlInterval is 9 seconds;
+        },1000);//loading interval must be every 1 seconds because navigateUrlInterval is 4 seconds;
         //unmounted lifecycle
           ()=>{
             clearInterval(loadingInterval)

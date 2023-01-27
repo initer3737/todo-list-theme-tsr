@@ -1,3 +1,25 @@
+.filter-pause{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(8, 45, 54, .5);
+    /* background-color: rgba(66, 70, 71,.5); */
+    position: absolute;
+    inset: 0;
+    mix-blend-mode: darken;
+    transition: ease-in 1s;
+}
+.filter-continue{
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(8, 45, 54, .5);
+    position: absolute;
+    transition: ease-out 3s;
+    inset: 0;
+    opacity: 0;
+    /* transform: translateY(100vw); */
+}
+
 .pause-btn{
     position: absolute;
     top:20px;
@@ -71,7 +93,7 @@
 .disable{
     display: none;
 }
-.game-container{
+.pause-container{
     position: absolute;
     display: flex;
     background-color: blue;
@@ -80,8 +102,23 @@
     top:150px;
     left: 40vw;
     padding: 20px;
+    transform: translateY(-100vw);
+    transition: ease-out 2s;
 }
-.game-container a{  
+.pause-container-togled{
+    position: absolute;
+    display: flex;
+    background-color: blue;
+    flex-direction: column;
+    gap: 4px;
+    top:150px;
+    left: 40vw;
+    padding: 20px;
+    transform: translateY(0);
+    transition: ease-in 2s;
+}
+.pause-container-togled a,
+.pause-container a{  
     text-decoration: none;
     color: white;
     font-size: 30px;

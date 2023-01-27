@@ -7,7 +7,7 @@ import RatuBackend from '../../../../assets/ratuBackend.mp4'
 import RajaFrontend from '../../../../assets/rajaFrontend.mp4'
 import PadukaFullstek from '../../../../assets/padukaFullstek.mp4'
 import { useRecoilValue } from 'recoil'
-import'./todo.css'
+import'./game.css'
 import { CharsSelect } from '../../../../globalState'
 import { useMap } from '../../../../utils'
 import { Icon } from '../../../atoms'
@@ -25,7 +25,7 @@ function Game() {
   const [user,setUser]=useState<ILists>() 
   const token= Cookies.get('token')??''
   const [char,setChar]=useState()
-  const [pause,setPause]=useState<Boolean>(true)
+  const [pause,setPause]=useState<Boolean>(false)
   const chars=useRecoilValue(CharsSelect)
   const {id}=useParams()
   const filterDataChar=useMap(chars).filter(char=>char[1].id == id)
@@ -97,23 +97,28 @@ function Game() {
   return (
         <div>
           <video src={datachars[char || 'ratu']} autoPlay loop className='menu-video'></video>
+          <div className={`${pause?"filter-pause":'filter-continue'}`}></div>
           <div className={`link-wrapper pause-btn ${styleCharsPacks[char || 'ratu'].link}`}>
-              <h2 className={`title-game-pause ${styleCharsPacks[char || 'ratu'].pauseTitle}`}>
+              <h2 className={`title-game-pause ${styleCharsPacks[char || 'ratu'].pauseTitle}`} onClick={()=>setPause(true)}>
                 pause <Icon icon={'pause-circle'} name={''}/>
               </h2>
             </div>
-          <div className={`game-container ${styleCharsPacks[char || 'ratu'].card}`}>
+          <div className={`${pause?'pause-container-togled':'pause-container'}
+ ${styleCharsPacks[char || 'ratu'].card}`}>
             <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
               <h2 className={`title-game-pause ${styleCharsPacks[char || 'ratu'].pauseTitle}`}>paused <Icon icon={'pause-circle'} name={''}/></h2>
             </div>
             <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
-              <NavLink to={''} className={``}>
+              <NavLink to={''} className={``} onClick={(e:React.MouseEvent<HTMLAnchorElement, MouseEvent>)=>{
+                  e.preventDefault()
+                  setPause(false)
+              }}>
                 continue <Icon icon={'play-circle'} name={''}/>
               </NavLink>
             </div>
             <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
               <NavLink to={`/loading/${id}/menu`} className={``}>
-                back to main menu <Icon icon={'play-circle'} name={''}/>
+                back to main menu <Icon icon={'list'} name={''}/>
               </NavLink>
             </div>
             <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
