@@ -134,6 +134,11 @@ function CreditList() {
               </a>
             </div>
             <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>
+              <a href={'https://pixabay.com/sound-effects/water-splash-80537/'} target='_blank' className={''}>
+                splash
+              </a>
+            </div>
+            <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>
               <NavLink to={`/loading/${id}/menu`} className={''}>
                 back
               </NavLink>

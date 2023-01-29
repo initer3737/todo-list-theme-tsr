@@ -7,6 +7,7 @@
     inset: 0;
     mix-blend-mode: darken;
     transition: ease-in 1s;
+    z-index: 23;
 }
 .filter-continue{
     overflow: hidden;
@@ -86,8 +87,10 @@
 }
 .game-video{
     position: absolute;
-    /* width: 100vw; */
+    width: 100.6vw;
     height: 100vh;
+    object-fit: cover;
+    object-position: center;
     inset: 0;
 }
 .disable{
@@ -116,6 +119,7 @@
     padding: 20px;
     transform: translateY(0);
     transition: ease-in 2s;
+    z-index: 999;
 }
 .pause-container-togled a,
 .pause-container a{  
@@ -180,3 +184,59 @@
     background-color: rgba(155, 115, 52, 0.6) !important;
     box-shadow: 12px 12px 12px rgb(226, 180, 105)!important;
 }
+
+
+.game-container{
+    position: relative;
+    border: 2px solid white;
+    height: 70cqh;
+    margin: 45px 30px;
+}
+
+#target{
+    color: blue;
+    font-size: 2em;
+    cursor: pointer;
+}
+#targetpop{
+    transform: translateY(400px) translateX(1200px);    
+    color: blue;
+    position: absolute;
+    font-size: 2em;
+    cursor: pointer;
+}
+.game-point-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 21px;
+    padding: 8px;
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    gap: 145px;
+    left: 23px;
+}
+.game-point{
+    /* position: absolute; */
+    top: 15px;
+    left:4cqw;
+}
+.point-random{
+    transform: translateY(0px);
+    animation: toup infinite 3s;
+    transition: .5s ease-out;
+}
+
+@keyframes toup {
+    from{
+        transform: translateY(0px);
+    }
+    to{
+        transform: translateY(-23px);
+        opacity: 0;
+    }
+}
+
+/* .parent-game-container{
+    overflow-x: hidden;
+} */
