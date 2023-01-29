@@ -60,25 +60,24 @@ function Game() {
           console.log(err)
        }
   }
+  type acakProps={x:number,y:number,unit:string}
+  const acak=({x,y,unit}:acakProps)=>{
+      const randomize=(number:number)=>Math.floor(Math.random()*number)
+      const target=document.getElementById('target')
+      target?.style.setProperty('--translate-x',String(randomize(x)+unit))
+      target?.style.setProperty('--translate-y',String(randomize(y)+unit))
+        
+  }
   useEffect(()=>{
-    filterDataChar.map(char=>{
-      setChar(char[1].char_id)
-    })
-    // acak
-      type acakProps={x:number,y:number,unit:string}
-    const acak=({x,y,unit}:acakProps)=>{
-        const randomize=(number:number)=>Math.floor(Math.random()*number)
-      const target=document.getElementById('target')?.style
-        target!.position='absolute'
-        target!.transform=`translateY(${randomize(y)} ${unit}) translateX(${randomize(x)}) ${unit}`
-          
-    }
+
     const randPosition=setInterval(()=>{
-      acak({x:1200,y:400,unit:'px'})
-      // const target=document.getElementById('target')?.style
-      //   target!.position='absolute'
-      //   target!.transform=`translateY(${randomize(400)}) translateX(${randomize(1200)})`
-    },3000)
+          if(pause !== false){
+            acak({x:0,y:0,unit:'px'})  
+          }else{
+            acak({x:1200,y:400,unit:'px'})
+          }
+      
+        },1000)
                 audiotheme.volume=0.8
                 audiotheme.loop=true
                   audiotheme.play();
@@ -86,6 +85,12 @@ function Game() {
                         clearInterval(randPosition)
                         audiotheme.pause()
                       }
+  },[pause])
+  useEffect(()=>{
+    filterDataChar.map(char=>{
+      setChar(char[1].char_id)
+    })
+
       
   },[])
     // useEffect(()=>{

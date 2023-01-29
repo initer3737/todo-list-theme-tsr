@@ -194,11 +194,16 @@
 }
 
 #target{
+    --translate-x:0;
+    --translate-y:0;
     color:blue;
     background-color: blue ;
     font-size: 2em;
     cursor: pointer;
     box-shadow: 5px 6px 12px blue;
+    position: absolute;
+    /* transform: translateY(23px) translateX(34px); */
+    transform: translateY(var(--translate-y)) translateX(var(--translate-x));
 }
 .paduka-target{
     color:rgb(88, 201, 226) !important;
