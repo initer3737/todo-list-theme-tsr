@@ -9,11 +9,11 @@
     right: 12vw;
     top: 43px;
 }
-.menu-video{
+.kredit-video{
     position: absolute;
     width: 100vw;
     object-fit: cover;
-    height: 100vh;
+    height: 120vh;
     inset: 0;
 }
 .disable{

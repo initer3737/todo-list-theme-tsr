@@ -91,7 +91,7 @@ function CreditList() {
  //===========video chars
   return (
         <div>
-          <video src={datachars[char || 'ratu']} autoPlay loop className='menu-video'></video>
+          <video src={datachars[char || 'ratu']} autoPlay loop className='kredit-video'></video>
           <div className={`menu-container ${styleCharsPacks[char || 'ratu'].card}`}>
             <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>
               <p  className={`credit-text`}>
@@ -135,7 +135,12 @@ function CreditList() {
             </div>
             <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>
               <a href={'https://pixabay.com/sound-effects/water-splash-80537/'} target='_blank' className={''}>
-                splash
+                water splash
+              </a>
+            </div>
+            <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>
+              <a href={'https://www.youtube.com/watch?v=L2GRCLohdD4'} target='_blank' className={''}>
+                electrict splash
               </a>
             </div>
             <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>

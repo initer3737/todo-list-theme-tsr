@@ -1,6 +1,6 @@
 .filter-pause{
-    width: 100vw;
-    height: 100vh;
+    width: 100.6vw;
+    height: 110vh;
     background-color: rgba(8, 45, 54, .5);
     /* background-color: rgba(66, 70, 71,.5); */
     position: absolute;
@@ -11,8 +11,8 @@
 }
 .filter-continue{
     overflow: hidden;
-    width: 100vw;
-    height: 100vh;
+    width: 100.6vw;
+    height: 110vh;
     background-color: rgba(8, 45, 54, .5);
     position: absolute;
     transition: ease-out 3s;
@@ -88,7 +88,7 @@
 .game-video{
     position: absolute;
     width: 100.6vw;
-    height: 100vh;
+    height: 110vh;
     object-fit: cover;
     object-position: center;
     inset: 0;
@@ -194,17 +194,64 @@
 }
 
 #target{
-    color: blue;
+    color:blue;
+    background-color: blue ;
     font-size: 2em;
     cursor: pointer;
+    box-shadow: 5px 6px 12px blue;
 }
-#targetpop{
-    transform: translateY(400px) translateX(1200px);    
-    color: blue;
-    position: absolute;
-    font-size: 2em;
-    cursor: pointer;
+.paduka-target{
+    color:rgb(88, 201, 226) !important;
+    background-color: rgba(62, 131, 146, 0.6) !important;
+    box-shadow: 5px 6px 12px rgba(103,186,204,.6) !important;
+    animation: paduka-target;
+    animation-iteration-count: infinite;
+    animation-duration: .9s;
+    animation-delay: .5s;
 }
+@keyframes paduka-target{
+    from{
+        background-color: rgba(62, 131, 146, 0.6) ;
+    }
+    to{
+        background-color: rgba(149, 193, 207, 0.6) ;
+    }
+}
+.ratu-target{
+    color:rgb(217, 184, 228) !important;
+    background-color: rgba(92, 21, 116) !important;
+    box-shadow: 5px 6px 12px rgba(92, 21, 116) !important;
+    animation:ratu-target;
+    animation-iteration-count: infinite;
+    animation-duration: .9s;
+    animation-delay: .5s;
+}
+@keyframes ratu-target{
+    from{
+        background-color: rgba(92, 21, 116) !important ;
+    }
+    to{
+        background-color: rgb(138, 52, 167) !important ;
+    }
+}
+.raja-target{
+    color:rgb(247, 241, 233) !important;
+    background-color: rgba(158, 117, 51, 0.6) !important;
+    box-shadow: 5px 6px 12px rgb(131, 87, 18) !important;
+    animation: raja-target;
+    animation-iteration-count: infinite;
+    animation-duration: .9s;
+    animation-delay: .5s;
+}
+@keyframes raja-target{
+    from{
+        background-color: rgba(155, 115, 52, 0.6) !important ;
+    }
+    to{
+        background-color: rgba(12, 9, 5, 0.6) !important ;
+    }
+}
+.disable-click{pointer-events: none;}
 .game-point-container{
     position: relative;
     display: flex;

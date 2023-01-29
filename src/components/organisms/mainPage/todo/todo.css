@@ -7,9 +7,11 @@
 }
 .menu-video{
     position: absolute;
-    /* width: 100vw; */
+    width: 100vw;
     height: 100vh;
     inset: 0;
+    object-fit: cover;
+    object-position: center;
 }
 .disable{
     display: none;
