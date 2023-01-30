@@ -1,5 +1,5 @@
 import {Home} from "./mainPage/";
-import { Todo ,ChangeChar,Loading,Game} from "./mainPage/";
+import { Todo ,ChangeChar,Loading,Game,Setting} from "./mainPage/";
 import { Login } from "./auth";
 export {
     Home,
@@ -7,5 +7,6 @@ export {
     Login,
     ChangeChar,
     Loading,
-    Game
+    Game,
+    Setting
 }

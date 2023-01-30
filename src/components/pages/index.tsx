@@ -4,7 +4,8 @@ import { ShowChar } from "./show";
 import { 
     Home ,
     Loading,
-    Game
+    Game,
+    Setting
 } from "./mainPage";
 // =========================exports==section================
 export {
@@ -13,5 +14,6 @@ export {
     Login,
     ShowChar,
     Loading,
-    Game
+    Game,
+    Setting
 }

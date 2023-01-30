@@ -1,33 +1,48 @@
-.filter-pause{
+.setting-title{
+    z-index: 123;
+}
+.user-info-settings{
+    left: 25px !important;
+}
+.user-settings,
+.user-info-settings{
+    color:white;
+    font-size: 21px;
+    position: absolute;
+    left: 70vw;
+    top: 150px;
+}
+.user-setting-img{
+    width: 9cqw;
+    position: absolute;
+    top:0;
+    left: 50%;
+    transform: translateY(-55px);
+    border: 3px solid white;
+    border-radius: 150px;
+    background-color: blue;
+    cursor: pointer;
+}
+.filter-setting{
     width: 100.6vw;
     height: 110vh;
     background-color: rgba(8, 45, 54, .5);
     /* background-color: rgba(66, 70, 71,.5); */
     position: absolute;
     inset: 0;
-    mix-blend-mode: darken;
+    mix-blend-mode: initial;
     transition: ease-in 1s;
     z-index: 23;
 }
-.filter-continue{
-    overflow: hidden;
-    width: 100.6vw;
-    height: 110vh;
-    background-color: rgba(8, 45, 54, .5);
-    position: absolute;
-    transition: ease-out 3s;
-    inset: 0;
-    opacity: 0;
-    /* transform: translateY(100vw); */
-}
 
-.pause-btn{
+.back-btn{
     position: absolute;
     top:20px;
     right:10px;
     border: 1px solid white;
     border-radius: 6px;
     cursor: pointer;
+    z-index: 140;
 }
 .title-game-pause{
     color: whitesmoke;
@@ -186,29 +201,12 @@
 }
 
 
-.game-container{
+.setting-container{
     position: relative;
     border: 2px solid white;
     height: 72vh;
     margin: 45px 30px;
-}
-#blastingEvent{
-    background-color: blue;
-    color: white;
-    display: inline;
-    padding:6px;
-}
-#target{
-    --translate-x:0;
-    --translate-y:0;
-    color:blue;
-    background-color: blue ;
-    font-size: 2em;
-    cursor: pointer;
-    box-shadow: 5px 6px 12px blue;
-    position: absolute;
-    /* transform: translateY(23px) translateX(34px); */
-    transform: translateY(var(--translate-y)) translateX(var(--translate-x));
+    z-index: 99;
 }
 .paduka-target{
     color:rgb(88, 201, 226) !important;
@@ -216,8 +214,8 @@
     box-shadow: 5px 6px 12px rgba(103,186,204,.6) !important;
     animation: paduka-target;
     animation-iteration-count: infinite;
-    /* animation-duration: 3s; */
-    /* animation-delay: .5s; */
+    animation-duration: .9s;
+    animation-delay: .5s;
 }
 @keyframes paduka-target{
     from{
@@ -233,8 +231,8 @@
     box-shadow: 5px 6px 12px rgba(92, 21, 116) !important;
     animation:ratu-target;
     animation-iteration-count: infinite;
-    /* animation-duration: .9s;
-    animation-delay: .5s; */
+    animation-duration: .9s;
+    animation-delay: .5s;
 }
 @keyframes ratu-target{
     from{
@@ -250,8 +248,8 @@
     box-shadow: 5px 6px 12px rgb(131, 87, 18) !important;
     animation: raja-target;
     animation-iteration-count: infinite;
-    /* animation-duration: .9s;
-    animation-delay: .5s; */
+    animation-duration: .9s;
+    animation-delay: .5s;
 }
 @keyframes raja-target{
     from{
@@ -259,38 +257,6 @@
     }
     to{
         background-color: rgba(12, 9, 5, 0.6) !important ;
-    }
-}
-.disable-click{pointer-events: none;}
-.game-point-container{
-    position: relative;
-    display: flex;
-    align-items: center;
-    font-size: 21px;
-    padding: 8px;
-    color: white;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    gap: 145px;
-    left: 23px;
-}
-.game-point{
-    /* position: absolute; */
-    top: 15px;
-    left:4cqw;
-}
-.point-random{
-    transform: translateY(0px);
-    animation: toup infinite 3s;
-    transition: .5s ease-in;
-}
-
-@keyframes toup {
-    from{
-        transform: translateY(0px);
-    }
-    to{
-        transform: translateY(-23px);
-        opacity: 0;
     }
 }
 
