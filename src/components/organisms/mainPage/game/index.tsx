@@ -68,6 +68,15 @@ function Game() {
       target?.style.setProperty('--translate-y',String(randomize(y)+unit))
         
   }
+  const blastingCursor=()=>{
+    const blasting=document.getElementById('blastingEvent')
+        document.onmousemove=(e:MouseEvent)=>{
+            blasting!.style.left=(e.pageX-15)+'px';
+            blasting!.style.top=(e.pageY-122)+'px';
+            blasting!.style.position='absolute'
+            blasting!.style.display=pop===true?'block':'none'
+        } 
+  }
   useEffect(()=>{
 
     const randPosition=setInterval(()=>{
@@ -163,6 +172,7 @@ function Game() {
   paduka:PadukaFullstek,
 }
  //===========video chars
+ blastingCursor();  
   return (
         <div className='parent-game-container'>
           <video src={datachars[char || 'ratu']} autoPlay loop muted className='game-video'></video>
@@ -170,7 +180,7 @@ function Game() {
           {/* point */}
             <div className="game-point-container">
               <h4 className={`game-point`}>score : {point}</h4>
-              <h4 className={`point-random ${pop==true?'':'d-none'} ${styleCharsPacks[char || 'ratu'].target}`}>{randPoint} {status}</h4>
+              {/* <h4 className={`point-random ${pop==true?'':'d-none'} ${styleCharsPacks[char || 'ratu'].target}`}>{randPoint} {status}</h4> */}
             </div>
           {/* pause btn */}
           <div className={`link-wrapper pause-btn ${styleCharsPacks[char || 'ratu'].link}`}>
@@ -215,8 +225,9 @@ function Game() {
                    const popTimeout=setTimeout(()=>{
                       setPop(false)
                    },2000)
-                }}
-              />
+                }}/>
+                  <h4 className={`point-random ${pop==true?'':'d-none'} ${styleCharsPacks[char || 'ratu'].target}`} id='blastingEvent'>{randPoint} {status}</h4>
+                  {/* <h3 id='blastingEvent'>hello</h3> */}
            </div>
         </div>
   )

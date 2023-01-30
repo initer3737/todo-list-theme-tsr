@@ -189,10 +189,15 @@
 .game-container{
     position: relative;
     border: 2px solid white;
-    height: 70cqh;
+    height: 72vh;
     margin: 45px 30px;
 }
-
+#blastingEvent{
+    background-color: blue;
+    color: white;
+    display: inline;
+    padding:6px;
+}
 #target{
     --translate-x:0;
     --translate-y:0;
@@ -276,7 +281,7 @@
 .point-random{
     transform: translateY(0px);
     animation: toup infinite 3s;
-    transition: .5s ease-out;
+    transition: .5s ease-in;
 }
 
 @keyframes toup {

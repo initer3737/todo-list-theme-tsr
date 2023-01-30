@@ -48,6 +48,8 @@ function App() {
         <Route path="/loading/:id/:url" element={<Loading/>}/>  
         <Route path="/kredit/list/:id" element={<CreditList/>}/>  
         <Route path="/char/change/:id" element={<ChangeChar/>}/>  
+        <Route path="/char/setting/:id" element={<ChangeChar/>}/>  
+        <Route path="/char/show/:playername/:id" element={<ChangeChar/>}/>  
           {/* <Route element={<Middleware/>} >
             <Route path="/list/:id" element={<Todo/>}/>
           </Route> */}
