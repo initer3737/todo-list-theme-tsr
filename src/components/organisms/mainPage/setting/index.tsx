@@ -57,7 +57,7 @@ function Setting() {
 
                 audiotheme.volume=0.8
                 audiotheme.loop=true
-                  audiotheme.play();
+                  // audiotheme.play();
                 return ()=>{
                         audiotheme.pause()
                       }
@@ -101,19 +101,22 @@ function Setting() {
           card:'RajaFrontendCard',
           link:'RajaFrontendLinkMenu',
           pauseTitle:'pauseTitle-raja',
-          target:'raja-target'
+          target:'raja-target',
+          profile:'raja-profile'
       },
       ratu:{
           card:'RatuBackendCard',
           link:'RatuBackendLinkMenu',
           pauseTitle:'pauseTitle-ratu',
-          target:'ratu-target'
+          target:'ratu-target',
+          profile:'ratu-profile'
       },
       paduka:{
           card:'PadukaFullstekCard',
           link:'PadukaFullstekLinkMenu',
           pauseTitle:'pauseTitle-paduka',
-          target:'paduka-target'
+          target:'paduka-target',
+          profile:'paduka-profile'
       } 
     }
  //============char style 
@@ -141,25 +144,41 @@ function Setting() {
             </div>
             {/* pause menu */}
 
-           {/* game */}
-           <div className="setting-container">
-              <img src={userImg} alt="image" className="user-setting-img"/>
+           {/* settings */}
+           <form action="" onSubmit={(e:React.FormEvent<HTMLFormElement>)=>{
+                  e.preventDefault()
+                }}>
+           <div className={`setting-container ${styleCharsPacks[char || 'ratu'].target}`}>
+              <img src={userImg} alt="image" className={`user-setting-img ${styleCharsPacks[char || 'ratu'].profile}`} onClick={()=>{
+                  document.getElementById('foto')?.click()
+              }}/>
               <ul className='user-settings'>
-                <li>name : <input type="text" /></li>
-                <li>username : <input type="text" /></li>
-                <li>password : <input type="text" /></li>
-                <li>status : <input type="text" /></li>
-                <li><button>simpan</button></li>
+                <li>name : <input type="text" required/></li>
+                <li>username : <input type="text" required/></li>
+                <li>password : <input type="text" required/></li>
+                <li>status : <input type="text" required /></li>
+                <li> level : 
+                  <select name="levels" id="levels">
+                     <option value="rotten egg" selected>rotten egg</option>
+                     <option value="not yet mature" >not yet mature</option>
+                     <option value="not bad noob" >not bad noob</option>
+                     <option value="godong gedang" >godong gedang</option>
+                  </select>
+                </li>
+                <li><input type="file" name="foto" id="foto" className='d-none' accept='image/*'/></li>
+                <li><button className={`btn-simpan ${styleCharsPacks[char || 'ratu'].pauseTitle}`} >simpan</button></li>
               </ul>
               <ul className='user-info-settings'>
                 <li>name : papacom</li>
                 <li>username : yotsusan_machi</li>
                 <li>password : its secret</li>
                 <li>status : i want to conquere isekai</li>
+                <li>level : rotten egg</li>
               </ul>
 
     
            </div>
+           </form>
         </div>
   )
 }

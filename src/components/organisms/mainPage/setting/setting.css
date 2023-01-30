@@ -1,11 +1,31 @@
+.btn-simpan{
+    font-size: 18px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 5px 12px;
+    border-radius: 12px 32px 12px 32px;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    /* border: 2px solid white; */
+    box-shadow: 12px 12px 14px white;
+    transform: translateX(100px) translateY(66px);
+    /* position: absolute; */
+
+}
 .setting-title{
     z-index: 123;
+}
+.user-settings{
+    gap:2px;
 }
 .user-info-settings{
     left: 25px !important;
 }
 .user-settings,
 .user-info-settings{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
     color:white;
     font-size: 21px;
     position: absolute;
@@ -227,7 +247,7 @@
 }
 .ratu-target{
     color:rgb(217, 184, 228) !important;
-    background-color: rgba(92, 21, 116) !important;
+    background-color: rgba(92, 21, 116,.6) !important;
     box-shadow: 5px 6px 12px rgba(92, 21, 116) !important;
     animation:ratu-target;
     animation-iteration-count: infinite;
@@ -260,6 +280,21 @@
     }
 }
 
+.paduka-profile{
+    border-color:rgb(160, 229, 245) !important;
+    background-color: rgba(16, 51, 59, 0.6) !important;
+    box-shadow: 5px 6px 12px rgba(17, 45, 51, 0.6) !important;
+}
+.raja-profile{
+    border-color:rgb(184, 157, 108) !important;
+    background-color: rgba(70, 53, 27, 0.6) !important;
+    box-shadow: 5px 6px 12px rgb(85, 64, 29) !important;
+}
+.ratu-profile{
+    border-color:rgb(217, 184, 228) !important;
+    background-color: rgba(92, 21, 116) !important;
+    box-shadow: 5px 6px 12px rgba(92, 21, 116) !important;
+}
 /* .parent-game-container{
     overflow-x: hidden;
 } */
