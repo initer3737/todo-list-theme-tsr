@@ -12,7 +12,8 @@ import {
   ShowChar,
   Loading,
   Game,
-  Setting
+  Setting,
+  UserInfo
 } from "./components/pages"
 import {
   Footer,
@@ -49,8 +50,8 @@ function App() {
         <Route path="/loading/:id/:url" element={<Loading/>}/>  
         <Route path="/kredit/list/:id" element={<CreditList/>}/>  
         <Route path="/char/change/:id" element={<ChangeChar/>}/>  
-        <Route path="/char/setting/:id" element={<Setting/>}/>  
-        <Route path="/char/show/:playername/:id" element={<ChangeChar/>}/>  
+        <Route path="/user/setting/:id" element={<Setting/>}/>  
+        <Route path="/user/show/:playername/:id" element={<UserInfo/>}/>  
           {/* <Route element={<Middleware/>} >
             <Route path="/list/:id" element={<Todo/>}/>
           </Route> */}

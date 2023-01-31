@@ -35,3 +35,13 @@
     background-color: rgb(221, 206, 206);
     color: rgb(133, 130, 130);
 }
+.btn-back-404{
+    cursor: pointer;
+    border: 2px solid white;
+    width: 124px;
+}
+.btn-back-404:hover{
+    box-shadow:12px 12px 42px rgb(230, 156, 156);
+    background-color: rgb(141, 139, 139);
+    transition: ease-in-out .5s;
+}

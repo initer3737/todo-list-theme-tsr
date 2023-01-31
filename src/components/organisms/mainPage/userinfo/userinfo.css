@@ -1,3 +1,6 @@
+.emblem{
+    width: 4vw;
+}
 .btn-simpan{
     font-size: 18px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -21,61 +24,42 @@
 .user-info-settings{
     left: 25px !important;
 }
-.user-settings input{
-    padding: 4px 4px;
-    border-radius: 6px;
-    /* outline-color: white; */
-    box-shadow: 2px 1px 6px white;
-}
-.user-settings li input,
-.user-settings li select{
-    /* gap: 25px; */
-    margin-bottom: 8px;
-}
-.user-settings select{
-    padding: 7px 36px;
-    outline-style: none;
-    border-radius: 8px;
-    /* transition: ease-in-out .5s; */
-}
-.user-info-settings li span:last-child{
-    text-align: left;
-    display: flex;
-}
-.user-info-settings li p{
-    width:400px;
-    height: 3.75vh;
-    margin-left: 12px;
-}
-.user-settings li,
-.user-info-settings li{
+.user-info li{
     display: flex;
     align-items: center;
-    align-content: center;
     justify-content: space-between;
     gap: 23px;
 }
-.user-settings,
-.user-info-settings{
+.user-info{
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    margin:50px 120px;
+    gap: 30px;
     list-style: none;
     color:white;
-    font-size: 21px;
-    position: absolute;
-    left: 60%;
-    top: 150px;
+    font-size: 30px;
+    /* position: absolute;
+    left: 70vw;
+    top: 150px; */
 }
-.user-setting-img{
-    width: 9cqw;
+.user-info-title{
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    font-size: 23px;
+    color: white;
+    list-style: none;
     position: absolute;
-    top:0;
-    left: 50%;
-    transform: translateY(-55px);
+    transform: translateY(-54px) translateX(290px);
+}
+.user-info-img{
+    width: 9cqw;
+    /* position: absolute; */
+    /* top:0; */
+    transform: translateY(25px) translateX(55px);
     border: 3px solid white;
     border-radius: 150px;
     background-color: blue;
-    cursor: pointer;
 }
 .filter-setting{
     width: 100.6vw;

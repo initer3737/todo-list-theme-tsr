@@ -114,7 +114,7 @@ function Todo() {
               </NavLink>
             </div>
             <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
-              <NavLink to={`/loading/${id}/char&setting`} className={''}>
+              <NavLink to={`/loading/${id}/user&setting`} className={''}>
                 settings
               </NavLink>
             </div>

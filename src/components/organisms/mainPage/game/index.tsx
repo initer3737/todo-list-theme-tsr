@@ -208,7 +208,7 @@ function Game() {
               </NavLink>
             </div>
             <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
-              <NavLink to={`/loading/${id}/char&change`} className={''}>
+              <NavLink to={`/loading/${id}/user&setting`} className={''}>
                 settings <Icon icon={'gear'} name={''}/>
               </NavLink>
             </div>

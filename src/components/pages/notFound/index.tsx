@@ -1,11 +1,12 @@
 import React from 'react'
 import './notFound.css'
 import RajaFrontend from '../../../assets/rajaFrontend.mp4'
-import { NavLink ,useParams } from 'react-router-dom'
+import { NavLink ,useParams ,useNavigate} from 'react-router-dom'
 import { RouterSmooth } from '../../../services'
 //====================================================
 export default function NotFound() {
     const {id}=useParams()
+    const navigate=useNavigate()
   return (
     <RouterSmooth>
       <video src={RajaFrontend} loop autoPlay className='notFoundvideo'></video>
@@ -16,9 +17,9 @@ export default function NotFound() {
         <p>
           content you are search was not found in this page
         </p>
-        <NavLink to={`/loading/${id}/home`}>
+        <h5 onClick={()=>navigate(-1)} className={'btn-back-404'}>
            Go Back 
-        </NavLink>
+        </h5>
       </div>
     </RouterSmooth>
   )

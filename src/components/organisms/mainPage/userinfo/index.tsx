@@ -7,8 +7,9 @@ import RatuBackend from '../../../../assets/ratuBackend.mp4'
 import RajaFrontend from '../../../../assets/rajaFrontend.mp4'
 import PadukaFullstek from '../../../../assets/padukaFullstek.mp4'
 import userImg from '../../../../assets/user.png'
+import emblem from '../../../../assets/emblem.svg'
 import { useRecoilValue } from 'recoil'
-import'./setting.css'
+import'./userinfo.css'
 import { CharsSelect } from '../../../../globalState'
 import { useMap } from '../../../../utils'
 import { Icon } from '../../../atoms'
@@ -27,7 +28,7 @@ import theme5 from '../../../../assets/simple-piano-melody-9834.mp3'
    data:Tdata,
  }
 //============
-function Setting() {
+function UserInfo() {
   const [user,setUser]=useState<ILists>() 
   const token= Cookies.get('token')??''
   const [char,setChar]=useState()
@@ -133,45 +134,38 @@ function Setting() {
           <div className={`filter-setting`}></div>
           {/* point */}
             <div className="game-point-container">
-              <h4 className={`setting-title`}><Icon icon='gear-wide-connected' name={''}>settings</Icon> </h4>
+              <h4 className={`setting-title`}><Icon icon='person-bounding-box' name={''}>user info</Icon> </h4>
               {/* <h4 className={`point-random ${pop==true?'':'d-none'} ${styleCharsPacks[char || 'ratu'].target}`}>{randPoint} {status}</h4> */}
             </div>
           {/* pause btn */}
           <div className={`link-wrapper back-btn ${styleCharsPacks[char || 'ratu'].link}`}>
-              <h2 className={`title-game-pause ${styleCharsPacks[char || 'ratu'].pauseTitle}`} onClick={()=>navigate(-3)}>
+              <h2 className={`title-game-pause ${styleCharsPacks[char || 'ratu'].pauseTitle}`} onClick={()=>navigate(-1)}>
                 back <Icon icon={'back'} name={''}/>
               </h2>
             </div>
             {/* pause menu */}
 
-           {/* settings */}
-           <form action="" onSubmit={(e:React.FormEvent<HTMLFormElement>)=>{
-                  e.preventDefault()
-                }}>
+           {/* user info */}
            <div className={`setting-container ${styleCharsPacks[char || 'ratu'].target}`}>
-              <img src={userImg} alt="image" className={`user-setting-img ${styleCharsPacks[char || 'ratu'].profile}`} onClick={()=>{
-                  document.getElementById('foto')?.click()
-              }}/>
-              <ul className='user-settings'>
-                <li><span>name : </span> <input type="text" required/></li>
-                <li><span>username :</span> <input type="text" required/></li>
-                <li><span>password :</span> <input type="text" required/></li>
-                <li><span>status :</span> <input type="text" required /></li>
-                <li><input type="file" name="foto" id="foto" className='d-none' accept='image/*'/></li>
-                <li><button className={`btn-simpan ${styleCharsPacks[char || 'ratu'].pauseTitle}`} >simpan</button></li>
-              </ul>
-              <ul className='user-info-settings'>
-                <li><span>name :</span> <p>yotsu</p></li>
-                <li><span>username :</span> <p>yotsusan_machi</p></li>
-                <li><span>password :</span> <p>its secret</p></li>
-                <li><span>status :</span> <p>LDV tech company</p></li>
+              <img src={userImg} alt="image" className={`user-info-img ${styleCharsPacks[char || 'ratu'].profile}`}/>
+                <ul className='user-info-title'>
+                  <li><Icon icon={'person-fill'} name={''} />yotsu</li>
+                  <li><Icon icon={'person-fill-lock'} name={''} />yotsusan_machi</li>
+                  <li><Icon icon={'flag-fill'} name={''} />indonesia</li>
+                  <li><Icon icon={'gender-male'} name={''} /></li>
+                </ul>
+              <hr />
+              <ul className='user-info'>
+                <li><Icon icon={'bezier2'} name={''} /> LDV tech company</li>
+                <li><img src={emblem} alt="emblem" className='emblem'/> roten egg</li>
+                <li><Icon icon={'exclude'} name={''} /> global ranks : 1</li>
+                <li><Icon icon={'fan'} name={'245'} /></li>
               </ul>
 
     
            </div>
-           </form>
         </div>
   )
 }
 
-export {Setting}
+export {UserInfo}

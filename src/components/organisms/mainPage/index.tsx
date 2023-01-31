@@ -4,6 +4,7 @@ import { ChangeChar } from "./changeChar";
 import { Loading } from "./loading";
 import { Game } from "./game";
 import { Setting } from "./setting";
+import { UserInfo } from "./userinfo";
 //=================================
 export{
     Home,
@@ -11,5 +12,6 @@ export{
     ChangeChar,
     Loading,
     Game,
-    Setting
+    Setting,
+    UserInfo
 }
