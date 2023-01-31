@@ -38,7 +38,7 @@ function App() {
       <div className="app__container">
       <div className="">
         <div className="bg-4">
-          <Nav />
+          {/* <Nav /> */}
         </div>
       <AnimatePresence exitBeforeEnter={true}>
       <Routes key={location.pathname} location={location}>
@@ -47,6 +47,7 @@ function App() {
         <Route path="/login/:id" element={<Login/>}/>
         <Route path="/menu/:id" element={<Todo/>}/>  
         <Route path="/game/:id" element={<Game/>}/>  
+        <Route path="/lobby/:id" element={<Game/>}/>  
         <Route path="/loading/:id/:url" element={<Loading/>}/>  
         <Route path="/kredit/list/:id" element={<CreditList/>}/>  
         <Route path="/char/change/:id" element={<ChangeChar/>}/>  
@@ -60,7 +61,7 @@ function App() {
       </Routes>
       </AnimatePresence>
       </div>
-      <Footer/>
+      {/* <Footer/> */}
       </div>
     // {/* </AnimatePresence> */}
   )

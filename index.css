@@ -41,3 +41,10 @@ html ,body{
 .text-center{
     text-align: center;
 }
+
+.online{
+    color: rgb(48, 241, 48) !important;
+}
+.offline{
+    color: red !important;
+}

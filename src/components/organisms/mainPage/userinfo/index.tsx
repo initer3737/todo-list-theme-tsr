@@ -152,6 +152,7 @@ function UserInfo() {
                   <li><Icon icon={'person-fill'} name={''} />yotsu</li>
                   <li><Icon icon={'person-fill-lock'} name={''} />yotsusan_machi</li>
                   <li><Icon icon={'flag-fill'} name={''} />indonesia</li>
+                  <li><Icon icon={'circle-fill online'} name={''} />online</li>
                   <li><Icon icon={'gender-male'} name={''} /></li>
                 </ul>
               <hr />
@@ -159,7 +160,7 @@ function UserInfo() {
                 <li><Icon icon={'bezier2'} name={''} /> LDV tech company</li>
                 <li><img src={emblem} alt="emblem" className='emblem'/> roten egg</li>
                 <li><Icon icon={'exclude'} name={''} /> global ranks : 1</li>
-                <li><Icon icon={'fan'} name={'245'} /></li>
+                <li><Icon icon={'fan'} name={''}/>245</li>
               </ul>
 
     

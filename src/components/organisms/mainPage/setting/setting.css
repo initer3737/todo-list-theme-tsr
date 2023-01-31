@@ -36,6 +36,7 @@
     padding: 7px 36px;
     outline-style: none;
     border-radius: 8px;
+    width: 14vw;
     /* transition: ease-in-out .5s; */
 }
 .user-info-settings li span:last-child{
@@ -64,7 +65,7 @@
     font-size: 21px;
     position: absolute;
     left: 60%;
-    top: 150px;
+    top: 20vh;
 }
 .user-setting-img{
     width: 9cqw;

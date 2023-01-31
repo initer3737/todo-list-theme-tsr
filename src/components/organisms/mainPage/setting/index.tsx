@@ -157,6 +157,14 @@ function Setting() {
                 <li><span>username :</span> <input type="text" required/></li>
                 <li><span>password :</span> <input type="text" required/></li>
                 <li><span>status :</span> <input type="text" required /></li>
+                <li><span>country :</span> <input type="text" required /></li>
+                <li>
+                  <span>gender :</span> 
+                  <select name="" id="">
+                    <option value="" selected>male</option>
+                    <option value="">female</option>
+                  </select>
+                </li>
                 <li><input type="file" name="foto" id="foto" className='d-none' accept='image/*'/></li>
                 <li><button className={`btn-simpan ${styleCharsPacks[char || 'ratu'].pauseTitle}`} >simpan</button></li>
               </ul>
@@ -165,6 +173,8 @@ function Setting() {
                 <li><span>username :</span> <p>yotsusan_machi</p></li>
                 <li><span>password :</span> <p>its secret</p></li>
                 <li><span>status :</span> <p>LDV tech company</p></li>
+                <li><span>country :</span> <p>indonesia</p></li>
+                <li><span>gender :</span> <p>male</p></li>
               </ul>
 
     
