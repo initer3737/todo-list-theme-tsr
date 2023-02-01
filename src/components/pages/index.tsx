@@ -6,7 +6,8 @@ import {
     Loading,
     Game,
     Setting,
-    UserInfo
+    UserInfo,
+    Lobby
 } from "./mainPage";
 // =========================exports==section================
 export {
@@ -17,5 +18,6 @@ export {
     Loading,
     Game,
     Setting,
-    UserInfo
+    UserInfo,
+    Lobby
 }

@@ -13,7 +13,8 @@ import {
   Loading,
   Game,
   Setting,
-  UserInfo
+  UserInfo,
+  Lobby
 } from "./components/pages"
 import {
   Footer,
@@ -47,7 +48,7 @@ function App() {
         <Route path="/login/:id" element={<Login/>}/>
         <Route path="/menu/:id" element={<Todo/>}/>  
         <Route path="/game/:id" element={<Game/>}/>  
-        <Route path="/lobby/:id" element={<Game/>}/>  
+        <Route path="/lobby/:id" element={<Lobby/>}/>  
         <Route path="/loading/:id/:url" element={<Loading/>}/>  
         <Route path="/kredit/list/:id" element={<CreditList/>}/>  
         <Route path="/char/change/:id" element={<ChangeChar/>}/>  
