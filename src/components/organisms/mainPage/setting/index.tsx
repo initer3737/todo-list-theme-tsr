@@ -102,21 +102,24 @@ function Setting() {
           link:'RajaFrontendLinkMenu',
           pauseTitle:'pauseTitle-raja',
           target:'raja-target',
-          profile:'raja-profile'
+          profile:'raja-profile',
+          filter:'filter-raja'
       },
       ratu:{
           card:'RatuBackendCard',
           link:'RatuBackendLinkMenu',
           pauseTitle:'pauseTitle-ratu',
           target:'ratu-target',
-          profile:'ratu-profile'
+          profile:'ratu-profile',
+          filter:'filter-ratu'
       },
       paduka:{
           card:'PadukaFullstekCard',
           link:'PadukaFullstekLinkMenu',
           pauseTitle:'pauseTitle-paduka',
           target:'paduka-target',
-          profile:'paduka-profile'
+          profile:'paduka-profile',
+          filter:'filter-paduka'
       } 
     }
  //============char style 
@@ -130,7 +133,7 @@ function Setting() {
   return (
         <div className='parent-setting-container'>
           <video src={datachars[char || 'ratu']} autoPlay loop muted className='game-video'></video>
-          <div className={`filter-setting`}></div>
+          <div className={`filter-setting ${styleCharsPacks[char || 'ratu'].filter}`}></div>
           {/* point */}
             <div className="game-point-container">
               <h4 className={`setting-title`}><Icon icon='gear-wide-connected' name={''}>settings</Icon> </h4>
@@ -177,7 +180,24 @@ function Setting() {
                 <li><span>gender :</span> <p>male</p></li>
               </ul>
 
-    
+                <div className="jajar-wrapper-kiri-atas">
+                  <div className="jajar-genjang"></div>
+                </div>
+                <div className="jajar-wrapper-kiri-bawah">
+                  <div className="jajar-genjang"></div>
+                </div>
+                <div className="jajar-wrapper-kanan-atas">
+                  <div className="jajar-genjang"></div>
+                </div>
+                <div className="jajar-wrapper-kanan-bawah">
+                  <div className="jajar-genjang"></div>
+                </div>
+                <div className="jajar-wrapper-atas">
+                  <div className="jajar-genjang"></div>
+                </div>
+                <div className={`jajar-wrapper-bawah`}>
+                  <div className="jajar-genjang"></div>
+                </div>
            </div>
            </form>
         </div>

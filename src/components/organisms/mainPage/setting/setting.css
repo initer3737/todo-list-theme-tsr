@@ -72,7 +72,7 @@
     position: absolute;
     top:0;
     left: 50%;
-    transform: translateY(-55px);
+    transform: translateY(45px) translateX(-165px);
     border: 3px solid white;
     border-radius: 150px;
     background-color: blue;
@@ -257,6 +257,7 @@
 
 
 .setting-container{
+    overflow: hidden;
     position: relative;
     border: 2px solid white;
     height: 72vh;
@@ -333,3 +334,81 @@
 /* .parent-game-container{
     overflow-x: hidden;
 } */
+.jajar-genjang::before,
+.jajar-genjang::after{
+    content: '';
+    border: 3px solid white;
+    width: 30px;
+    height: 30px;
+}
+.jajar-genjang::before{
+    position: absolute;
+    transform: translateY(-2px);
+}
+.jajar-genjang::after{
+    position: absolute;
+    transform: translateX(8px) translateY(7px);
+}
+.jajar-genjang{
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    transform: translateX(-6px);
+    /* background-color: white; */
+    border: 3px solid;
+    width: 30px;
+    height: 30px;
+
+}
+.jajar-wrapper-kiri-atas{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.jajar-wrapper-kiri-bawah{
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    transform: rotate(630deg);
+}
+.jajar-wrapper-kanan-atas{
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: rotate(89deg);
+}
+.jajar-wrapper-kanan-bawah{
+    position: absolute;
+    right: 0;
+    bottom: 0px;
+    transform: rotate(180deg);
+}
+.jajar-wrapper-atas{
+    position: absolute;
+    right: 40vw;
+    top: 20px;
+    transform: rotate(130deg);
+    box-shadow: 12px -12px 15px silver;
+    animation: kelip-jajar-genjang .9s infinite;
+    animation-delay: 4s;
+}
+.jajar-wrapper-bawah{
+    position: absolute;
+    right: 40vw;
+    bottom: 40px;
+    transform: rotate(130deg);
+    /* background-color: white; */
+    box-shadow: 12px -12px 15px silver;
+    animation: kelip-jajar-genjang .9s infinite;
+}
+
+@keyframes kelip-jajar-genjang {
+    from{
+        /* background-color: white; */
+        /* box-shadow: 12px -12px 15px silver; */
+    }
+    to{
+        /* background-color: silver; */
+        box-shadow: 12px -12px 15px white;
+    }
+}

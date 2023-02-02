@@ -103,16 +103,18 @@ function Lobby() {
           link:'RajaFrontendLinkMenu',
           pauseTitle:'pauseTitle-raja',
           target:'raja-target',
-          border:'paduka-border',
-          profile:'raja-profile'
+          border:'raja-border',
+          profile:'raja-profile',
+          filter:'filter-raja'
       },
       ratu:{
           card:'RatuBackendCard',
           link:'RatuBackendLinkMenu',
           pauseTitle:'pauseTitle-ratu',
           target:'ratu-target',
-          border:'paduka-border',
-          profile:'ratu-profile'
+          border:'ratu-border',
+          profile:'ratu-profile',
+          filter:'filter-ratu'
       },
       paduka:{
           card:'PadukaFullstekCard',
@@ -120,7 +122,8 @@ function Lobby() {
           pauseTitle:'pauseTitle-paduka',
           target:'paduka-target',
           border:'paduka-border',
-          profile:'paduka-profile'
+          profile:'paduka-profile',
+          filter:'filter-paduka'
       } 
     }
  //============char style 
@@ -134,7 +137,7 @@ function Lobby() {
   return (
         <div className='parent-setting-container'>
           <video src={datachars[char || 'ratu']} autoPlay loop muted className='lobby-video'></video>
-          <div className={`filter-lobby`}></div>
+          <div className={`${styleCharsPacks[char || 'ratu'].filter} filter-lobby`}></div>
           {/* point */}
             <div className="game-point-container">
               <h4 className={`setting-title`}><Icon icon='person-bounding-box' name={''}>lobby</Icon> </h4>
@@ -142,7 +145,7 @@ function Lobby() {
             </div>
           {/* pause btn */}
           <div className={`link-wrapper back-btn ${styleCharsPacks[char || 'ratu'].link}`}>
-              <h2 className={`title-game-pause ${styleCharsPacks[char || 'ratu'].pauseTitle}`} onClick={()=>navigate(-1)}>
+              <h2 className={`title-game-pause ${styleCharsPacks[char || 'ratu'].pauseTitle}`} onClick={()=>navigate(`/loading/${id}/menu`)}>
                 back <Icon icon={'back'} name={''}/>
               </h2>
             </div>
@@ -226,7 +229,38 @@ function Lobby() {
                 {/* <li><img src={emblem} alt="emblem" className='emblem'/> godong gedang</li> */}
                 {/* <li><Icon icon={'fan'} name={''}/>245</li> */}
               </ul>
-
+                  <div className="hiasan hiasan-kiri-pojok">
+                      <Icon icon='gem' name=''/>
+                      <Icon icon='gem' name=''/>
+                  </div>
+                  <div className="hiasan hiasan-kiri">
+                      <Icon icon='diamond-fill' name=''/>
+                      <Icon icon='diamond-fill' name=''/>
+                      <Icon icon='diamond-fill' name=''/>
+                  </div>
+                  <div className="hiasan hiasan-kanan">
+                      <Icon icon='diamond-fill' name=''/>
+                      <Icon icon='diamond-fill' name=''/>
+                      <Icon icon='diamond-fill' name=''/>
+                  </div>
+                  <div className="hiasan hiasan-kanan-pojok">
+                      <Icon icon='gem' name=''/>
+                      <Icon icon='gem' name=''/>
+                  </div>
+                  <div className="hiasan hiasan-bawah-kanan">
+                      <Icon icon='x-diamond-fill' name=''/>
+                      <Icon icon='x-diamond-fill' name=''/>
+                      <Icon icon='x-diamond-fill' name=''/>
+                  </div>
+                  <div className="hiasan hiasan-bawah-tengah">
+                      <Icon icon='suit-diamond-fill' name=''/>
+                      <Icon icon='suit-diamond-fill' name=''/>
+                  </div>
+                  <div className="hiasan hiasan-bawah-kiri">
+                      <Icon icon='x-diamond-fill' name=''/>
+                      <Icon icon='x-diamond-fill' name=''/>
+                      <Icon icon='x-diamond-fill' name=''/>
+                  </div>
            </div>
         </div>
   )

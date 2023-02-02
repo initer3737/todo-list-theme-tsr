@@ -28,6 +28,7 @@ function Todo() {
   const {id}=useParams()
   const filterDataChar=useMap(chars).filter(char=>char[1].id == id)
   const navigate=useNavigate()
+  const [audio,setaudio]=useState(true)
   const logout=()=>{
        try {
             Http.get('/logout')
