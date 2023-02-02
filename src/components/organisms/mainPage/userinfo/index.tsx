@@ -166,7 +166,40 @@ function UserInfo() {
                 <li><Icon icon={'fan'} name={''}/>245</li>
               </ul>
 
-    
+                <div className="hiasan info-user-hiasan-kiri">
+                      <Icon icon='suit-diamond' name=''/>
+                      <Icon icon='suit-diamond-fill' name=''/>
+                      <Icon icon='suit-diamond' name=''/>
+                  </div>
+                <div className="hiasan info-user-hiasan-kanan">
+                      <Icon icon='x-diamond' name=''/>
+                      <Icon icon='x-diamond-fill' name=''/>
+                      <Icon icon='x-diamond' name=''/>
+                  </div>
+                <div className="hiasan info-user-hiasan-atas">
+                      <Icon icon='star' name=''/>
+                      <Icon icon='stars' name=''/>
+                      <Icon icon='star' name=''/>
+                  </div>
+                <div className="hiasan info-user-hiasan-bawah">
+                      <Icon icon='moon-stars' name=''/>
+                      <Icon icon='moon-stars-fill' name=''/>
+                      <Icon icon='moon-stars' name=''/>
+                  </div>
+
+                <div className="jajar-wrapper-kanan-bawah jajar-genjang-menu">
+                  <div className="jajar-genjang"></div>
+                </div>
+                <div className="jajar-wrapper-kiri-bawah jajar-genjang-menu">
+                  <div className="jajar-genjang"></div>
+                </div>
+                <div className="jajar-wrapper-kanan-atas jajar-genjang-menu">
+                  <div className="jajar-genjang"></div>
+                </div>
+                <div className="jajar-wrapper-kiri-atas jajar-genjang-menu">
+                  <div className="jajar-genjang"></div>
+                </div>
+
            </div>
         </div>
   )

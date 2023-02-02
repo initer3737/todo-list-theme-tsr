@@ -91,3 +91,7 @@
     background-color: rgba(155, 115, 52, 0.6) !important;
     box-shadow: 12px 12px 12px rgb(226, 180, 105)!important;
 }
+
+.hiasan-credit-lists{
+    transform: translateX(9vw) translateY(-15px);
+}

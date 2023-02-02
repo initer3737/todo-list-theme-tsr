@@ -17,7 +17,7 @@
     display: none;
 }
 .menu-container{
-    position: absolute;
+    position: relative;          
     display: flex;
     background-color: blue;
     flex-direction: column;
@@ -87,4 +87,15 @@
     border: 2px solid rgb(246,207,143) !important;
     background-color: rgba(155, 115, 52, 0.6) !important;
     box-shadow: 12px 12px 12px rgb(226, 180, 105)!important;
+}
+
+.hiasan-menu{
+    /* left: 12px; */
+    font-size: 19px !important;
+    /* margin-bottom: 40px; */
+    font-size: 12px !important;
+    transform: translateY(-16px) translateX(42px);
+}
+.jajar-genjang-menu{
+    overflow: hidden;
 }

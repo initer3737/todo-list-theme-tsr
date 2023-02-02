@@ -212,6 +212,25 @@ function Game() {
                 settings <Icon icon={'gear'} name={''}/>
               </NavLink>
             </div>
+
+                  <div className="hiasan hiasan-game">
+                      <Icon icon='suit-diamond' name=''/>
+                      <Icon icon='suit-diamond-fill' name=''/>
+                      <Icon icon='suit-diamond' name=''/>
+                  </div>
+                <div className="jajar-wrapper-kanan-bawah jajar-genjang-menu">
+                  <div className="jajar-genjang"></div>
+                </div>
+                <div className="jajar-wrapper-kiri-bawah jajar-genjang-menu">
+                  <div className="jajar-genjang"></div>
+                </div>
+                <div className="jajar-wrapper-kanan-atas jajar-genjang-menu">
+                  <div className="jajar-genjang"></div>
+                </div>
+                <div className="jajar-wrapper-kiri-atas jajar-genjang-menu">
+                  <div className="jajar-genjang"></div>
+                </div>
+
           </div>
            {/* game */}
            <div className="game-container">

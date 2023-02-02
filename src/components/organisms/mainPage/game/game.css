@@ -297,3 +297,7 @@
 /* .parent-game-container{
     overflow-x: hidden;
 } */
+.hiasan-game{
+    font-size: 14px !important;
+    transform: translateX(5vw) translateY(-4vh);
+}

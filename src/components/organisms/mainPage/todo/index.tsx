@@ -10,6 +10,7 @@ import { useRecoilValue } from 'recoil'
 import'./todo.css'
 import { CharsSelect } from '../../../../globalState'
 import { useMap } from '../../../../utils'
+import { Icon } from '../../../atoms'
 //=======================
   type Tdata={
     id:string,
@@ -95,13 +96,8 @@ function Todo() {
           <video src={datachars[char || 'ratu']} autoPlay loop className='menu-video'></video>
           <div className={`menu-container ${styleCharsPacks[char || 'ratu'].card}`}>
             <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
-              <NavLink to={''} className={`disable`}>
-                continue
-              </NavLink>
-            </div>
-            <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
               <NavLink to={`/loading/${id}/game`} className={``}>
-                new game
+                start game
               </NavLink>
             </div>
             <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
@@ -134,6 +130,25 @@ function Todo() {
                 logout
               </NavLink>
             </div>
+
+
+                  <div className="hiasan hiasan-menu">
+                      <Icon icon='suit-diamond' name=''/>
+                      <Icon icon='suit-diamond-fill' name=''/>
+                      <Icon icon='suit-diamond' name=''/>
+                  </div>
+                <div className="jajar-wrapper-kanan-bawah jajar-genjang-menu">
+                  <div className="jajar-genjang"></div>
+                </div>
+                <div className="jajar-wrapper-kiri-bawah jajar-genjang-menu">
+                  <div className="jajar-genjang"></div>
+                </div>
+                <div className="jajar-wrapper-kanan-atas jajar-genjang-menu">
+                  <div className="jajar-genjang"></div>
+                </div>
+                <div className="jajar-wrapper-kiri-atas jajar-genjang-menu">
+                  <div className="jajar-genjang"></div>
+                </div>
           </div>
         </div>
   )

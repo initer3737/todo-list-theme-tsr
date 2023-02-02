@@ -10,6 +10,7 @@ import { useRecoilValue } from 'recoil'
 import'./credit.css'
 import { CharsSelect } from '../../../../globalState'
 import { useMap } from '../../../../utils'
+import { Icon } from '../../../atoms'
 //=======================
   type Tdata={
     id:string,
@@ -153,6 +154,25 @@ function CreditList() {
                 back
               </NavLink>
             </div>
+
+                <div className="hiasan hiasan-credit-lists">
+                      <Icon icon='suit-diamond' name=''/>
+                      <Icon icon='suit-diamond-fill' name=''/>
+                      <Icon icon='suit-diamond' name=''/>
+                  </div>
+                <div className="jajar-wrapper-kanan-bawah jajar-genjang-menu">
+                  <div className="jajar-genjang"></div>
+                </div>
+                <div className="jajar-wrapper-kiri-bawah jajar-genjang-menu">
+                  <div className="jajar-genjang"></div>
+                </div>
+                <div className="jajar-wrapper-kanan-atas jajar-genjang-menu">
+                  <div className="jajar-genjang"></div>
+                </div>
+                <div className="jajar-wrapper-kiri-atas jajar-genjang-menu">
+                  <div className="jajar-genjang"></div>
+                </div>
+                
           </div>
         </div>
   )

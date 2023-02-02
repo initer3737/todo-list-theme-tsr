@@ -143,7 +143,7 @@ const styleCharsPacks={
     </Swiper> */}
       <div className={`swiper-text-container ${styleCharsPacks[char || 'ratu'].link} LoginLink`}>
             <NavLink to={`/loading/${id}/menu`}>
-              kembali
+              back <Icon icon='back' name=''/>
             </NavLink>
           </div>
     <div className="card-char-container">

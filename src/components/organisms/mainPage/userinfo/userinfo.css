@@ -324,3 +324,24 @@
 /* .parent-game-container{
     overflow-x: hidden;
 } */
+.info-user-hiasan-bawah{
+    bottom: 10px;
+    left: 40vw;
+}
+.info-user-hiasan-atas{
+    top: 10px;
+    left: 40vw;
+}
+.info-user-hiasan-kanan,
+.info-user-hiasan-kiri{
+    display: flex;
+    flex-flow: wrap column;
+    gap: 4px;
+}
+.info-user-hiasan-kanan{
+    right: 10px;
+}
+.info-user-hiasan-kiri{
+    /* top: 10px; */
+    left: 10px;
+}
