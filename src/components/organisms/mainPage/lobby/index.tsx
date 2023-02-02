@@ -160,7 +160,7 @@ function Lobby() {
                 </ul>
               <hr />
               <ul className={`lobby-info ${styleCharsPacks[char || 'ratu'].border} border-info`}>
-                <li><Icon icon={'bezier2'} name={''} /> 1</li>
+                <li><Icon icon={'bezier2 '} name={''} /> 1</li>
                 <li><Icon icon={'exclude'} name={''} /> jojo yoshiharu</li>
                 <li><img src={emblem} alt="emblem" className='emblem'/> godong gedang</li>
                 <li><Icon icon={'fan'} name={''}/>12.245</li>
@@ -196,13 +196,13 @@ function Lobby() {
                 <li><Icon icon={'fan'} name={''}/>8.845</li>
               </ul>
               <ul className={`lobby-info ${styleCharsPacks[char || 'ratu'].border} border-info`}>
-                <li><Icon icon={'bezier2'} name={''} /> 1</li>
-                <li><Icon icon={'exclude'} name={''} /> minova peko peko</li>
+                <li><Icon icon={'bezier2'} name={''} /> 7</li>
+                <li><Icon icon={'exclude'} name={''} /> minova peko peko </li>
                 <li><img src={emblem} alt="emblem" className='emblem'/> not bad noobs</li>
                 <li><Icon icon={'fan'} name={''}/>8.745</li>
               </ul>
               <ul className={`lobby-info ${styleCharsPacks[char || 'ratu'].border} border-info`}>
-                <li><Icon icon={'bezier2'} name={''} /> 1</li>
+                <li><Icon icon={'bezier2'} name={''} /> 8</li>
                 <li><Icon icon={'exclude'} name={''} /> elina megumin</li>
                 <li><img src={emblem} alt="emblem" className='emblem'/> not bad noobs</li>
                 <li><Icon icon={'fan'} name={''}/>8.625</li>
@@ -219,7 +219,7 @@ function Lobby() {
                 <li><img src={emblem} alt="emblem" className='emblem'/> rotten egg</li>
                 <li><Icon icon={'fan'} name={''}/>5.245</li>
               </ul>
-              <ul className={`lobby-info ${styleCharsPacks[char || 'ratu'].border} border-info`}>
+              <ul className={`player-counter d-flex content-between ${styleCharsPacks[char || 'ratu'].border} border-info`}>
                 {/* <li><Icon icon={'bezier2'} name={''} /> 1</li> */}
                 <li><Icon icon={'circle-fill online'} name={''} />3 online</li>
                 <li><Icon icon={'circle-fill offline'} name={''} />200 offline</li>

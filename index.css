@@ -48,3 +48,10 @@ html ,body{
 .offline{
     color: red !important;
 }
+
+.d-flex{
+    display: flex;
+}
+.content-between{
+    justify-content: space-between;
+}
