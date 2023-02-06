@@ -94,25 +94,28 @@ function Register() {
     <form onSubmit={submit}>
       <video src={datachars[char|| 'ratu']} className="login_video" autoPlay loop></video>
       <div className={`backLink-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
-            <NavLink to={`/loading/${id}/home`} className={`backLink`}>Kembali</NavLink>
+            <NavLink to={`/loading/${id}/login`} className={`backLink`}>Kembali</NavLink>
       </div>
     <div className={`login__container ${styleCharsPacks[char || 'ratu'].card}`}>
         <div className={errmsg.trim().length>1?"err-message":'d-none'}><h3>{errmsg}</h3></div>
+        <label htmlFor="username">email</label>
+        <input type="text" id='username' autoComplete='off' required value={username} onChange={onChangeInput}/>
         <label htmlFor="username">username</label>
+        <input type="text" id='username' autoComplete='off' required value={username} onChange={onChangeInput}/>
+        <label htmlFor="username">country</label>
         <input type="text" id='username' autoComplete='off' required value={username} onChange={onChangeInput}/>
         <label htmlFor="password">password</label>
         <input type="password" id='password' required value={password} onChange={onChangeInput}/>
+        <label htmlFor="password">confirm password</label>
+        <input type="password" id='password' required value={password} onChange={onChangeInput}/>
+        <label htmlFor="username">gender</label>
+        <select name="" id="">
+          <option value="" selected>male</option>
+          <option value="">female</option>
+        </select>
         <button
           className={`${styleCharsPacks[char || 'ratu'].link}`}
         >register</button>
-        <div className="sub-login-container">
-          <NavLink to={`/register/${id}`} className={`${styleCharsPacks[char || 'ratu'].link}`}>
-             login
-          </NavLink>
-          <NavLink to={`/forgot/${id}`} className={`${styleCharsPacks[char || 'ratu'].link}`}>
-            back
-          </NavLink>
-        </div>
     </div>
     <NavLink to={`/menu/${id}`} className='menujumenugame'>
        menuju menu game!!!!

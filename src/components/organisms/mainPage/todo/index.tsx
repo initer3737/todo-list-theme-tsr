@@ -94,7 +94,7 @@ function Todo() {
   return (
         <div>
           <video src={datachars[char || 'ratu']} autoPlay loop className='menu-video'></video>
-          <div className={`menu-container ${styleCharsPacks[char || 'ratu'].card}`}>
+          <div className={`menu-padding menu-container ${styleCharsPacks[char || 'ratu'].card}`}>
             <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
               <NavLink to={`/loading/${id}/game`} className={``}>
                 start game

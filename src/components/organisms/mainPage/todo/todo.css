@@ -26,6 +26,9 @@
     left: 40vw;
     padding: 20px;
 }
+.menu-padding{
+    padding: 22px 43px !important;
+}
 .menu-container a{  
     text-decoration: none;
     color: white;
@@ -94,7 +97,7 @@
     font-size: 19px !important;
     /* margin-bottom: 40px; */
     font-size: 12px !important;
-    transform: translateY(-16px) translateX(42px);
+    transform: translateY(-35px) translateX(42px);
 }
 .jajar-genjang-menu{
     overflow: hidden;
