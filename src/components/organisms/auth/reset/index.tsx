@@ -5,7 +5,7 @@ import Cookies from  'js-cookie'
 import { NavLink, useNavigate ,useParams} from 'react-router-dom';
 import { CharsSelect } from '../../../../globalState';
 import { useRecoilValue } from 'recoil';
-import './login.css'
+import './reset.css'
 import { useMap } from '../../../../utils';
 import RatuBackend from '../../../../assets/ratuBackend.mp4'
 import RajaFrontend from '../../../../assets/rajaFrontend.mp4'
@@ -13,7 +13,7 @@ import PadukaFullstek from '../../../../assets/padukaFullstek.mp4'
 import { IChar } from '../../../../Types&Interfaces';
 import { IstyleCharsPacks } from '../../../../Types&Interfaces/stylecharspaks/IstyleChar';
 //======================
-function Login() {
+function Reset() {
   let formDatas={
     username:'',
     password:''
@@ -104,13 +104,13 @@ function Login() {
         <input type="password" id='password' required value={password} onChange={onChangeInput}/>
         <button
           className={`${styleCharsPacks[char || 'ratu'].link}`}
-        >login</button>
+        >reset</button>
         <div className="sub-login-container">
           <NavLink to={`/register/${id}`} className={`${styleCharsPacks[char || 'ratu'].link}`}>
-             create account
+             login
           </NavLink>
           <NavLink to={`/forgot/${id}`} className={`${styleCharsPacks[char || 'ratu'].link}`}>
-            reset account
+            back
           </NavLink>
         </div>
     </div>
@@ -121,4 +121,4 @@ function Login() {
   )
 }
 
-export {Login}
+export {Reset}

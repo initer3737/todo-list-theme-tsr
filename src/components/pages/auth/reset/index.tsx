@@ -6,14 +6,14 @@ import {
 import { 
   Header 
 } from '../../../molekuls'
-import {Register as RegisterOrganism} from '../../../organisms/'
+import {Reset as ResetOrganism} from '../../../organisms/'
 //===============
-export default function Register() {
+export default function Reset() {
   return (
-    <Title title='register'>
+    <Title title='reset user akun'>
       <RouterSmooth>
         {/* <Header/> */}
-        <RegisterOrganism/>
+        <ResetOrganism/>
       </RouterSmooth>
     </Title>
   )

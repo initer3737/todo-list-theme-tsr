@@ -14,7 +14,11 @@ import {
   Game,
   Setting,
   UserInfo,
-  Lobby
+  Lobby,
+  Register,
+  Reset, 
+  Todo ,
+  CreditList
 } from "./components/pages"
 import {
   Footer,
@@ -24,10 +28,7 @@ import {
   Middleware
 } from "./services"
 import './App.css'
-import { 
-  Todo ,
-  CreditList
-} from "./components/pages/mainPage"
+
 import { AnimatePresence } from "framer-motion"
 import ChangeChar from "./components/pages/mainPage/changeChar"
 //======================main==programs
@@ -46,6 +47,8 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/show/char/:id" element={<ShowChar/>}/>
         <Route path="/login/:id" element={<Login/>}/>
+        <Route path="/register/:id" element={<Register/>}/>
+        <Route path="/forgot/:id" element={<Reset/>}/>
         <Route path="/menu/:id" element={<Todo/>}/>  
         <Route path="/game/:id" element={<Game/>}/>  
         <Route path="/lobby/:id" element={<Lobby/>}/>  

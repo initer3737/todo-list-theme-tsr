@@ -1,5 +1,9 @@
 import { Login } from "./login";
-
+import { Register } from "./register";
+import { Reset } from "./reset";
+//===============================
 export {
-    Login
+    Login,
+    Register,
+    Reset,
 }

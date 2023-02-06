@@ -1,5 +1,5 @@
 import NotFound from "./notFound";
-import { Login } from "./auth";
+import { Login ,Reset,Register} from "./auth";
 import { ShowChar } from "./show";
 import { 
     Home ,
@@ -7,7 +7,9 @@ import {
     Game,
     Setting,
     UserInfo,
-    Lobby
+    Lobby,
+    CreditList,
+    Todo
 } from "./mainPage";
 // =========================exports==section================
 export {
@@ -19,5 +21,9 @@ export {
     Game,
     Setting,
     UserInfo,
-    Lobby
+    Lobby,
+    Reset,
+    Register,
+    CreditList,
+    Todo
 }
