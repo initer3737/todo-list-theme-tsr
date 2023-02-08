@@ -84,17 +84,20 @@ function Todo() {
       raja:{
           card:'RajaFrontendCard',
           link:'RajaFrontendLinkMenu',
-          playerContainer:'linear-paduka'
+          playerContainer:'linear-raja',
+          btnPlay:'btn-play-raja'
       },
       ratu:{
           card:'RatuBackendCard',
           link:'RatuBackendLinkMenu',
-          playerContainer:'linear-paduka'
+          playerContainer:'linear-ratu',
+          btnPlay:'btn-play-ratu'
       },
       paduka:{
           card:'PadukaFullstekCard',
           link:'PadukaFullstekLinkMenu',
-          playerContainer:'linear-paduka'
+          playerContainer:'linear-paduka',
+          btnPlay:'btn-play-paduka'
       } 
     }
  //============char style 
@@ -171,13 +174,17 @@ function Todo() {
           </div> */}
 
               {/* play button start*/}
-                <NavLink to={`/loading/${id}/game`} className={`btn-play-game`}>
+                <NavLink to={`/loading/${id}/game`} className={`btn-play-game ${styleCharsPacks[char || 'ratu'].btnPlay}`}>
+                  <Icon icon={'chevron-left'} name={''}/>
+                  <Icon icon={'chevron-left'} name={''}/>
                   start game
+                  <Icon icon={'chevron-right'} name={''}/>
+                  <Icon icon={'chevron-right'} name={''}/>
                 </NavLink>
               {/* play button end */}
             <div className={`player-container ${styleCharsPacks[char || 'ratu'].playerContainer}`}>
              
-              <NavLink to={`/user/show/name/${id}/`} className={''}>
+              <NavLink to={`/user/show/name/${id}/`} className={``}>
                 <div className="">
                   <img src={avatar} alt="" className='player-img' />
                   <Icon icon={'fan'} name={''}>

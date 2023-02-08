@@ -17,7 +17,7 @@ export default function NotFound() {
         <p>
           content you are search was not found in this page
         </p>
-        <h5 onClick={()=>navigate(-1)} className={'btn-back-404'}>
+        <h5 onClick={()=>navigate(-3)} className={'btn-back-404'}>
            Go Back 
         </h5>
       </div>
