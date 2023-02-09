@@ -58,7 +58,7 @@ function Lobby() {
 
                 audiotheme.volume=0.8
                 audiotheme.loop=true
-                  // audiotheme.play();
+                  audiotheme.play();
                 return ()=>{
                         audiotheme.pause()
                       }
