@@ -16,7 +16,7 @@ export default function ChangeChar() {
     <div>
       {/* <Header2/> */}
       <div className="home__container">
-      <Title title='home'>
+      <Title title='change character'>
            <RouterSmooth>
               <ChangeCharOrganism/>
            </RouterSmooth>

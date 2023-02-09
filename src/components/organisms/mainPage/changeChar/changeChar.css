@@ -181,3 +181,53 @@
 .card-char video{
     max-width: 45vw;
 }
+
+:root{
+    --hiasan-warna-change-car-ratu:purple;
+    --hiasan-warna-change-car-raja:gold;
+    --hiasan-warna-change-car-paduka:dodgerblue;
+}
+#hiasan-changechar-select-paduka,
+#hiasan-changechar-select-raja,
+#hiasan-changechar-select-ratu{
+    position: absolute;
+    transform: translateY(0) translateX(-7vw);
+    background-color: inherit;
+    transition: all 2s;
+    opacity: 0;
+    /* color: var(--hiasan-warna-change-car); */
+    /* text-shadow: 0 0 5px var(--hiasan-warna-change-car); */
+}
+
+.swiper-text-container:hover #hiasan-changechar-select-raja,
+.swiper-text-container:hover #hiasan-changechar-select-ratu,
+.swiper-text-container:hover #hiasan-changechar-select-paduka{
+    transition: all 2s;
+    transform: translateY(-90px) translateX(0);
+    opacity: 1;
+    /* text-shadow: 12px 30px 0 var(--hiasan-warna-change-car); */
+}
+
+    /* diference color when normal */
+#hiasan-changechar-select-paduka{
+    color: var(--hiasan-warna-change-car-paduka);
+    text-shadow: 0 0 5px var(--hiasan-warna-change-car-paduka);
+}
+#hiasan-changechar-select-raja{
+    color: var(--hiasan-warna-change-car-raja);
+    text-shadow: 0 0 5px var(--hiasan-warna-change-car-raja);
+}
+#hiasan-changechar-select-ratu{
+    color: var(--hiasan-warna-change-car-ratu);
+    text-shadow: 0 0 5px var(--hiasan-warna-change-car-ratu);
+}
+    /* diference color when player do hovering action */
+.swiper-text-container:hover #hiasan-changechar-select-raja{
+    text-shadow: 12px 30px 0 var(--hiasan-warna-change-car-raja);
+}
+.swiper-text-container:hover #hiasan-changechar-select-ratu{
+    text-shadow: 12px 30px 0 var(--hiasan-warna-change-car-ratu);
+}
+.swiper-text-container:hover #hiasan-changechar-select-paduka{
+    text-shadow: 12px 30px 0 var(--hiasan-warna-change-car-paduka);
+}

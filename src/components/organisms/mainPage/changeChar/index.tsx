@@ -156,11 +156,13 @@ const styleCharsPacks={
           <div className={`swiper-text-container ${styleCharsPacks.raja.link}`}>
             <NavLink to={`/loading/${recoilCharSelect.RajaFrontEnd.id}/char&change`}>
             {recoilCharSelect.RajaFrontEnd.role}
-            <Icon icon={`check2-square ${recoilCharSelect.RajaFrontEnd.id == Number(id)?'':'d-none'}`} name={' '}/>
+            <Icon icon={`check2-square ${recoilCharSelect.RajaFrontEnd.id == Number(id)?'':'d-none'}`} name={' '} />
             </NavLink>
+                <Icon icon={`stars`} id={'hiasan-changechar-select-raja'} name={' '}/>
           </div>
         <video src={RajaFrontend} autoPlay loop muted></video>
       </div>
+
       <div className={`card-char ${styleCharsPacks.paduka.link}`}>
         {/* <div className={`swiper-text-container ${styleCharsPacks.paduka.link} LoginLink`}>
             <NavLink to={`/login/${recoilCharSelect.PadukaFullStek.id}`}>
@@ -168,22 +170,27 @@ const styleCharsPacks={
             </NavLink>
           </div> */}
           <div className={`swiper-text-container ${styleCharsPacks.paduka.link} `}>
-            <NavLink to={`/loading/${recoilCharSelect.PadukaFullStek.id}/char&change/`}>
+            <NavLink to={`/loading/${recoilCharSelect.PadukaFullStek.id}/char&change/`}
+            >
             {recoilCharSelect.PadukaFullStek.role}
               <Icon icon={`check2-square ${recoilCharSelect.PadukaFullStek.id == Number(id)?'':'d-none'}`} name={' '}/>
             </NavLink>
+              <Icon icon={`stars`} id={'hiasan-changechar-select-paduka'} name={' '}/>
           </div>
         <video src={PadukaFullstek} autoPlay loop muted></video>
       </div>
+
       <div className={`card-char ${styleCharsPacks.ratu.link}`}>
           <div className={`swiper-text-container ${styleCharsPacks.ratu.link} `}>
             <NavLink to={`/loading/${recoilCharSelect.RatuBackEnd.id}/char&change`}>
             {recoilCharSelect.RatuBackEnd.role}
              <Icon icon={`check2-square ${recoilCharSelect.RatuBackEnd.id == Number(id)?'':'d-none'}`} name={' '}/>
             </NavLink>
+              <Icon icon={`stars`} id={'hiasan-changechar-select-ratu'} name={' '}/>
           </div>
         <video src={RatuBackend} autoPlay loop muted></video>
       </div>
+
     </div>
       {/* <div className="data-recoil">
       {
