@@ -49,17 +49,17 @@ function App() {
         <Route path="/login/:id" element={<Login/>}/>
         <Route path="/register/:id" element={<Register/>}/>
         <Route path="/forgot/:id" element={<Reset/>}/>
-        <Route path="/menu/:id" element={<Todo/>}/>  
-        <Route path="/game/:id" element={<Game/>}/>  
-        <Route path="/lobby/:id" element={<Lobby/>}/>  
         <Route path="/loading/:id/:url" element={<Loading/>}/>  
-        <Route path="/kredit/list/:id" element={<CreditList/>}/>  
-        <Route path="/char/change/:id" element={<ChangeChar/>}/>  
-        <Route path="/user/setting/:id" element={<Setting/>}/>  
-        <Route path="/user/show/:playername/:id" element={<UserInfo/>}/>  
-          {/* <Route element={<Middleware/>} >
-            <Route path="/list/:id" element={<Todo/>}/>
-          </Route> */}
+          <Route element={<Middleware/>} >
+            <Route path="/menu/:id" element={<Todo/>}/>  
+            <Route path="/game/:id" element={<Game/>}/>  
+            <Route path="/lobby/:id" element={<Lobby/>}/>  
+            <Route path="/kredit/list/:id" element={<CreditList/>}/>  
+            <Route path="/char/change/:id" element={<ChangeChar/>}/>  
+            <Route path="/user/setting/:id" element={<Setting/>}/>  
+            <Route path="/user/show/:playername/:id" element={<UserInfo/>}/>  
+            
+          </Route>
         <Route path="/404" element={<NotFound/>}/>
         <Route path="/*" element={<Navigate replace to={`/404`}/>}/>
       </Routes>

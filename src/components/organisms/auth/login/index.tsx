@@ -12,6 +12,7 @@ import RajaFrontend from '../../../../assets/rajaFrontend.mp4'
 import PadukaFullstek from '../../../../assets/padukaFullstek.mp4'
 import { IChar } from '../../../../Types&Interfaces';
 import { IstyleCharsPacks } from '../../../../Types&Interfaces/stylecharspaks/IstyleChar';
+import { Icon } from '../../../atoms';
 //======================
 function Login() {
   let formDatas={
@@ -94,7 +95,10 @@ function Login() {
     <form onSubmit={submit}>
       <video src={datachars[char|| 'ratu']} className="login_video" autoPlay loop></video>
       <div className={`backLink-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
-            <NavLink to={`/loading/${id}/home`} className={`backLink`}>Kembali</NavLink>
+            <NavLink to={`/loading/${id}/home`} className={`backLink`}>
+              back
+              <Icon icon={'back'} name={' '}/>
+            </NavLink>
       </div>
     <div className={`login__container ${styleCharsPacks[char || 'ratu'].card}`}>
         <div className={errmsg.trim().length>1?"err-message":'d-none'}><h3>{errmsg}</h3></div>

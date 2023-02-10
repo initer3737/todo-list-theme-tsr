@@ -52,6 +52,8 @@
 .backLink-wrapper a{
     text-decoration: none;
     color: white;
+    display: flex;
+    gap: 4px;
 }
 .backLink-wrapper{
     position: absolute;
