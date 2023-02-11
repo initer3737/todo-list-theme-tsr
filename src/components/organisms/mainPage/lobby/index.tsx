@@ -1,13 +1,14 @@
 import React, { useEffect,useState } from 'react'
 import { NavLink, useNavigate, useParams } from 'react-router-dom'
 import Cookies from 'js-cookie'
-import { AxiosResponse } from 'axios'
+import axios, { AxiosResponse } from 'axios'
 import { Http } from '../../../../services'
 import RatuBackend from '../../../../assets/ratuBackend.mp4'
 import RajaFrontend from '../../../../assets/rajaFrontend.mp4'
 import PadukaFullstek from '../../../../assets/padukaFullstek.mp4'
 import userImg from '../../../../assets/user.png'
 import emblem from '../../../../assets/emblem.svg'
+import avatar from '../../../../assets/user.png'
 import { useRecoilValue } from 'recoil'
 import'./lobby.css'
 import { CharsSelect } from '../../../../globalState'
@@ -19,41 +20,38 @@ import theme3 from '../../../../assets/password-infinity-123276.mp3'
 import theme4 from '../../../../assets/save-as-115826.mp3'
 import theme5 from '../../../../assets/simple-piano-melody-9834.mp3'
 //=======================
-  type Tdata={
-    id:string,
-    username:string,
-    email:string,
+  type TuserStatusCount={
+    online:string,
+    offline:string,
   }
- interface ILists{
-   data:Tdata,
+ interface IuserStatusCount{
+   data:TuserStatusCount,
+ }
+  type TLobbyInformation={
+    username:string,
+    name:string,
+    emblem:string,
+    score:number,
+    ranking:number,
+    avatar:string,
+  }
+ interface ILobbyInformation{
+   data:[TLobbyInformation],
  }
 //============
 function Lobby() {
-  const [user,setUser]=useState<ILists>() 
-  const token= Cookies.get('token')??''
   const [char,setChar]=useState()
+  const [userStatusCount,setUserStatusCount]=useState<IuserStatusCount>()
+  const [lobbyInformation,setUserLobbyInformation]=useState<ILobbyInformation>()
   const chars=useRecoilValue(CharsSelect)
   const {id}=useParams()
   const filterDataChar=useMap(chars).filter(char=>char[1].id == id)
   const navigate=useNavigate()
     ///audio
           const themes=[theme1,theme2,theme3,theme4,theme5]
-          let index=Math.floor(Math.random()*themes.length -1);
+          let index=Math.floor(Math.random()*themes.length);
           const audiotheme=new Audio(themes[index])
 
-  const logout=()=>{
-       try {
-            Http.get('/logout')
-          .then((res:AxiosResponse)=>{
-              if(res.status === 200){
-                Cookies.remove('token')
-                navigate('/login')
-          }
-       })
-       } catch (err) {
-          console.log(err)
-       }
-  }
   useEffect(()=>{
 
                 audiotheme.volume=0.8
@@ -67,34 +65,17 @@ function Lobby() {
     filterDataChar.map(char=>{
       setChar(char[1].char_id)
     })
-
-      
+    Http.get('/user/conections/counting')
+    .then(({data}:AxiosResponse)=>{
+        setUserStatusCount({...data})
+    }).catch(err=>console.log(err))
+    Http.get('/lobby')
+    .then(({data}:AxiosResponse)=>{
+        setUserLobbyInformation({...data})
+    }).catch(err=>console.log(err))
+    // setUserStatusCount
+    
   },[])
-    // useEffect(()=>{
-    //   ()=>{
-    //     // clearInterval(randPosition)
-    //     audiotheme.pause()
-    //   }
-    // },[])
-      // useEffect(()=>{
-      //   try {
-      //     const getDataUser=async()=>{
-      //      await Http.get<ILists>('/lists')
-      //         .then((res: AxiosResponse<ILists>)=>{
-      //             setUser({...res.data}) 
-      //             if(res.status === 401)navigate('/login')
-      //             //memasukkan object dengan property data ke dalam state
-      //         })
-      //     }
-      //     getDataUser()
-          
-      //   } catch (err) {
-      //     console.log('err',err);
-      //   }
-      // },[])
-      // useEffect(()=>{
-      //   if(token.trim().length<1)navigate('/login')
-      // },[token])
  //=====================================    
  //============char style
  const styleCharsPacks={
@@ -162,70 +143,19 @@ function Lobby() {
                   {/* <li><Icon icon={'gender-male'} name={''} /></li> */}
                 </ul>
               <hr />
-              <ul className={`lobby-info ${styleCharsPacks[char || 'ratu'].border} border-info`}>
-                <li><Icon icon={'bezier2 '} name={''} /> 1</li>
-                <li><Icon icon={'exclude'} name={''} /> jojo yoshiharu</li>
-                <li><img src={emblem} alt="emblem" className='emblem'/> godong gedang</li>
-                <li><Icon icon={'fan'} name={''}/>12.245</li>
-              </ul>
-              <ul className={`lobby-info ${styleCharsPacks[char || 'ratu'].border} border-info`}>
-                <li><Icon icon={'bezier2'} name={''} /> 2</li>
-                <li><Icon icon={'exclude'} name={''} /> sugiono yukatta</li>
-                <li><img src={emblem} alt="emblem" className='emblem'/> godong gedang</li>
-                <li><Icon icon={'fan'} name={''}/>11.145</li>
-              </ul>
-              <ul className={`lobby-info  border-info`}>
-                <li><Icon icon={'bezier2'} name={''} /> 3</li>
-                <li><Icon icon={'exclude'} name={''} /> yotsusan_machi</li>
-                <li><img src={emblem} alt="emblem" className='emblem'/> godong gedang</li>
-                <li><Icon icon={'fan'} name={''}/>10.245</li>
-              </ul>
-              <ul className={`lobby-info ${styleCharsPacks[char || 'ratu'].border} border-info`}>
-                <li><Icon icon={'bezier2'} name={''} /> 4</li>
-                <li><Icon icon={'exclude'} name={''} /> mariyati sukomiya</li>
-                <li><img src={emblem} alt="emblem" className='emblem'/> not yet mature</li>
-                <li><Icon icon={'fan'} name={''}/>9.245</li>
-              </ul>
-              <ul className={`lobby-info ${styleCharsPacks[char || 'ratu'].border} border-info`}>
-                <li><Icon icon={'bezier2'} name={''} /> 5</li>
-                <li><Icon icon={'exclude'} name={''} /> budi yotukoto</li>
-                <li><img src={emblem} alt="emblem" className='emblem'/> not bad noobs</li>
-                <li><Icon icon={'fan'} name={''}/>9.215</li>
-              </ul>
-              <ul className={`lobby-info ${styleCharsPacks[char || 'ratu'].border} border-info`}>
-                <li><Icon icon={'bezier2'} name={''} /> 6</li>
-                <li><Icon icon={'exclude'} name={''} /> eko fugiwara</li>
-                <li><img src={emblem} alt="emblem" className='emblem'/> not bad noobs</li>
-                <li><Icon icon={'fan'} name={''}/>8.845</li>
-              </ul>
-              <ul className={`lobby-info ${styleCharsPacks[char || 'ratu'].border} border-info`}>
-                <li><Icon icon={'bezier2'} name={''} /> 7</li>
-                <li><Icon icon={'exclude'} name={''} /> minova peko peko </li>
-                <li><img src={emblem} alt="emblem" className='emblem'/> not bad noobs</li>
-                <li><Icon icon={'fan'} name={''}/>8.745</li>
-              </ul>
-              <ul className={`lobby-info ${styleCharsPacks[char || 'ratu'].border} border-info`}>
-                <li><Icon icon={'bezier2'} name={''} /> 8</li>
-                <li><Icon icon={'exclude'} name={''} /> elina megumin</li>
-                <li><img src={emblem} alt="emblem" className='emblem'/> not bad noobs</li>
-                <li><Icon icon={'fan'} name={''}/>8.625</li>
-              </ul>
-              <ul className={`lobby-info ${styleCharsPacks[char || 'ratu'].border} border-info`}>
-                <li><Icon icon={'bezier2'} name={''} /> 9</li>
-                <li><Icon icon={'exclude'} name={''} /> sasha pavlichenko</li>
-                <li><img src={emblem} alt="emblem" className='emblem'/> rotten egg</li>
-                <li><Icon icon={'fan'} name={''}/>7.245</li>
-              </ul>
-              <ul className={`lobby-info ${styleCharsPacks[char || 'ratu'].border} border-info`}>
-                <li><Icon icon={'bezier2'} name={''} /> 10</li>
-                <li><Icon icon={'exclude'} name={''} /> yorunaka tri </li>
-                <li><img src={emblem} alt="emblem" className='emblem'/> rotten egg</li>
-                <li><Icon icon={'fan'} name={''}/>5.245</li>
-              </ul>
+                  {lobbyInformation?.data.map((data=>(
+                    <ul className={`lobby-info  border-info`}>
+                      <li><Icon icon={'bezier2'} name={''} /> {data.ranking}</li>
+                      <li><img src={data.avatar ===null?avatar:data.avatar} alt="avatar" className='emblem'/> {data.name}</li>
+                      <li><img src={emblem} alt="emblem" className='emblem'/> {data.emblem}</li>
+                      <li><Icon icon={'fan'} name={''}/>{data.score}</li>
+                    </ul>
+                  )))}
+
               <ul className={`player-counter d-flex content-between ${styleCharsPacks[char || 'ratu'].border} border-info`}>
                 {/* <li><Icon icon={'bezier2'} name={''} /> 1</li> */}
-                <li><Icon icon={'circle-fill online'} name={''} />3 online</li>
-                <li><Icon icon={'circle-fill offline'} name={''} />200 offline</li>
+                <li><Icon icon={'circle-fill online'} name={''} />{userStatusCount?.data.online} online</li>
+                <li><Icon icon={'circle-fill offline'} name={''} />{userStatusCount?.data.offline} offline</li>
                 {/* <li><img src={emblem} alt="emblem" className='emblem'/> godong gedang</li> */}
                 {/* <li><Icon icon={'fan'} name={''}/>245</li> */}
               </ul>

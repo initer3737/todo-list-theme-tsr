@@ -58,7 +58,6 @@ function App() {
             <Route path="/char/change/:id" element={<ChangeChar/>}/>  
             <Route path="/user/setting/:id" element={<Setting/>}/>  
             <Route path="/user/show/:playername/:id" element={<UserInfo/>}/>  
-            
           </Route>
         <Route path="/404" element={<NotFound/>}/>
         <Route path="/*" element={<Navigate replace to={`/404`}/>}/>

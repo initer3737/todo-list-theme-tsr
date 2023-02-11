@@ -13,20 +13,20 @@ import { CharsSelect } from '../../../../globalState'
 import { useMap } from '../../../../utils'
 import { Icon } from '../../../atoms'
 //=======================
-  type Tdata={
-    id:string,
-    username:string,
-    email:string,
+  type TTop3={
+    avatar:string,
+    name:string,
   }
- interface ILists{
-   data:Tdata,
+ interface ITop3{
+   data:[TTop3],
  }
 //============
 function Todo() {
-  const [user,setUser]=useState<ILists>() 
   const token= Cookies.get('token')??''
   const [char,setChar]=useState()
-  const [jam,setJam]=useState<String>()
+  const [top3,setTop3]=useState<ITop3>()
+  const [jam,setJam]=useState('')
+  const [tokenRefresher,setTokenRefresher]=useState(true)
   const chars=useRecoilValue(CharsSelect)
   const {id}=useParams()
   const filterDataChar=useMap(chars).filter(char=>char[1].id == id)
@@ -38,8 +38,9 @@ function Todo() {
           .then((res:AxiosResponse)=>{
               if(res.status === 200){
                 Cookies.remove('token')
-                navigate('/login')
+                navigate(`/loading/${id}/home`)
           }
+          console.log(res)
        })
        } catch (err) {
           console.log(err)
@@ -49,35 +50,31 @@ function Todo() {
   useEffect(()=>{
     filterDataChar.map(char=>{
       setChar(char[1].char_id)
+      console.log('token is :',Cookies.get('token'))
     })
-
-    const jamRefresher=setInterval(()=>{
-      let Time=new Date().toLocaleTimeString()
-        setJam(Time)
-    },1000);
-      return()=>{
-          clearInterval(jamRefresher)
+     const jamInterval=setInterval(()=>{
+        setJam(new Date().toLocaleTimeString())
+      },1000);
+      //==========call api
+      Http.get('/top3/players/info')
+      .then(({data}:AxiosResponse)=>{
+          setTop3({...data})
+      })
+      return ()=>{
+          clearInterval(jamInterval)
       }
   },[])
-      // useEffect(()=>{
-      //   try {
-      //     const getDataUser=async()=>{
-      //      await Http.get<ILists>('/lists')
-      //         .then((res: AxiosResponse<ILists>)=>{
-      //             setUser({...res.data}) 
-      //             if(res.status === 401)navigate('/login')
-      //             //memasukkan object dengan property data ke dalam state
-      //         })
-      //     }
-      //     getDataUser()
-          
-      //   } catch (err) {
-      //     console.log('err',err);
-      //   }
-      // },[])
-      // useEffect(()=>{
-      //   if(token.trim().length<1)navigate('/login')
-      // },[token])
+      useEffect(()=>{
+        // const getTokentRefresh=setTimeout(()=>{
+          if(tokenRefresher === true){
+              // window.location.reload()
+              setTokenRefresher(false);
+          }
+        // },1000)  ;
+        // return ()=>{
+        //   clearTimeout(getTokentRefresh)
+        // }
+      },[token])
  //=====================================    
  //============char style
  const styleCharsPacks={
@@ -110,69 +107,27 @@ function Todo() {
  //===========video chars
   return (
         <div>
-          <div className="jam-container">
-             {/* <h3>{jam}</h3> */}
-             <p>kwaaaaaaaaaaaa</p>
-          </div>
           <video src={datachars[char || 'ratu']} autoPlay loop className='menu-video'></video>
+          <div className="jam-container">
+             <h3>{jam}</h3>
+          </div>
+              <div className="wall-of-fame">
+               <div className="wall-of-fame-wrapper">
+                  <Icon icon='suit-diamond-fill kelip' name={''}/>
+                 <h1>wall of fame</h1>
+               </div>
+              </div>
 
-          {/* <div className={`menu-padding menu-container ${styleCharsPacks[char || 'ratu'].card}`}>
-            <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
-              <NavLink to={`/loading/${id}/game`} className={``}>
-                start game
-              </NavLink>
-            </div>
-            <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
-              <NavLink to={`/loading/${id}/char&change`} className={''}>
-                change character
-              </NavLink>
-            </div>
-            <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
-              <NavLink to={`/loading/${id}/lobby`} className={''}>
-                lobby
-              </NavLink>
-            </div>
-            <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
-              <NavLink to={`/loading/${id}/user&setting`} className={''}>
-                settings
-              </NavLink>
-            </div>
-            <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
-              <NavLink to={`/loading/${id}/kredit&list`} className={''}>
-                credit lists
-              </NavLink>
-            </div>
-            <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
-              <a target={'_blank'} href={`https://initer3737.github.io/`} className={''}>
-                developer
-              </a>
-            </div>
-            <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
-              <NavLink to={''} className={''}>
-                logout
-              </NavLink>
-            </div>
-
-
-                  <div className="hiasan hiasan-menu">
-                      <Icon icon='suit-diamond' name=''/>
-                      <Icon icon='suit-diamond-fill' name=''/>
-                      <Icon icon='suit-diamond' name=''/>
-                  </div>
-                <div className="jajar-wrapper-kanan-bawah jajar-genjang-menu">
-                  <div className="jajar-genjang"></div>
+                <div className="top3-container">
+                  {top3?.data.map((data)=>(
+                    <div className="card">
+                      <img src={data.avatar==null?avatar:data.avatar} alt="" className='player-img' />
+                      <h1>
+                        {data.name}
+                      </h1>
+                    </div>
+                  ))}
                 </div>
-                <div className="jajar-wrapper-kiri-bawah jajar-genjang-menu">
-                  <div className="jajar-genjang"></div>
-                </div>
-                <div className="jajar-wrapper-kanan-atas jajar-genjang-menu">
-                  <div className="jajar-genjang"></div>
-                </div>
-                <div className="jajar-wrapper-kiri-atas jajar-genjang-menu">
-                  <div className="jajar-genjang"></div>
-                </div>
-          </div> */}
-
               {/* play button start*/}
                 <NavLink to={`/loading/${id}/game`} className={`btn-play-game ${styleCharsPacks[char || 'ratu'].btnPlay}`}>
                   <Icon icon={'chevron-left'} name={''}/>
@@ -217,7 +172,10 @@ function Todo() {
                   credit lists
                 </Icon>
               </NavLink>
-              <NavLink to={''} className={''}>
+              <NavLink to={''} className={''} onClick={(e:React.MouseEvent<HTMLAnchorElement, MouseEvent>)=>{
+                  e.preventDefault()
+                    logout()
+              }}>
                 <Icon icon={'box-arrow-right'} name={''}>
                   logout
                 </Icon>

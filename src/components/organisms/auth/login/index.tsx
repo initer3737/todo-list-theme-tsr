@@ -60,7 +60,7 @@ function Login() {
                         const getResToken=data.token;
                       Cookies.set('token',getResToken)
                       // setTimeout(()=>navigate('/list'),3000)
-                      navigate(`/list/${id}`)
+                      navigate(`/menu/${id}`)
                     }
                 })
                 .catch((er)=>{
@@ -84,7 +84,7 @@ function Login() {
             },3000)
         },[errmsg])
         useEffect(()=>{
-          if(token.trim().length >1)navigate('/list')
+          if(token.trim().length >1)navigate(`/menu/${id}`)
         },[token])
         useEffect(()=>{
             filterDataChar.map(chars=>{

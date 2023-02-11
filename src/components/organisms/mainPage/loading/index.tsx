@@ -30,21 +30,6 @@ function Loading() {
   const {id,url}=useParams()
   const filterDataChar=useMap(chars).filter(char=>char[1].id == id)
   const navigate=useNavigate()
-
-  const logout=()=>{
-       try {
-            Http.get('/logout')
-          .then((res:AxiosResponse)=>{
-              if(res.status === 200){
-                Cookies.remove('token')
-                navigate('/login')
-          }
-       })
-       } catch (err) {
-          console.log(err)
-       }
-  }
-
   useEffect(()=>{
 
     filterDataChar.map(char=>{
