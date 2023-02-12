@@ -16,15 +16,25 @@ import { Icon } from '../../../atoms'
   type TTop3={
     avatar:string,
     name:string,
+    user_conections:string,
   }
  interface ITop3{
    data:[TTop3],
  }
+ type TProfile={
+  avatar:string,
+  score:string,
+  username:string
+}
+ interface IProfile{
+   data:[TProfile],
+ }
 //============
 function Todo() {
-  const token= Cookies.get('token')??''
+  // const token= Cookies.get('token')??null
   const [char,setChar]=useState()
   const [top3,setTop3]=useState<ITop3>()
+  const [profile,setProfile]=useState<IProfile>()
   const [jam,setJam]=useState('')
   const [tokenRefresher,setTokenRefresher]=useState(true)
   const chars=useRecoilValue(CharsSelect)
@@ -48,6 +58,9 @@ function Todo() {
   }
 
   useEffect(()=>{
+    // token===null?navigate(`/loading/${id}/home`):undefined
+    // const logoutBtn=document.getElementById('logout')
+    //     logoutBtn?.onclick
     filterDataChar.map(char=>{
       setChar(char[1].char_id)
       console.log('token is :',Cookies.get('token'))
@@ -59,6 +72,14 @@ function Todo() {
       Http.get('/top3/players/info')
       .then(({data}:AxiosResponse)=>{
           setTop3({...data})
+      }).catch(err=>{
+        // navigate(`/loading/${id}/home`)
+      })
+      Http.get('/session/profile')
+      .then(({data}:AxiosResponse)=>{
+          setProfile({...data})
+      }).catch(err=>{
+        // navigate(`/loading/${id}/home`)
       })
       return ()=>{
           clearInterval(jamInterval)
@@ -74,7 +95,7 @@ function Todo() {
         // return ()=>{
         //   clearTimeout(getTokentRefresh)
         // }
-      },[token])
+      },[Cookies.get('token')])
  //=====================================    
  //============char style
  const styleCharsPacks={
@@ -122,6 +143,7 @@ function Todo() {
                   {top3?.data.map((data)=>(
                     <div className="card">
                       <img src={data.avatar==null?avatar:data.avatar} alt="" className='player-img' />
+                      <Icon icon={`circle-fill ${data.user_conections} status-user`} name={''}/>
                       <h1>
                         {data.name}
                       </h1>
@@ -139,11 +161,11 @@ function Todo() {
               {/* play button end */}
             <div className={`player-container ${styleCharsPacks[char || 'ratu'].playerContainer}`}>
              
-              <NavLink to={`/user/show/name/${id}/`} className={``}>
+              <NavLink to={`/user/show/${profile?.data[0].username}/${id}`} className={``}>
                 <div className="">
-                  <img src={avatar} alt="" className='player-img' />
+                  <img src={profile?.data[0].avatar==null || ''?avatar:profile?.data[0].avatar} alt="" className='player-img' />
                   <Icon icon={'fan'} name={''}>
-                    254
+                    {profile?.data[0].score}
                   </Icon>
                 </div>
               </NavLink>
@@ -172,9 +194,9 @@ function Todo() {
                   credit lists
                 </Icon>
               </NavLink>
-              <NavLink to={''} className={''} onClick={(e:React.MouseEvent<HTMLAnchorElement, MouseEvent>)=>{
+              <NavLink to={''} className={''} id='logout' onClick={(e:React.MouseEvent<HTMLAnchorElement, MouseEvent>)=>{
                   e.preventDefault()
-                    logout()
+                  logout()
               }}>
                 <Icon icon={'box-arrow-right'} name={''}>
                   logout

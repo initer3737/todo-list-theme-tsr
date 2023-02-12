@@ -302,3 +302,7 @@
 .top3-container .card .player-img{
     width: 45px;
 }
+
+.top3-container .status-user{
+    transform: translateX(-25px) translateY(14px);
+}

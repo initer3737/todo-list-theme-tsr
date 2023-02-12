@@ -146,7 +146,11 @@ function Lobby() {
                   {lobbyInformation?.data.map((data=>(
                     <ul className={`lobby-info  border-info`}>
                       <li><Icon icon={'bezier2'} name={''} /> {data.ranking}</li>
-                      <li><img src={data.avatar ===null?avatar:data.avatar} alt="avatar" className='emblem'/> {data.name}</li>
+                      <li>
+                        <NavLink className={'lobby-link'} to={`/user/show/${data.username}/${id}`}>
+                          <img src={data.avatar ===null?avatar:data.avatar} alt="avatar" className='emblem'/> {data.name}
+                        </NavLink>
+                      </li>
                       <li><img src={emblem} alt="emblem" className='emblem'/> {data.emblem}</li>
                       <li><Icon icon={'fan'} name={''}/>{data.score}</li>
                     </ul>

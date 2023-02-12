@@ -288,11 +288,17 @@
     z-index: 99;
     display: flex;
     flex-direction: column;
+    pointer-events: none;
     /* align-items: flex-start; */
 }
 .lobby-container ul li{
    align-items: flex-start;
     /* align-items: flex-start; */
+}
+.lobby-link{
+    color: white;
+    text-decoration: none;
+    pointer-events: stroke;
 }
 .paduka-target{
     color:rgb(88, 201, 226) !important;

@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import React ,{ChangeEvent, FormEvent, useEffect,useState} from 'react'
 import { Http } from '../../../../services/http'
 import Cookies from  'js-cookie'
@@ -14,6 +14,25 @@ import { IChar } from '../../../../Types&Interfaces';
 import { IstyleCharsPacks } from '../../../../Types&Interfaces/stylecharspaks/IstyleChar';
 import { Icon } from '../../../atoms';
 //======================
+type TEror={
+  password:Array<string>,
+  username:Array<string>
+}
+// interface IErrors{
+//     errors:TEror
+// }
+interface IError{
+  errors:TEror,
+  message:string
+}
+//=========credeintial when user send wrong credential and throw 403 
+type Tcredentials={
+  message:string,
+  status:number
+}
+interface Icredentials{
+  data:Tcredentials
+}
 function Login() {
   let formDatas={
     username:'',
@@ -21,7 +40,8 @@ function Login() {
   }
   const [formData,setFormData]=useState(formDatas);
   const {username,password}=formData
-  const [errmsg,setErrmsg]=useState('')
+  let [wrongCredentials,setWrongCredentials]=useState<Icredentials>()
+  const [errmsg,setErrmsg]=useState<IError>()
   const navigate=useNavigate()
   const token=Cookies.get('token')??''
   const chars=useRecoilValue<IChar>(CharsSelect)
@@ -52,19 +72,25 @@ function Login() {
             event.preventDefault()
             try {
               await Http.post('/login',JSON.stringify(formData))
-                .then(res=>{
-                  const {data}=res
-                  console.log(res)
-                    if(data.status == 403)setErrmsg(data.message)
-                    if(data.status == 200){
-                        const getResToken=data.token;
+                .then((data:AxiosResponse)=>{
+                    // console.log(data.data.message)
+                    // console.log('res 403 ',data)
+                    if(data.data.status == 403){
+                                          //satu field saja 
+                      // setWrongCredentials(data.data.message)
+                                    //object data{status,message,...etc}
+                      setWrongCredentials({...data}) //property akan ditimpa jadi harus cocok 
+                    }
+                      const getResToken=data.data.token;
+                    if(getResToken.length > 1){
                       Cookies.set('token',getResToken)
-                      // setTimeout(()=>navigate('/list'),3000)
                       navigate(`/menu/${id}`)
                     }
                 })
                 .catch((er)=>{
-                    console.log(er);
+                      console.log(`data`,er.response.data)
+                          //peoperti yang terdapat di er adalah errors:{username,password},message:string, maka di dalam interface dibuatkan data berupa peoperty errors:Teror[menyimpan 2 field bertype array<string>],dan message:string
+                  if(er.response.status == 422)setErrmsg({...er.response.data})
                 })
             } catch (err) {
                 console.log(err);
@@ -80,11 +106,12 @@ function Login() {
 
         useEffect(()=>{
             setTimeout(()=>{
-              setErrmsg('')
+              setWrongCredentials(undefined)
+              setErrmsg(undefined)
             },3000)
-        },[errmsg])
+        },[wrongCredentials,errmsg])
         useEffect(()=>{
-          if(token.trim().length >1)navigate(`/menu/${id}`)
+          if(token.trim().length >1 && !null)navigate(`/menu/${id}`)
         },[token])
         useEffect(()=>{
             filterDataChar.map(chars=>{
@@ -101,11 +128,14 @@ function Login() {
             </NavLink>
       </div>
     <div className={`login__container ${styleCharsPacks[char || 'ratu'].card}`}>
-        <div className={errmsg.trim().length>1?"err-message":'d-none'}><h3>{errmsg}</h3></div>
+        <div className={`${wrongCredentials?.data.message==undefined?'d-none':"err-message"}`}><h3>{wrongCredentials?.data.message}</h3></div>
+        <div className={errmsg?.message?"err-message":'d-none'}><h3>{errmsg?.message}</h3></div>
         <label htmlFor="username">username</label>
-        <input type="text" id='username' autoComplete='off' required value={username} onChange={onChangeInput}/>
+        <input type="text" id='username' autoComplete='off'  value={username} onChange={onChangeInput}/>
+        <div className={errmsg?.errors.username?"err-message":'d-none'}><h3>{errmsg?.errors.username[0]}</h3></div>
         <label htmlFor="password">password</label>
-        <input type="password" id='password' required value={password} onChange={onChangeInput}/>
+        <input type="password" id='password'  value={password} onChange={onChangeInput}/>
+        <div className={errmsg?.errors.password?"err-message":'d-none'}><h3>{errmsg?.errors.password}</h3></div>
         <button
           className={`${styleCharsPacks[char || 'ratu'].link}`}
         >login</button>
