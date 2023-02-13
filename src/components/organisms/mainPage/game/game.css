@@ -301,3 +301,52 @@
     font-size: 14px !important;
     transform: translateX(5vw) translateY(-4vh);
 }
+.game-point-container{
+    cursor:default;
+}
+.game-icon-effect{
+    position: absolute;
+    opacity: 0;
+    transform: translateY(0px) translateX(0px);
+    transition: all 2s; 
+}
+.game-icon-effect-togled{
+    position: absolute;
+    transform: translateY(20px) translateX(10px);
+    text-shadow: 44px 26px white,
+                 13px 26px white,
+                 -13px 26px white;
+   opacity: 1;
+   transition: all 2s; 
+   animation: game-icon-kelip 3s infinite alternate-reverse;             
+}
+
+@keyframes game-icon-kelip {
+    from{
+    }
+    45%{
+        text-shadow: 44px 26px white,
+                    13px 26px white,
+                    -13px 26px white;
+        color:gold;
+    }
+    60%{
+        text-shadow: 44px 26px white,
+                    13px 26px white,
+                    -13px 26px dodgerblue;
+            color:white;
+    }
+    80%{
+        text-shadow: 44px 26px gold,
+                    13px 26px white,
+                    -13px 26px white;
+            color:white;
+    }
+    to{
+        text-shadow: 44px 26px white,
+                    13px 26px purple,
+                    -13px 26px white;
+            color:white;
+       
+    }
+}

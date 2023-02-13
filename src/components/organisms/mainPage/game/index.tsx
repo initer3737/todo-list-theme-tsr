@@ -1,5 +1,5 @@
 import React, { useEffect,useState } from 'react'
-import { NavLink, useNavigate, useParams } from 'react-router-dom'
+import { json, NavLink, useNavigate, useParams } from 'react-router-dom'
 import Cookies from 'js-cookie'
 import { AxiosResponse } from 'axios'
 import { Http } from '../../../../services'
@@ -27,10 +27,17 @@ import theme5 from '../../../../assets/simple-piano-melody-9834.mp3'
  interface ILists{
    data:Tdata,
  }
+  type TScore={
+    score:number
+  }
+ interface IScore{
+   data:[TScore]
+ }
 //============
 function Game() {
   const [user,setUser]=useState<ILists>() 
   const token= Cookies.get('token')??''
+  const [highScore,setHighScore]=useState<IScore>()
   const [char,setChar]=useState()
   const [pause,setPause]=useState<Boolean>(false)
   const [pop,setPop]=useState<Boolean>(false)
@@ -99,15 +106,31 @@ function Game() {
     filterDataChar.map(char=>{
       setChar(char[1].char_id)
     })
-
       
+          
   },[])
-    // useEffect(()=>{
-    //   ()=>{
-    //     // clearInterval(randPosition)
-    //     audiotheme.pause()
-    //   }
-    // },[])
+    useEffect(()=>{
+      //call api
+      Http.get('/game/score')
+      .then( ({data}:AxiosResponse)=>{
+            console.log(data)
+            setHighScore({...data})
+      })
+      .catch(err=>{
+          console.log(err)
+      }) 
+
+      if(Number(highScore?.data[0].score) < point)
+           {
+              Http.post('game/update',JSON.stringify({score:point}))
+              .then(({data}:AxiosResponse)=>{
+                    console.log('update score will be : ',data)
+              }).catch(err=>{
+                  console.log(err)
+              })
+              
+           }
+    },[point,highScore?.data[0].score])
   useEffect(()=>{
     if(randPoint > 5){
         setStatus('good job!');
@@ -179,8 +202,11 @@ function Game() {
           <div className={`${pause?"filter-pause":'filter-continue'}`}></div>
           {/* point */}
             <div className="game-point-container">
-              <h4 className={`game-point`}>score : {point}</h4>
+              <h4 className={`game-point`}>score : {point}
+                      <Icon icon={`stars  ${Number(highScore?.data[0].score) < point? 'game-icon-effect-togled':'game-icon-effect' }`} name=''/>
+              </h4>
               {/* <h4 className={`point-random ${pop==true?'':'d-none'} ${styleCharsPacks[char || 'ratu'].target}`}>{randPoint} {status}</h4> */}
+              <h4>highscore: {highScore?.data[0].score} </h4>
             </div>
           {/* pause btn */}
           <div className={`link-wrapper pause-btn ${styleCharsPacks[char || 'ratu'].link}`}>

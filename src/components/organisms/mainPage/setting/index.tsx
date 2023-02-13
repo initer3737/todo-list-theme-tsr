@@ -18,17 +18,24 @@ import theme3 from '../../../../assets/password-infinity-123276.mp3'
 import theme4 from '../../../../assets/save-as-115826.mp3'
 import theme5 from '../../../../assets/simple-piano-melody-9834.mp3'
 //=======================
-  type Tdata={
-    id:string,
-    username:string,
+  type TUserInfoSetting={
+    avatar:string,
+    country:string,
     email:string,
+    gender:string,
+    name:string,
+    password:string,
+    score:number,
+    status:string,
+    user_conections:string,
+    username:string
   }
- interface ILists{
-   data:Tdata,
+ interface IUserInfoSetting{
+   data:[TUserInfoSetting]
  }
 //============
 function Setting() {
-  const [user,setUser]=useState<ILists>() 
+  const [userInfoSetting,setUserInfoSetting]=useState<IUserInfoSetting>() 
   const token= Cookies.get('token')??''
   const [char,setChar]=useState()
   const chars=useRecoilValue(CharsSelect)
@@ -62,38 +69,20 @@ function Setting() {
                         audiotheme.pause()
                       }
   },[])
+
   useEffect(()=>{
     filterDataChar.map(char=>{
       setChar(char[1].char_id)
     })
-
-      
+    //===========call api
+      Http.get('/setting/info')
+      .then(({data}:AxiosResponse)=>{
+          console.log('data from api ',data)
+          setUserInfoSetting({...data})
+      }).catch(err=>{
+        console.log('error will be:',err)
+      })
   },[])
-    // useEffect(()=>{
-    //   ()=>{
-    //     // clearInterval(randPosition)
-    //     audiotheme.pause()
-    //   }
-    // },[])
-      // useEffect(()=>{
-      //   try {
-      //     const getDataUser=async()=>{
-      //      await Http.get<ILists>('/lists')
-      //         .then((res: AxiosResponse<ILists>)=>{
-      //             setUser({...res.data}) 
-      //             if(res.status === 401)navigate('/login')
-      //             //memasukkan object dengan property data ke dalam state
-      //         })
-      //     }
-      //     getDataUser()
-          
-      //   } catch (err) {
-      //     console.log('err',err);
-      //   }
-      // },[])
-      // useEffect(()=>{
-      //   if(token.trim().length<1)navigate('/login')
-      // },[token])
  //=====================================    
  //============char style
  const styleCharsPacks={
@@ -156,7 +145,10 @@ function Setting() {
                   document.getElementById('foto')?.click()
               }}/>
               <ul className='user-settings'>
-                <li><span>name : </span> <input type="text" required/></li>
+                <li><span>name : </span> <input type="text" name={'name'} onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{
+                    let {value,name}=e.target
+                      
+                }} value={userInfoSetting?.data[0].name} required/></li>
                 <li><span>username :</span> <input type="text" required/></li>
                 <li><span>password :</span> <input type="text" required/></li>
                 <li><span>status :</span> <input type="text" required /></li>
@@ -172,12 +164,12 @@ function Setting() {
                 <li><button className={`btn-simpan ${styleCharsPacks[char || 'ratu'].pauseTitle}`} >simpan</button></li>
               </ul>
               <ul className='user-info-settings'>
-                <li><span>name :</span> <p>yotsu</p></li>
-                <li><span>username :</span> <p>yotsusan_machi</p></li>
+                <li><span>name :</span> <p>{userInfoSetting?.data[0].name}</p></li>
+                <li><span>username :</span> <p>{userInfoSetting?.data[0].username}</p></li>
                 <li><span>password :</span> <p>its secret</p></li>
-                <li><span>status :</span> <p>LDV tech company</p></li>
-                <li><span>country :</span> <p>indonesia</p></li>
-                <li><span>gender :</span> <p>male</p></li>
+                <li><span>status :</span> <p>{userInfoSetting?.data[0].status}</p></li>
+                <li><span>country :</span> <p>{userInfoSetting?.data[0].country}</p></li>
+                <li><span>gender :</span> <p>{userInfoSetting?.data[0].gender}</p></li>
               </ul>
 
                 <div className="jajar-wrapper-kiri-atas">
