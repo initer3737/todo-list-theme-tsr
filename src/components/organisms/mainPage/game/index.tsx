@@ -11,6 +11,7 @@ import'./game.css'
 import { CharsSelect } from '../../../../globalState'
 import { useMap } from '../../../../utils'
 import { Icon } from '../../../atoms'
+import picu from '../../../../assets/picu-woice.mp3'
 import splash from '../../../../assets/water-splash.mp3'
 import electric from '../../../../assets/electric-splash.mp3'
 import theme1 from '../../../../assets/electronic-future-beats-117997.mp3'
@@ -51,7 +52,7 @@ function Game() {
   const navigate=useNavigate()
     ///audio
           const themes=[theme1,theme2,theme3,theme4,theme5]
-          let index=Math.floor(Math.random()*themes.length -1);
+          let index=Math.floor(Math.random()*themes.length);
           const audiotheme=new Audio(themes[index])
 
   const logout=()=>{
@@ -106,7 +107,6 @@ function Game() {
     filterDataChar.map(char=>{
       setChar(char[1].char_id)
     })
-      
           
   },[])
     useEffect(()=>{
@@ -130,6 +130,7 @@ function Game() {
               })
               
            }
+           point>Number(highScore?.data[0].score)?new Audio(picu).play():undefined
     },[point,highScore?.data[0].score])
   useEffect(()=>{
     if(randPoint > 5){
@@ -273,6 +274,19 @@ function Game() {
                 }}/>
                   <h4 className={`point-random ${pop==true?'':'d-none'} ${styleCharsPacks[char || 'ratu'].target}`} id='blastingEvent'>{randPoint} {status}</h4>
                   {/* <h3 id='blastingEvent'>hello</h3> */}
+                  {/* hiasan */}
+                  <div className="game-hiasan-wrapper-atas">
+                    <Icon icon='suit-diamond-fill game-hiasan-kelip' name=''/>
+                  </div>
+                  <div className="game-hiasan-wrapper-bawah">
+                    <Icon icon='suit-diamond-fill game-hiasan-kelip' name=''/>
+                  </div>
+                  <div className="game-hiasan-wrapper-kiri">
+                    <Icon icon='suit-diamond-fill game-hiasan-kelip-kiri' name=''/>
+                  </div>
+                  <div className="game-hiasan-wrapper-kanan">
+                    <Icon icon='suit-diamond-fill game-hiasan-kelip-kanan' name=''/>
+                  </div>
            </div>
         </div>
   )

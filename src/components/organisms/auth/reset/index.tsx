@@ -17,11 +17,30 @@ import { Icon } from '../../../atoms';
 function Reset() {
   let formDatas={
     username:'',
-    password:''
+    password:'',
+    password_confirm:''
+  }
+
+    type TErrorResponse={
+        errors:{
+            username:string,
+            password:string,
+            password_confirm:string
+        },
+        message:string 
+    } 
+  interface IErrorResponse{
+    data:TErrorResponse
+  }
+  interface ISuccesResponse{
+    data:{
+      message:string
+    }
   }
   const [formData,setFormData]=useState(formDatas);
-  const {username,password}=formData
-  const [errmsg,setErrmsg]=useState('')
+  const {username,password,password_confirm}=formData
+  const [errmsg,setErrmsg]=useState<IErrorResponse>()
+  const [succmsg,setSuccmsg]=useState<ISuccesResponse>()
   const navigate=useNavigate()
   const token=Cookies.get('token')??''
   const chars=useRecoilValue<IChar>(CharsSelect)
@@ -51,26 +70,19 @@ function Reset() {
     const submit=async(event:React.FormEvent<HTMLFormElement>)=>{
             event.preventDefault()
             try {
-              await Http.post('/login',JSON.stringify(formData))
+              await Http.post('/reset',JSON.stringify(formData))
                 .then(res=>{
-                  const {data}=res
-                  console.log(res)
-                    if(data.status == 403)setErrmsg(data.message)
-                    if(data.status == 200){
-                        const getResToken=data.token;
-                      Cookies.set('token',getResToken)
-                      // setTimeout(()=>navigate('/list'),3000)
-                      navigate(`/list/${id}`)
-                    }
+                  setSuccmsg({...res})
                 })
-                .catch((er)=>{
-                    console.log(er);
+                .catch(({response})=>{
+                    console.log(response);
+                    setErrmsg({...response})
                 })
             } catch (err) {
                 console.log(err);
             }
             
-            setFormData(formDatas)
+            // setFormData(formDatas)
     }
     const onChangeInput=(e:ChangeEvent<HTMLInputElement>)=>{
         setFormData((prevstate)=>(
@@ -80,9 +92,14 @@ function Reset() {
 
         useEffect(()=>{
             setTimeout(()=>{
-              setErrmsg('')
+              setErrmsg(undefined)
+              setSuccmsg(undefined)
+              setFormData(formDatas)
+              let timeoutNavigate=setTimeout(()=>{
+                  navigate(`loading/${id}/login`)
+                },3000)
             },3000)
-        },[errmsg])
+        },[errmsg,succmsg])
         useEffect(()=>{
           if(token.trim().length >1)navigate('/list')
         },[token])
@@ -101,20 +118,24 @@ function Reset() {
             </NavLink>
       </div>
     <div className={`login__container ${styleCharsPacks[char || 'ratu'].card}`}>
-        <div className={errmsg.trim().length>1?"err-message":'d-none'}><h3>{errmsg}</h3></div>
+        <div className={succmsg?.data.message != undefined?"succ-message":'d-none'}><h3>{succmsg?.data.message}</h3></div>
+        <div className={errmsg?.data.message != undefined?"err-message":'d-none'}><h3>{errmsg?.data.message}</h3></div>
         <label htmlFor="username">username</label>
-        <input type="text" id='username' autoComplete='off' required value={username} onChange={onChangeInput}/>
+        <input type="text" id='username' autoComplete='off'  value={username} onChange={onChangeInput}/>
+        <div className={errmsg?.data.errors.username != undefined?"err-message":'d-none'}><h3>{errmsg?.data.errors.username}</h3></div>
         <label htmlFor="password">new password</label>
-        <input type="password" id='password' required value={password} onChange={onChangeInput}/>
+        <input type="password" id='password'  value={password} onChange={onChangeInput}/>
+        <div className={errmsg?.data.errors.password != undefined?"err-message":'d-none'}><h3>{errmsg?.data.errors.password}</h3></div>
         <label htmlFor="password_confirm">confirm password</label>
-        <input type="password" id='password_confirm' required value={password} onChange={onChangeInput}/>
+        <input type="password" id='password_confirm'  value={password_confirm} onChange={onChangeInput}/>
+        <div className={errmsg?.data.errors.password_confirm != undefined?"err-message":'d-none'}><h3>{errmsg?.data.errors.password_confirm}</h3></div>
         <button
           className={`${styleCharsPacks[char || 'ratu'].link}`}
         >reset</button>
     </div>
-    <NavLink to={`/menu/${id}`} className='menujumenugame'>
+    {/* <NavLink to={`/menu/${id}`} className='menujumenugame'>
        menuju menu game!!!!
-    </NavLink>
+    </NavLink> */}
     </form>
   )
 }

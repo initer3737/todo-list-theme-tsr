@@ -5,7 +5,7 @@ import { Todo as TodoOrganism } from '../../../organisms'
 //=======================
 function Todo() {
   return (
-    <Title title='todo'>
+    <Title title='menu'>
         <RouterSmooth>
           <TodoOrganism/>
         </RouterSmooth>

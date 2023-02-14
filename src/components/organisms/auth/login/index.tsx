@@ -148,9 +148,9 @@ function Login() {
           </NavLink>
         </div>
     </div>
-    <NavLink to={`/menu/${id}`} className='menujumenugame'>
+    {/* <NavLink to={`/menu/${id}`} className='menujumenugame'>
        menuju menu game!!!!
-    </NavLink>
+    </NavLink> */}
     </form>
   )
 }

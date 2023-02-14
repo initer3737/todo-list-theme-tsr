@@ -28,6 +28,7 @@
     border: 1px solid white;
     border-radius: 6px;
     cursor: pointer;
+    z-index: 90;
 }
 .title-game-pause{
     color: whitesmoke;
@@ -348,5 +349,74 @@
                     -13px 26px white;
             color:white;
        
+    }
+}
+
+.game-hiasan-wrapper-atas{
+    transform: translateX(90vw) translateY(-9vh) scaleY(2) scaleX(2);
+}
+.game-hiasan-wrapper-bawah{
+    transform:rotate(180deg) translateX(96vw) translateY(-73vh) scaleY(2) scaleX(2);
+}
+.game-hiasan-wrapper-kiri{
+    transform: translateX(-0.7vw) translateY(10vh);
+}
+.game-hiasan-wrapper-kanan{
+    transform: translateX(93.7vw) translateY(10vh);
+}
+.game-hiasan-kelip{
+   color: gold;
+   text-shadow: 12px 12px 12px dodgerblue,
+                -12px 12px 12px purple;
+    animation:animeshon-pauseTitle-rajagame-hiasan-kelip infinite alternate 4s;             
+}
+.game-hiasan-kelip-kiri{
+   color: gold;
+   text-shadow: 0px 20px 1px dodgerblue,
+                0px 40px 1px purple;
+    animation:animeshon-pauseTitle-rajagame-hiasan-kelip-spesial infinite alternate-reverse 4s;             
+}
+.game-hiasan-kelip-kanan{
+   color: gold;
+   text-shadow: 0px 20px 1px dodgerblue,
+                0px 40px 1px purple;
+    animation:animeshon-pauseTitle-rajagame-hiasan-kelip-spesial infinite alternate-reverse 4s;             
+}
+
+@keyframes animeshon-pauseTitle-rajagame-hiasan-kelip-spesial{
+    from{}
+    40%{
+        color: gold;
+        text-shadow: 0px 20px 12px dodgerblue,
+                     0px 40px 1px purple;
+    }
+    70%{
+        color: gold;
+        text-shadow: 0px 20px 1px dodgerblue,
+                     0px 40px 12px purple;
+    }
+    to{
+        color: goldenrod;
+        text-shadow: 0px 20px 1px dodgerblue,
+                     0px 40px 1px purple;
+    }
+}
+
+@keyframes animeshon-pauseTitle-rajagame-hiasan-kelip{
+    from{}
+    40%{
+        color: gold;
+        text-shadow: 12px 12px 1px dodgerblue,
+                    -12px 12px 12px purple;
+    }
+    70%{
+        color: gold;
+        text-shadow: 12px 12px 12px dodgerblue,
+                    -12px 12px 1px purple;
+    }
+    to{
+        color: goldenrod;
+        text-shadow: 12px 12px 12px dodgerblue,
+                    -12px 12px 12px purple;
     }
 }

@@ -38,9 +38,16 @@ import theme5 from '../../../../assets/simple-piano-melody-9834.mp3'
  interface ILobbyInformation{
    data:[TLobbyInformation],
  }
+ type TProfile={
+  username:string
+}
+ interface IProfile{
+   data:[TProfile],
+ }
 //============
 function Lobby() {
   const [char,setChar]=useState()
+  const [profile,setProfile]=useState<IProfile>()
   const [userStatusCount,setUserStatusCount]=useState<IuserStatusCount>()
   const [lobbyInformation,setUserLobbyInformation]=useState<ILobbyInformation>()
   const chars=useRecoilValue(CharsSelect)
@@ -72,6 +79,12 @@ function Lobby() {
     Http.get('/lobby')
     .then(({data}:AxiosResponse)=>{
         setUserLobbyInformation({...data})
+    }).catch(err=>console.log(err))
+    // setUserStatusCount
+    
+    Http.get('/session/profile')
+    .then(({data}:AxiosResponse)=>{
+        setProfile({...data})
     }).catch(err=>console.log(err))
     // setUserStatusCount
     
@@ -144,7 +157,7 @@ function Lobby() {
                 </ul>
               <hr />
                   {lobbyInformation?.data.map((data=>(
-                    <ul className={`lobby-info  border-info`}>
+                    <ul className={`lobby-info ${data.username !== profile?.data[0].username ?styleCharsPacks[char || 'ratu'].filter:undefined}  border-info`}>
                       <li><Icon icon={'bezier2'} name={''} /> {data.ranking}</li>
                       <li>
                         <NavLink className={'lobby-link'} to={`/user/show/${data.username}/${id}`}>

@@ -21,7 +21,6 @@ import theme5 from '../../../../assets/simple-piano-melody-9834.mp3'
   type TUserInfoSetting={
     avatar:string,
     country:string,
-    email:string,
     gender:string,
     name:string,
     password:string,
