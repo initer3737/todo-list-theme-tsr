@@ -135,7 +135,7 @@ function Todo() {
               <div className="wall-of-fame">
                <div className="wall-of-fame-wrapper">
                   <Icon icon='suit-diamond-fill kelip' name={''}/>
-                 <h1>{top3 == undefined?'reload browsernya!!, data dari api macet,harus kamu reload browsernya!':'wall of fame'}</h1>
+                 <h1>{top3 == undefined?'reload browsernya!!, data dari api / sever macet,harus kamu reload browsernya!':'wall of fame'}</h1>
                </div>
               </div>
 

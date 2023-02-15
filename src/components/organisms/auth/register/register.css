@@ -14,10 +14,10 @@
     border-radius: 23px;
     transform: translate(-90px);
 }
-.login__container input{
+.register__container input{
     padding: 3px 1px;
 }
-.login__container{
+.register__container{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -35,8 +35,12 @@
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
 }
-
-.login__container button{
+.register__container select {
+    width: 100%;
+    padding: 6px;
+    text-align: center;
+}
+.register__container button{
     margin: 5px 5px;
     padding: 4px 24px;
     border-radius: 17px;
@@ -45,7 +49,7 @@
     background-color: inherit;
     color: inherit;
 }
-.login__container button:hover{
+.register__container button:hover{
     cursor: pointer;
     color: white !important;
 }
