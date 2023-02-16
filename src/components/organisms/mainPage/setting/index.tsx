@@ -63,7 +63,7 @@ function Setting() {
 
                 audiotheme.volume=0.8
                 audiotheme.loop=true
-                  audiotheme.play();
+                  // audiotheme.play();
                 return ()=>{
                         audiotheme.pause()
                       }
@@ -144,19 +144,18 @@ function Setting() {
                   document.getElementById('foto')?.click()
               }}/>
               <ul className='user-settings'>
-                <li><span>name : </span> <input type="text" name={'name'} onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{
-                    let {value,name}=e.target
-                      
-                }} value={userInfoSetting?.data[0].name} required/></li>
-                <li><span>username :</span> <input type="text" required/></li>
-                <li><span>password :</span> <input type="text" required/></li>
-                <li><span>status :</span> <input type="text" required /></li>
-                <li><span>country :</span> <input type="text" required /></li>
+                <li><span>name : </span> <input type="text" id={'name'} placeholder={'name'} required/></li>
+                <li><span>username :</span> <input type="text" id={'username'} placeholder={'username'} required/></li>
+                <li><span>password :</span> <input type="text" id={'password'} placeholder={'password'} required/></li>
+                <li><span>confirm password :</span> <input type="text" id={'password_confirm'} placeholder={'confirm password'} required/></li>
+                <li><span>status :</span> <input type="text" id={'status'} placeholder={'status'} required /></li>
+                <li><span>country :</span> <input type="text" id={'country'} placeholder={'country'} required /></li>
                 <li>
                   <span>gender :</span> 
-                  <select name="" id="">
-                    <option value="" selected>male</option>
-                    <option value="">female</option>
+                  <select id="gender">
+                    <option value="select" selected>select</option>
+                    <option value="male">male</option>
+                    <option value="female">female</option>
                   </select>
                 </li>
                 <li><input type="file" name="foto" id="foto" className='d-none' accept='image/*'/></li>

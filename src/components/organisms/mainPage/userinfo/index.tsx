@@ -184,7 +184,7 @@ function UserInfo() {
                 <li><Icon icon={'bezier2'} name={''} /> {Profile?.status}</li>
                 <li><img src={emblem} alt="emblem" className='emblem'/> {Profile?.emblem}</li>
                 <li><Icon icon={'exclude'} name={''} /> global ranks : {Profile?.ranking}</li>
-                <li><Icon icon={`exclamation ${Profile?.name == ''?'d-none':'offline'}`} name={Profile?.name==undefined?'kamu jangan ngotak atik query parameternya dong jadilah hacker yang bijak!!!!':''} /> </li>
+                <li><Icon icon={`exclamation ${Profile?.name == undefined?'offline':'d-none'}`} name={Profile?.name==undefined?'kamu jangan ngotak atik query parameternya dong jadilah hacker yang bijak!!!!':''} /> </li>
                 <li><Icon icon={'fan'} name={''}/>{Profile?.score}</li>
               </ul>
 
