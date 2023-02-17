@@ -10,7 +10,7 @@ import userImg from '../../../../assets/user.png'
 import emblem from '../../../../assets/emblem.svg'
 import { useRecoilValue } from 'recoil'
 import'./userinfo.css'
-import { CharsSelect } from '../../../../globalState'
+import { AvatarDomainSelectSelect, CharsSelect } from '../../../../globalState'
 import { useMap } from '../../../../utils'
 import { Icon } from '../../../atoms'
 import theme1 from '../../../../assets/electronic-future-beats-117997.mp3'
@@ -42,6 +42,7 @@ import theme5 from '../../../../assets/simple-piano-melody-9834.mp3'
 //============
 function UserInfo() {
   const [user,setUser]=useState<ILists>() 
+  const avatarDomain=useRecoilValue(AvatarDomainSelectSelect)
   const [Profile,setProfile]=useState<IProfile>() 
   const token= Cookies.get('token')??''
   const [char,setChar]=useState()
@@ -171,7 +172,7 @@ function UserInfo() {
 
            {/* user info */}
            <div className={`setting-container ${styleCharsPacks[char || 'ratu'].target}`}>
-              <img src={userImg} alt="image" className={`user-info-img ${styleCharsPacks[char || 'ratu'].profile}`}/>
+              <img src={Profile?.avatar == null?userImg:`${avatarDomain}${Profile.avatar}`} alt="image" className={`user-info-img ${styleCharsPacks[char || 'ratu'].profile}`}/>
                 <ul className='user-info-title'>
                   <li><Icon icon={'person-fill'} name={''} />{Profile?.name}</li>
                   <li><Icon icon={'person-fill-lock'} name={''} />{Profile?.username}</li>
@@ -181,7 +182,7 @@ function UserInfo() {
                 </ul>
               <hr />
               <ul className='user-info'>
-                <li><Icon icon={'bezier2'} name={''} /> {Profile?.status}</li>
+                <li><Icon icon={'bezier2'} name={''} /> {String(Profile?.status).length > 30?`${Profile?.status.slice(0,19)}...`:Profile?.status}</li>
                 <li><img src={emblem} alt="emblem" className='emblem'/> {Profile?.emblem}</li>
                 <li><Icon icon={'exclude'} name={''} /> global ranks : {Profile?.ranking}</li>
                 <li><Icon icon={`exclamation ${Profile?.name == undefined?'offline':'d-none'}`} name={Profile?.name==undefined?'kamu jangan ngotak atik query parameternya dong jadilah hacker yang bijak!!!!':''} /> </li>

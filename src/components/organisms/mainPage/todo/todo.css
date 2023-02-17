@@ -181,6 +181,7 @@
 .player-container .player-img{
     width: 80px;
     cursor: pointer;
+    /* border-radius: 50%; */
 }
 
 .btn-play-game{
@@ -301,6 +302,7 @@
 
 .top3-container .card .player-img{
     width: 45px;
+    border-radius: 1%;
 }
 
 .top3-container .status-user{

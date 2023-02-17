@@ -11,7 +11,7 @@ import emblem from '../../../../assets/emblem.svg'
 import avatar from '../../../../assets/user.png'
 import { useRecoilValue } from 'recoil'
 import'./lobby.css'
-import { CharsSelect } from '../../../../globalState'
+import { AvatarDomainSelectSelect, CharsSelect } from '../../../../globalState'
 import { useMap } from '../../../../utils'
 import { Icon } from '../../../atoms'
 import theme1 from '../../../../assets/electronic-future-beats-117997.mp3'
@@ -47,6 +47,7 @@ import theme5 from '../../../../assets/simple-piano-melody-9834.mp3'
 //============
 function Lobby() {
   const [char,setChar]=useState()
+  const avatarDomain=useRecoilValue(AvatarDomainSelectSelect)
   const [profile,setProfile]=useState<IProfile>()
   const [userStatusCount,setUserStatusCount]=useState<IuserStatusCount>()
   const [lobbyInformation,setUserLobbyInformation]=useState<ILobbyInformation>()
@@ -161,7 +162,7 @@ function Lobby() {
                       <li><Icon icon={'bezier2'} name={''} /> {data.ranking}</li>
                       <li>
                         <NavLink className={'lobby-link'} to={`/user/show/${data.username}/${id}`}>
-                          <img src={data.avatar ===null?avatar:data.avatar} alt="avatar" className='emblem'/> {data.name}
+                          <img src={data.avatar ===null?avatar:`${avatarDomain}${data.avatar}`} alt="avatar" className='emblem'/> {data.name}
                         </NavLink>
                       </li>
                       <li><img src={emblem} alt="emblem" className='emblem'/> {data.emblem}</li>

@@ -61,12 +61,13 @@
     /* transform: translateY(-54px) translateX(290px); */
 }
 .user-info-img{
-    width: 9cqw;
+    width: 10cqw;
+
     /* position: absolute; */
     /* top:0; */
     transform: translateY(25px) translateX(55px);
     border: 3px solid white;
-    border-radius: 150px;
+    border-radius: 50px;
     background-color: blue;
 }
 .filter-setting{

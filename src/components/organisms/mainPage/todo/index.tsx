@@ -9,7 +9,7 @@ import PadukaFullstek from '../../../../assets/padukaFullstek.mp4'
 import avatar from '../../../../assets/user.png'
 import { useRecoilValue } from 'recoil'
 import'./todo.css'
-import { CharsSelect } from '../../../../globalState'
+import { AvatarDomainSelectSelect, CharsSelect } from '../../../../globalState'
 import { useMap } from '../../../../utils'
 import { Icon } from '../../../atoms'
 //=======================
@@ -33,6 +33,7 @@ import { Icon } from '../../../atoms'
 function Todo() {
   // const token= Cookies.get('token')??null
   const [char,setChar]=useState()
+  const avatarDomain=useRecoilValue(AvatarDomainSelectSelect)
   const [top3,setTop3]=useState<ITop3>()
   const [profile,setProfile]=useState<IProfile>()
   const [jam,setJam]=useState('')
@@ -142,7 +143,7 @@ function Todo() {
                 <div className="top3-container">
                   {top3?.data.map((data)=>(
                     <div className="card">
-                      <img src={data.avatar==null?avatar:data.avatar} alt="" className='player-img' />
+                      <img src={data.avatar==null?avatar:`${avatarDomain}${data.avatar}`} alt="" className='player-img' />
                       <Icon icon={`circle-fill ${data.user_conections} status-user`} name={''}/>
                       <h1>
                         {data.name}
@@ -163,7 +164,7 @@ function Todo() {
              
               <NavLink to={`/user/show/${profile?.data[0].username}/${id}`} className={``}>
                 <div className="">
-                  <img src={profile?.data[0].avatar==null || ''?avatar:profile?.data[0].avatar} alt="" className='player-img' />
+                  <img src={profile?.data[0].avatar==null || ''?avatar:`${avatarDomain}${profile?.data[0].avatar}`} alt="" className='player-img' />
                   <Icon icon={'fan'} name={''}>
                     {profile?.data[0].score}
                   </Icon>
