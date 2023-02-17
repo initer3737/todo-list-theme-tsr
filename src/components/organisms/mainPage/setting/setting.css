@@ -268,7 +268,8 @@
     margin: 45px 30px;
     z-index: 99;
 }
-.setting-container .err-message{
+.setting-container .err-message,
+.setting-container .succ-message{
     font-size: 12px !important;
 }
 .paduka-target{

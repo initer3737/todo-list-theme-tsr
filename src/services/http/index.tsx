@@ -9,7 +9,8 @@ const Http=axios.create({
     headers:{
         'Content-type': 'application/json',
         Accept: 'application/json',
-        'Authorization':`Bearer ${ token }`        
+        'Authorization':`Bearer ${ token }` ,
+        // "Content-Type": "multipart/form-data"        
     }
 })
 export {

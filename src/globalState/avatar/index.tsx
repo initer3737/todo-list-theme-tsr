@@ -11,7 +11,7 @@ const AvatarDomainAtom=atom({
 })
 
 const AvatarDomainSelectSelect=selector({
-    key:'selectDataChars',
+    key:'selectAvatarDomain',
     get:(({get})=>{
         return get(AvatarDomainAtom);
     })

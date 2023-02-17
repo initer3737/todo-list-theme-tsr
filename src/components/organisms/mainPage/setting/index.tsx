@@ -19,7 +19,7 @@ import theme4 from '../../../../assets/save-as-115826.mp3'
 import theme5 from '../../../../assets/simple-piano-melody-9834.mp3'
 //=======================
   type TUserInfoSetting={
-    avatar:FileList,
+    avatar:string,
     country:string,
     gender:string,
     name:string,
@@ -47,9 +47,12 @@ interface IError{
   errors:TEror,
   message:string
 }
+interface ISucc{
+  message:string
+}
 
  let formDatas ={
-   avatar:"",
+   avatar:'',
    country:'',
    gender:'',
    name:'',
@@ -61,8 +64,10 @@ interface IError{
 //============
 function Setting() {
   const [userInfoSetting,setUserInfoSetting]=useState<IUserInfoSetting>() 
+  
   const [formData,setFormData]=useState(formDatas) 
   const [errmsg,setErrmsg]=useState<IError>()
+  const [succmsg,setSuccmsg]=useState<ISucc>()
   const token= Cookies.get('token')??''
   const [char,setChar]=useState()
   const chars=useRecoilValue(CharsSelect)
@@ -91,9 +96,10 @@ function Setting() {
   const submit=async(e:React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault()  
         // Http
-    await Http.post('/setting',JSON.stringify(formData))
-        .then((res:AxiosResponse)=>{
-          console.log('response setting :',res)
+    await Http.post('/setting',JSON.stringify(formData) )
+        .then(({data}:AxiosResponse)=>{
+          console.log('response setting :',data)
+          setSuccmsg({...data})
         }).catch(({response})=>{
           console.log('error setting will be',response)
           setErrmsg({...response.data})
@@ -107,9 +113,10 @@ function Setting() {
     ))
 }
   const onChangeInputFile=(e:ChangeEvent<HTMLInputElement>)=>{
-    setFormData((prevstate)=>(
-        {...prevstate,[e.target.id]:e.target!.files![0]}
-    ))
+      console.log('foto =',e.target!.files![0])
+      setFormData((prevState)=>(
+        {...prevState,[e.target.id]:e.target!.files![0]}
+      ))
 }
 const onChangeSelect=(e:ChangeEvent<HTMLSelectElement>)=>{
   console.log('select will be ',e.target.selectedOptions[0].value)
@@ -143,11 +150,12 @@ const onChangeSelect=(e:ChangeEvent<HTMLSelectElement>)=>{
   useEffect(()=>{
       const errDisapear=setTimeout(() => {
             setErrmsg(undefined)
+            setSuccmsg(undefined)
       }, 3000);
       return()=>{
         clearTimeout(errDisapear)
       }
-  },[errmsg])
+  },[errmsg,succmsg])
  //=====================================    
  //============char style
  const styleCharsPacks={
@@ -209,8 +217,9 @@ const onChangeSelect=(e:ChangeEvent<HTMLSelectElement>)=>{
               }}/>
               <ul className='user-settings'>
               <div className={errmsg?.message?"err-message":'d-none'}><h3>{errmsg?.message}</h3></div>
+              <div className={succmsg?.message != undefined?"succ-message":'d-none'}><h3>{succmsg?.message}</h3></div>
                 <li><span>name : </span> <input type="text" id={'name'} onChange={onChangeInput}  placeholder={'name'} value={formData.name} /></li>
-                <div className={errmsg?.errors.name?"err-message":'d-none'}><h3>{errmsg?.errors.name}</h3></div>
+                <div className={errmsg?.errors.name != undefined?"err-message":'d-none'}><h3>{errmsg?.errors.name ?? ''}</h3></div>
                 <li><span>username :</span> <input type="text" id={'username'} onChange={onChangeInput}  placeholder={'username'} value={formData.username} /></li>
                 <div className={errmsg?.errors.username?"err-message":'d-none'}><h3>{errmsg?.errors.username}</h3></div>
                 <li><span>password :</span> <input type="text" id={'password'} onChange={onChangeInput}  placeholder={'password'} /></li>
