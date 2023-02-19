@@ -95,13 +95,13 @@ function Reset() {
               setErrmsg(undefined)
               setSuccmsg(undefined)
               setFormData(formDatas)
-              let timeoutNavigate=setTimeout(()=>{
-                  navigate(`loading/${id}/login`)
-                },3000)
+              // let timeoutNavigate=setTimeout(()=>{
+                  // navigate(`loading/${id}/login`)
+                // },3000)
             },3000)
         },[errmsg,succmsg])
         useEffect(()=>{
-          if(token.trim().length >1)navigate('/list')
+          // if(token.trim().length >1)navigate('/list')
         },[token])
         useEffect(()=>{
             filterDataChar.map(chars=>{
