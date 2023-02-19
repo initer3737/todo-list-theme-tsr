@@ -7,10 +7,9 @@ const Http=axios.create({
     baseURL:'http://127.0.0.1:8000/api/v1/',
     // withCredentials: true,
     headers:{
-        'Content-type': 'application/json',
+        'Content-type': 'application/json;multipart/form-data; boundary=<calculated when request is sent>',
         Accept: 'application/json',
-        'Authorization':`Bearer ${ token }` ,
-        // "Content-Type": "multipart/form-data"        
+        'Authorization':`Bearer ${ token }`        
     }
 })
 export {

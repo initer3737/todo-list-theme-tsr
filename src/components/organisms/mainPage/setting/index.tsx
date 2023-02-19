@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useEffect,useState } from 'react'
 import { NavLink, useNavigate, useParams } from 'react-router-dom'
 import Cookies from 'js-cookie'
-import { AxiosResponse } from 'axios'
+import axios, { AxiosResponse } from 'axios'
 import { Http } from '../../../../services'
 import RatuBackend from '../../../../assets/ratuBackend.mp4'
 import RajaFrontend from '../../../../assets/rajaFrontend.mp4'
@@ -64,7 +64,6 @@ interface ISucc{
 //============
 function Setting() {
   const [userInfoSetting,setUserInfoSetting]=useState<IUserInfoSetting>() 
-  
   const [formData,setFormData]=useState(formDatas) 
   const [errmsg,setErrmsg]=useState<IError>()
   const [succmsg,setSuccmsg]=useState<ISucc>()
@@ -96,15 +95,19 @@ function Setting() {
   const submit=async(e:React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault()  
         // Http
-    await Http.post('/setting',JSON.stringify(formData) )
+    await Http.post('/setting',formData)
         .then(({data}:AxiosResponse)=>{
           console.log('response setting :',data)
           setSuccmsg({...data})
+          setTimeout(()=>{
+              // document.location.reload()
+              navigate(`/loading/${id}/user&setting`)
+          },2000)
         }).catch(({response})=>{
           console.log('error setting will be',response)
           setErrmsg({...response.data})
         })
-        console.log('submit event ',e)
+        
   } 
   //onchange event
   const onChangeInput=(e:ChangeEvent<HTMLInputElement>)=>{
@@ -113,11 +116,12 @@ function Setting() {
     ))
 }
   const onChangeInputFile=(e:ChangeEvent<HTMLInputElement>)=>{
-      console.log('foto =',e.target!.files![0])
-      setFormData((prevState)=>(
-        {...prevState,[e.target.id]:e.target!.files![0]}
-      ))
+    //   console.log('foto =',e.target.files![0])
+     setFormData(prevstate=>(
+        {...prevstate,[e.target.id]:e.currentTarget.files![0]}
+     ))
 }
+
 const onChangeSelect=(e:ChangeEvent<HTMLSelectElement>)=>{
   console.log('select will be ',e.target.selectedOptions[0].value)
   setFormData((prevstate)=>(
@@ -147,6 +151,7 @@ const onChangeSelect=(e:ChangeEvent<HTMLSelectElement>)=>{
         console.log('error will be:',err)
       })
   },[])
+ 
   useEffect(()=>{
       const errDisapear=setTimeout(() => {
             setErrmsg(undefined)
@@ -208,7 +213,6 @@ const onChangeSelect=(e:ChangeEvent<HTMLSelectElement>)=>{
               </h2>
             </div>
             {/* pause menu */}
-
            {/* settings */}
            <form action="" onSubmit={submit} encType='multipart/form-data'>
            <div className={`setting-container ${styleCharsPacks[char || 'ratu'].target}`}>
@@ -239,7 +243,10 @@ const onChangeSelect=(e:ChangeEvent<HTMLSelectElement>)=>{
                   </select>
                 </li>
                 <div className={errmsg?.errors.gender?"err-message":'d-none'}><h3>{errmsg?.errors.gender}</h3></div>
-                <li><input type="file" name="foto" id="avatar" onChange={onChangeInputFile} className='d-none' accept='image/*'/></li>
+                <li><input type="file" id="avatar" onChange={onChangeInputFile} className='d-none' accept='image/*'/></li>
+                {/* <li><input type="file" id="avatar" onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{
+                  onChangeInputFile2(e.target.files!)
+                }} className='d-none' accept='image/*'/></li> */}
                 <div className={errmsg?.errors.avatar?"err-message":'d-none'}><h3>{errmsg?.errors.avatar}</h3></div>
                 <li><button className={`btn-simpan ${styleCharsPacks[char || 'ratu'].pauseTitle}`} >simpan</button></li>
               </ul>
