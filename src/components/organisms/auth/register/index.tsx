@@ -113,7 +113,7 @@ function Register() {
         },[])
   return (
     <form onSubmit={submit}>
-      <video src={datachars[char|| 'ratu']} className="login_video" autoPlay loop></video>
+      <video src={datachars[char|| 'ratu']} className="login_video" muted autoPlay loop></video>
       <div className={`backLink-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
             <NavLink to={`/loading/${id}/login`} className={`backLink`}>
               back

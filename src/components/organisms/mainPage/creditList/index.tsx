@@ -92,7 +92,7 @@ function CreditList() {
  //===========video chars
   return (
         <div>
-          <video src={datachars[char || 'ratu']} autoPlay loop className='kredit-video'></video>
+          <video src={datachars[char || 'ratu']} muted autoPlay loop className='kredit-video'></video>
           <div className={`menu-container ${styleCharsPacks[char || 'ratu'].card}`}>
             <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>
               <p  className={`credit-text`}>

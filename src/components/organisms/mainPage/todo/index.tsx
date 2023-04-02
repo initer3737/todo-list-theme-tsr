@@ -129,7 +129,7 @@ function Todo() {
  //===========video chars
   return (
         <div>
-          <video src={datachars[char || 'ratu']} autoPlay loop className='menu-video'></video>
+          <video src={datachars[char || 'ratu']} muted autoPlay loop className='menu-video'></video>
           <div className="jam-container">
              <h3>{jam}</h3>
           </div>

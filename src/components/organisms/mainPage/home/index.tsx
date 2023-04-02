@@ -113,7 +113,7 @@ const styleCharsPacks={
             <NavLink to={`/loading/${recoilCharSelect.RatuBackEnd.id}/login`}>
             Login</NavLink>
           </div>
-          <video src={RatuBackend} autoPlay loop ></video>
+          <video src={RatuBackend} autoPlay loop muted ></video>
         </SwiperSlide>
         <SwiperSlide className='slider-swiper'>
           <div className={`swiper-text-container LoginLink ${styleCharsPacks.raja.link}`}>

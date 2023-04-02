@@ -9,7 +9,7 @@ export default function NotFound() {
     const navigate=useNavigate()
   return (
     <RouterSmooth>
-      <video src={RajaFrontend} loop autoPlay className='notFoundvideo'></video>
+      <video src={RajaFrontend} muted loop autoPlay className='notFoundvideo'></video>
       <div className="not-found-message">
         <p>
           404 page not found

@@ -88,7 +88,7 @@ const styleCharsPacks={
           <p className="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, quas laboriosam ducimus excepturi tempore reprehenderit. Vitae quia accusantium, nam officiis rem animi beatae amet temporibus blanditiis perspiciatis impedit cum necessitatibus.</p>
         </div>
       </div> */}
-        <video src={datachars[char || 'ratu']} className='video-container-change-char' autoPlay loop ></video>
+        <video src={datachars[char || 'ratu']} className='video-container-change-char' muted autoPlay loop ></video>
        {/* <Swiper
         className='swipper-container-change-char'
         modules={[Navigation, EffectFade]}

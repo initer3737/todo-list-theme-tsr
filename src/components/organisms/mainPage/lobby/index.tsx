@@ -14,11 +14,11 @@ import'./lobby.css'
 import { AvatarDomainSelectSelect, CharsSelect } from '../../../../globalState'
 import { useMap } from '../../../../utils'
 import { Icon } from '../../../atoms'
-import theme1 from '../../../../assets/electronic-future-beats-117997.mp3'
-import theme2 from '../../../../assets/leonell-cassio-the-blackest-bouquet-118766.mp3'
-import theme3 from '../../../../assets/password-infinity-123276.mp3'
-import theme4 from '../../../../assets/save-as-115826.mp3'
-import theme5 from '../../../../assets/simple-piano-melody-9834.mp3'
+// import theme1 from '../../../../assets/electronic-future-beats-117997.mp3'
+// import theme2 from '../../../../assets/leonell-cassio-the-blackest-bouquet-118766.mp3'
+// import theme3 from '../../../../assets/password-infinity-123276.mp3'
+// import theme4 from '../../../../assets/save-as-115826.mp3'
+// import theme5 from '../../../../assets/simple-piano-melody-9834.mp3'
 //=======================
   type TuserStatusCount={
     online:string,
@@ -56,18 +56,18 @@ function Lobby() {
   const filterDataChar=useMap(chars).filter(char=>char[1].id == id)
   const navigate=useNavigate()
     ///audio
-          const themes=[theme1,theme2,theme3,theme4,theme5]
-          let index=Math.floor(Math.random()*themes.length);
-          const audiotheme=new Audio(themes[index])
+          // const themes=[theme1,theme2,theme3,theme4,theme5]
+          // let index=Math.floor(Math.random()*themes.length);
+          // const audiotheme=new Audio(themes[index])
 
   useEffect(()=>{
 
-                audiotheme.volume=0.8
-                audiotheme.loop=true
-                  audiotheme.play();
-                return ()=>{
-                        audiotheme.pause()
-                      }
+                // audiotheme.volume=0.8
+                // audiotheme.loop=true
+                //   audiotheme.play();
+                // return ()=>{
+                //         audiotheme.pause()
+                //       }
   },[])
   useEffect(()=>{
     filterDataChar.map(char=>{

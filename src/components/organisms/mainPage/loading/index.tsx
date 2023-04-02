@@ -105,7 +105,7 @@ function Loading() {
   
   return (
         <div>
-          <video src={datachars[char || 'ratu']} autoPlay loop className='menu-video'></video>
+          <video src={datachars[char || 'ratu']} muted autoPlay loop className='menu-video'></video>
           <div className={`menu-container-loading ${styleCharsPacks[char || 'ratu'].card}`}>
             <div className={`link-wrapper ${styleCharsPacks[char || 'ratu'].link}`}>
               <NavLink to={''} className={''}>

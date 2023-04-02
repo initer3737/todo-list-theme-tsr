@@ -53,6 +53,7 @@ function ShowChar() {
           src={datachars[char ?? "ratu"]}
           autoPlay
           loop
+          muted
           className="showCharVideo"
         ></video>
         {filteredDataChar.map((data) => (
