@@ -110,6 +110,11 @@ function CreditList() {
               </a>
             </div>
             <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>
+              <a href={'https://pixabay.com/id/videos/jendela-salju-kepingan-salju-hutan-150154/'} target='_blank' className={''}>
+                paduka fullstek background
+              </a>
+            </div>
+            <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>
                 <a href={'Sound Effect from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=music&amp;utm_content=81267">Pixabay</a>tes-with-the-red-wedge'} target='_blank' className={''}>
                   picu woice 
                 </a>

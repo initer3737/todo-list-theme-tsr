@@ -19,7 +19,7 @@ import { IstyleCharsPacks } from '../../../../Types&Interfaces/stylecharspaks/Is
 import RatuBackend from '../../../../assets/ratuBackend.mp4'
 import RajaFrontend from '../../../../assets/rajaFrontend.mp4'
 import PadukaFullstek from '../../../../assets/padukaFullstek.mp4'
-
+import { IChar } from '../../../../Types&Interfaces'
 // import Swiper core and required modules
 import { Navigation, Pagination, Scrollbar, A11y,EffectFade,Parallax } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
