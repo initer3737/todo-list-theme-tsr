@@ -100,18 +100,13 @@ function CreditList() {
               </p>
             </div>
             <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>
-              <a href={'https://www.instagram.com/mr.vaank/'} target='_blank' className={''}>
-                animations by mr_vaank
+              <a href={'https://pixabay.com/id/videos/bulan-purnama-bunga-sakura-kabin-158074/'} target='_blank' className={''}>
+                ratu back end background
               </a>
             </div>
             <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>
-              <a href={'https://steamcommunity.com/id/vaank/myworkshopfiles/'} target='_blank' className={''}>
-                wallpaper engine by mr_vaank
-              </a>
-            </div>
-            <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>
-              <a href={'https://www.riotgames.com/en'} target='_blank' className={''}>
-                ilustrations by riot
+              <a href={'https://pixabay.com/id/videos/bunga-krisan-daun-bunga-geumgye-guk-148121/'} target='_blank' className={''}>
+                raja front end background
               </a>
             </div>
             <div className={`link-wrapper-credit ${styleCharsPacks[char || 'ratu'].link}`}>
